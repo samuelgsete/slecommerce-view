@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="card card-sm" *ngFor="let produto of produtos">
+        <div class="card-body">
+            <!--<img class="card-img" src="./img/produtos/iphone-6-plus.png" alt="Bolsa Feminina">-->
+            <h3 class="card-title">{{ produto.nome }}</h3>
+            <p *ngIf="produto.unidadesVendidas > 10" class="badge" color="amber">MAIS VENDIDO</p>
+            <p class="card-text">{{ produto.unidadesVendidas }} unidades vendidas</p>
+            <div class="stars">
+                <span 
+                    *ngFor="let aprovacao of [1, 2, 3, 4, 5]" 
+                    class="material-icons checked"
+                    [ngClass]="{'checked': produto.aprovacaoMedia > aprovacao, 'unchecked' : produto.aprovacaoMedia <= aprovacao }"
+                >star</span>
+            </div>
+            <p *ngIf="produto.freteGratis" class="card-shipping">
+                <span class="icon-ship material-symbols-outlined">
+                    local_shipping
+                </span>
+                &nbsp;
+                FRETE GRATUÍTO
+            </p>
+            <p class="card-promo">                 
+                <span class="promo-off">
+                    {{ (produto.preco + (produto.preco * produto.taxaDesconto)) | currency:'BRL'}}
+                </span> 
+                &nbsp;{{ produto.taxaDesconto | percent }}
+            </p>
+            <h2 class="card-price">{{ produto.preco | currency:'BRL' }}</h2>
+        </div>
+        <button class="btn ripple" color="pink">QUERO COMPRAR</button>
+        <div class="card-footer">
+            <hr>
+            <p class="card-term">
+                Em <span>{{ produto.parcelamento }}x de {{(produto.preco / produto.parcelamento) | currency:'BRL' }} sem juros</span>
+            </p>
+        </div>  
+    </div>
+</div>

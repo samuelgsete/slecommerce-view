@@ -1,0 +1,59 @@
+@import url('./colors.css');
+
+div.alert {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: justify;
+    cursor: pointer;
+}
+
+div.alert div.alert-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+div.alert div.alert-content p.message {
+    margin: 5px 10px;
+}
+
+div.alert[color=primary] {
+    border-left: 4px solid rgb(var(--primary));
+    background-color: rgba(var(--primary),0.08);
+}
+
+div.alert[color=primary] i {
+    color: rgb(var(--primary));
+}
+
+div.alert[color=danger] {
+    border-left: 4px solid rgb(var(--danger));
+    background-color: rgba(var(--danger),0.08);
+}
+
+div.alert[color=danger] i {
+    color: rgb(var(--danger));
+}
+
+div.alert[color=success] {
+    border-left: 4px solid rgb(var(--success));
+    background-color: rgba(var(--success),0.08);
+}
+
+div.alert[color=success] i {
+    color: rgb(var(--success));
+}
+
+div.alert[color=warning] {
+    border-left: 4px solid rgb(var(--warning));
+    background-color: rgba(var(--warning),0.08);
+}
+
+div.alert[color=warning] i {
+    color: rgb(var(--warning));
+}

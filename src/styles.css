@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('../src/assets/css/card.css');
+@import url('../src/assets/css/buttons.css');
+@import url('../src/assets/css/stars.css');
+@import url('../src/assets/css/badge.css');
+@import url('../src/assets/css/ripple.css');
+@import url('../src/assets/css/alerts.css');
+@import url('../src/assets/css/upload.css');
+@import url('../src/assets/css/animations.css');
+
+@import '~ngx-toastr/toastr';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.width-fix {
+    width: 100%;
+}

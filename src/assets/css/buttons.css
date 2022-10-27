@@ -1,0 +1,206 @@
+@import url('./colors.css');
+
+button.btn {
+    margin: 12px 0;
+    padding: 15px 30px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: none;
+}
+
+/* Primary button */
+button.btn[color=primary] {
+    background-color: rgb(var(--primary));
+    color: #ffff;
+    font-weight: bold;
+}
+
+button.btn[color=white] {
+    background-color: #fff;
+    color: rgb(var(--gray-5));
+    font-weight: bold;
+}
+
+button.btn[color=primary][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--primary));
+    color: rgb(var(--primary));
+}
+
+/* Secondary Button */
+button.btn[color=secondary] {
+    background-color: rgb(var(--secondary));
+    border: 2px sollid rgb(var(--secondary));
+    color: #ffff;
+}
+
+button.btn[color=secondary][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--secondary));
+    color: rgb(var(--secondary));
+}
+
+/* Default Button */
+button.btn[color=default] {
+    background-color: rgb(var(--default));
+    border: 2px sollid rgb(var(--default));
+    color: #ffff;
+}
+
+button.btn[color=default][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--default));
+    color: rgb(var(--default));
+}
+
+/* Info Button */
+button.btn[color=info] {
+    background-color: rgb(var(--info));
+    border: 2px sollid rgb(var(--info));
+    color: #ffff;
+}
+
+button.btn[color=info][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--info));
+    color: rgb(var(--info));
+}
+
+/* Danger Button */
+button.btn[color=danger] {
+    background-color: rgb(var(--danger));
+    border: 2px sollid rgb(var(--danger));
+    color: #ffff;
+}
+
+button.btn[color=danger][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--danger));
+    color: rgb(var(--danger));
+}
+
+/* Warning Button */
+button.btn[color=warning] {
+    background-color: rgb(var(--warning));
+    border: 2px sollid rgb(var(--warning));
+    color: #ffff;
+}
+
+button.btn[color=warning][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--warning));
+    color: rgb(var(--warning));
+}
+
+/* Dark Button */
+button.btn[color=dark] {
+    background-color: rgb(var(--dark));
+    border: 2px sollid rgb(var(--dark));
+    color: #ffff;
+}
+
+button.btn[color=dark][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--dark));
+    color: rgb(var(--dark));
+}
+
+/* Pink Button */
+button.btn[color=pink] {
+    background-color: rgb(var(--pink));
+    border: 2px sollid rgb(var(--pink));
+    color: #ffff;
+}
+
+button.btn[color=pink][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--pink));
+    color: rgb(var(--pink));
+}
+
+/* Success Button */
+button.btn[color=success] {
+    background-color: rgb(var(--success));
+    border: 2px sollid rgb(var(--success));
+    color: #ffff;
+}
+
+button.btn[color=success][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--success));
+    color: rgb(var(--success));
+}
+
+/* Indigo Button */
+button.btn[color=indigo] {
+    background-color: rgb(var(--indigo));
+    border: 2px sollid rgb(var(--indigo));
+    color: #ffff;
+}
+
+button.btn[color=indigo][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--indigo));
+    color: rgb(var(--indigo));
+}
+
+/* Indigo Button */
+button.btn[color=purple] {
+    background-color: rgb(var(--purple));
+    border: none;
+    color: #ffff;
+}
+
+button.btn[color=purple][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--purple));
+    color: rgb(var(--purple));
+}
+
+/* Light Button */
+button.btn[color=light] {
+    background-color: rgb(var(--light));
+    border: none;
+    color: rgb(var(--black));
+}
+
+button.btn[color=light][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--light));
+    color: rgb(var(--black));
+}
+
+/* Amber Button */
+button.btn[color=amber] {
+    background-color: rgb(var(--amber));
+    border: 2px sollid rgb(var(--amber));
+    color: #ffff;
+}
+
+button.btn[color=amber][outline=true] {
+    background-color: transparent;
+    border: 2px solid rgb(var(--amber));
+    color: rgb(var(--amber));
+}
+button.btn[block=true] {
+    width: 100%;
+}
+
+button.btn[radius=true] {
+    border-radius: 25px;
+}
+
+button.btn:enabled {
+    cursor: pointer;
+    background-position: center;
+    transition: background 0.8s, box-shadow 0.6s, filter 0.3s;
+}
+
+button.btn:enabled:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button.btn[disabled=true], button:disabled {
+    opacity: 0.85;
+    cursor: not-allowed;
+}

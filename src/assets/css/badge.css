@@ -1,0 +1,69 @@
+@import url('./colors.css');
+
+
+p.badge {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-family: 'Arial';
+    border-radius: 3px;
+    padding: 4px;
+    text-align: center;
+    color: #ffff;
+    margin: 4px 0;
+}
+
+p.badge[color=primary] {
+    background-color: rgb(var(--primary));
+}
+
+p.badge[color=danger] {
+    background-color: rgb(var(--danger));
+}
+
+p.badge[color=secondary] {
+    background-color: rgb(var(--secondary));
+}
+
+p.badge[color=info] {
+    background-color: rgb(var(--info));
+}
+
+p.badge[color=warning] {
+    background-color: rgb(var(--warning));
+}
+
+p.badge[color=success] {
+    background-color: rgb(var(--success));
+}
+
+p.badge[color=default] {
+    background-color: rgb(var(--default));
+}
+
+p.badge[color=dark] {
+    background-color: rgb(var(--dark));
+}
+
+p.badge[color=light] {
+    background-color: rgb(var(--light));
+}
+
+p.badge[color=pink] {
+    background-color: rgb(var(--pink));
+}
+
+p.badge[color=brown] {
+    background-color: rgb(var(--brown));
+}
+
+p.badge[color=indigo] {
+    background-color: rgb(var(--indigo));
+}
+
+p.badge[color=purple] {
+    background-color: rgb(var(--purple));
+}
+
+p.badge[color=amber] {
+    background-color: rgb(var(--amber));
+}

@@ -1,0 +1,18 @@
+@import url('./animations.css');
+
+div.stars {
+    margin-top: 5px;
+    transition: transform 0.2s;
+}
+
+div.stars span {
+    cursor: pointer;
+}
+
+div.stars span.unchecked {
+    color: #afac96;
+}
+
+div.stars span.checked {
+    color: #f0d90a;
+}

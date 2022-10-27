@@ -1,0 +1,142 @@
+@import url('./animations.css');
+@import url('./colors.css');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+:root {
+    --sm-size: 240px;
+    --md-size: 300px;
+    --lg-size: 360px;
+    --xl-size: 420px;
+    --fluid-size: 100%;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin: 5px;
+    border-radius: 3px;
+    transition: box-shadow 0.5s;
+}
+
+.card:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    width: 100%;
+}
+
+.card-sm {
+    width: var(--sm-size);
+    padding: 10px;
+}
+
+.card-md {
+    width: var(--md-size);
+    padding: 15px;
+}
+
+.card-lg {
+    width: var(--lg-size);
+    padding: 20px;
+}
+
+.card-xl {
+    width: var(--xl-size);
+    padding: 30px;
+}
+
+.card-fluid {
+    width: var(--fluid-size);
+    padding: 5%;
+}
+
+.card .card-body img.card-img {
+    width: 90%;
+    margin: 15px;
+    transition: transform 0.3s;
+}
+
+.card .card-fluid img.card-img {
+    width: 400px;
+    margin: 15px;
+}
+
+.card .card-body p.card-promo {
+    font-family: 'Koulen', cursive;
+    text-decoration: none !important;
+    color: #06c566; font-size: 0.96em;
+}
+
+.card .card-body p.card-promo span.promo-off {
+    text-decoration: line-through;
+    font-size: 0.90em;
+    color: rgb(var(--gray-6));
+    font-weight: normal;
+}
+
+.card .card-body p.card-shipping {
+    color: #08c265; font-size: 0.91em; 
+    font-family: 'Arial';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.89em;
+}
+
+.card .card-body p.card-text {
+    color: rgb(var(--gray-6));
+    font-size: 0.87em;
+}
+
+.card .card-body h2.card-price {
+    color: #202024;
+    font-size: 1.7em;
+}
+
+.card .card-body h3.card-title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.card .card-footer {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.card-sm .card-footer hr {
+    border: 1px solid rgb(var(--gray-3));
+}
+
+.card-sm .card-footer p.card-text,
+.card-sm .card-footer p.card-term {
+    color: #35353a;
+    font-size: 15px;
+    margin: 12px 0;
+    text-align: center;
+}
+
+.card-sm .card-footer p.card-term span {
+    font-family: 'Lato', sans-serif;
+    color: #05aa58;
+    font-weight: bold;
+    font-size: 1.1em;
+}

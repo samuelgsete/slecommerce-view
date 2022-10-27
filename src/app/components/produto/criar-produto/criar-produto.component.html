@@ -1,0 +1,241 @@
+<div class="container">
+    <mat-stepper linear="true" orientation="vertical">
+        <mat-step label="Informações Gerais">
+            <form [formGroup]="produto">
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Nome</mat-label>
+                        <input formControlName="nome" minlength="4" maxlength="255" matInput required>
+                        <mat-error *ngIf="produto['controls']['nome'].errors?.['required']">O nome é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="produto['controls']['nome'].errors?.['minlength']">Informe no mínimo 4
+                            caracteres
+                        </mat-error>
+                        <mat-error *ngIf="produto['controls']['nome'].errors?.['maxlength']">Informe no mínimo 255
+                            caracteres
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Marca</mat-label>
+                        <input formControlName="marca" minlength="2" maxlength="15" matInput required>
+                        <mat-error *ngIf="produto['controls']['marca'].errors?.['required']">A marca é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="produto['controls']['marca'].errors?.['minlength']">Informe no mínimo 2
+                            caracteres
+                        </mat-error>
+                        <mat-error *ngIf="produto['controls']['marca'].errors?.['maxlength']">Informe no mínimo 15
+                            caracteres
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Modelo</mat-label>
+                        <input formControlName="modelo" minlength="2" maxlength="15" matInput required>
+                        <mat-error *ngIf="produto['controls']['modelo'].errors?.['required']">O modelo é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="produto['controls']['modelo'].errors?.['minlength']">Informe no mínimo 2
+                            caracteres
+                        </mat-error>
+                        <mat-error *ngIf="produto['controls']['modelo'].errors?.['maxlength']">Informe no mínimo 15
+                            caracteres</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Linha</mat-label>
+                        <input formControlName="linha" minlength="2" maxlength="30" matInput required>
+                        <mat-error *ngIf="produto['controls']['linha'].errors?.['required']">A linha é obrigatório</mat-error>
+                        <mat-error *ngIf="produto['controls']['linha'].errors?.['minlength']">Informe no mínimo 2 caracteres</mat-error>
+                        <mat-error *ngIf="produto['controls']['linha'].errors?.['maxlength']">Informe no mínimo 15 caracteres</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <textarea formControlName="detalhes" #detalhes matInput placeholder="Detalhes" minlength="4"
+                            maxlength="9000"></textarea>
+                        <mat-error *ngIf="produto['controls']['detalhes'].errors?.['minlength']">Informe no mínimo 4
+                            caracteres
+                        </mat-error>
+                        <mat-error *ngIf="produto['controls']['detalhes'].errors?.['maxlength']">Informe no mínimo 9000
+                            caracteres</mat-error>
+                        <mat-hint>{{detalhes.value.length || 0}}/9000</mat-hint>
+                    </mat-form-field>
+                </div>
+                <button class="btn" color="purple" [disabled]="!produto.valid" matStepperNext>PRÓXIMO</button>
+            </form>
+        </mat-step>
+        <mat-step label="Adicionar Imagens">
+            <app-enviar-imagem #imagens ></app-enviar-imagem>
+            <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+            <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
+        </mat-step>
+        <mat-step label="Outras Características">
+            <form [formGroup]="caracteristicas">
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Condição</mat-label>
+                        <mat-select formControlName="condicao" required>
+                            <mat-option *ngFor="let condicao of condicaoProduto" [value]="condicao">
+                                {{ condicao }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="caracteristicas['controls']['condicao'].errors?.['required']">A condição
+                            do produto é obrigatório</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Cor</mat-label>
+                        <mat-select formControlName="cor" [compareWith]="comparadorCor" required>
+                            <mat-option *ngFor="let cor of cores" [value]="cor.nome">
+                                {{ cor.nome }}<div class="preview-color"
+                                    [ngStyle]="{ 'background-color': cor.codigo }"></div>
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="caracteristicas['controls']['cor'].errors?.['required']">A cor do produto
+                            é obrigatório</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix">
+                        <mat-label>Garantia</mat-label>
+                        <input matInput type="number" formControlName="garantia" value="0" min="0" max="100">
+                        <span matSuffix>meses</span>
+                        <mat-error *ngIf="caracteristicas['controls']['garantia'].errors?.['required']">A garantia é
+                            obrigatório</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Estoque</mat-label>
+                        <input matInput type="number" formControlName="estoque" value="0" min="0" max="100">
+                        <span matSuffix>unidade(s)</span>
+                        <mat-error *ngIf="caracteristicas['controls']['estoque'].errors?.['required']">O estoque do
+                            produto é obrigatório</mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <textarea formControlName="conteudoEmbalagem" #conteudo matInput
+                            placeholder="Conteúdo da embalagem" minlength="4" maxlength="9000"></textarea>
+                        <mat-error *ngIf="caracteristicas['controls']['conteudoEmbalagem'].errors?.['minlength']">
+                            Informe no mínimo 4 caracteres
+                        </mat-error>
+                        <mat-error *ngIf="caracteristicas['controls']['conteudoEmbalagem'].errors?.['maxlength']">
+                            Informe no mínimo 9000 caracteres</mat-error>
+                        <mat-hint>{{conteudo.value.length || 0}}/9000</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label-toggle">Este produto é lançamento?</label>
+                        <mat-slide-toggle #lancamento class="width-fix" formControlName="recemLancado" color="primary" checked="true">
+                            {{ lancamento.checked ? 'SIM' : 'NÃO' }}
+                        </mat-slide-toggle>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label-toggle">Deseja oferecer frete gratuito?</label>
+                        <mat-slide-toggle #freteGratis class="width-fix" formControlName="freteGratis" color="primary" checked="true">
+                            {{ freteGratis.checked ? 'SIM': 'SIM' }}
+                        </mat-slide-toggle>
+                    </div>
+                </div>
+                              
+                <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+                <button class="btn margin-left-button" color="purple" [disabled]="!caracteristicas.valid" matStepperNext>PRÓXIMO</button>
+            </form>
+        </mat-step>
+        <mat-step label="Dimensões do Produto">
+            <form [formGroup]="dimensoes">
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Peso</mat-label>
+                        <input matInput type="number" formControlName="peso" value="0" min="0">
+                        <span matSuffix>kg</span>
+                        <mat-error *ngIf="dimensoes['controls']['peso'].errors?.['required']">O peso é
+                            obrigatório</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Altura</mat-label>
+                        <input matInput type="number" formControlName="altura" value="0" min="0">
+                        <span matSuffix>mm</span>
+                        <mat-error *ngIf="dimensoes['controls']['altura'].errors?.['required']">A altura é
+                            obrigatória</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Largura</mat-label>
+                        <input matInput type="number" formControlName="largura" value="0" min="0">
+                        <span matSuffix>mm</span>
+                        <mat-error *ngIf="dimensoes['controls']['largura'].errors?.['required']">A largura
+                            obrigatória</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Profundidade</mat-label>
+                        <input matInput type="number" formControlName="profundidade" value="0" min="0">
+                        <span matSuffix>mm</span>
+                        <mat-error *ngIf="dimensoes['controls']['profundidade'].errors?.['required']">A profundidade
+                            obrigatória</mat-error>
+                    </mat-form-field>
+                </div>
+                <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+                <button class="btn margin-left-button" color="purple" [disabled]="!dimensoes.valid" matStepperNext>PRÓXIMO</button>
+            </form>
+        </mat-step>
+        <mat-step label="Informações de Precificação">
+            <form [formGroup]="precificacao">
+                <div class="alert" color="primary">Seus clientes vão gostar de um bom desconto. Ofereca uma boa taxa de desconto sem comprometer sua margem de lucro</div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Preço Original</mat-label>
+                        <input formControlName="preco" currencyMask (keyup)="atualizarPreco()"
+                            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" matInput required>
+                        <mat-error *ngIf="precificacao['controls']['preco'].errors?.['required']">O preço é
+                            obrigatório</mat-error>
+                    </mat-form-field>
+                    <div class="slider" class="width-fix">
+                        <label class="slider-label">Taxa de Desconto ({{ desconto.value }}%)</label>
+                        <mat-slider #desconto class="width-fix" formControlName="taxaDesconto" (change)="atualizarPreco()"
+                            [displayWith]="formatLabelDesconto" min="1" max="70" thumbLabel="true" vertical="false">
+                        </mat-slider>
+                    </div>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Valor do desconto</mat-label>
+                        <input formControlName="valorDesconto" matInput currencyMask
+                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" readonly>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Preço com Desconto</mat-label>
+                        <input #precoDesconto formControlName="precoDesconto" matInput currencyMask
+                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" readonly>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Parcelamento</mat-label>
+                        <mat-select formControlName="parcelamento">
+                            <mat-option *ngFor="let parcelamento of [1,2,3,4,5,6,7,8,9,10,11,12]" [value]="parcelamento">
+                                {{ parcelamento }}x {{(precificacao['controls']['precoDesconto'].value / parcelamento) | currency:'BRL'}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+                <button class="btn margin-left-button" color="purple" [disabled]="!precificacao.valid" matStepperNext>PRÓXIMO</button>
+            </form>
+        </mat-step>
+        <mat-step label="Tudo Pronto">
+            <div class="complete-registration">
+                <img src="../../../../assets/img/svg/completing_re_i7ap.svg" alt="Complete registration" width="120px">
+                <p>Seu produto está pronto para ser anunciado</p>
+                <button class="btn" color="success" (click)="cadastrarProduto()">FINALIZAR CADASTRO</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>
