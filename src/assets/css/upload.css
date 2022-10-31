@@ -71,3 +71,12 @@
     font-style: italic;
     margin: 2px 0;
 }
+
+div.img-preview .main-img {
+    font-size: 0.68em;
+    color: rgb(var(--purple));
+    background-color: rgba(var(--purple), 0.1);
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}

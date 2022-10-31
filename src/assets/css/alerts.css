@@ -31,6 +31,15 @@ div.alert[color=primary] i {
     color: rgb(var(--primary));
 }
 
+div.alert[color=secondary] {
+    border-left: 4px solid rgb(var(--purple));
+    background-color: rgba(var(--purple),0.08);
+}
+
+div.alert[color=secondary] i {
+    color: rgb(var(--purple));
+}
+
 div.alert[color=danger] {
     border-left: 4px solid rgb(var(--danger));
     background-color: rgba(var(--danger),0.08);

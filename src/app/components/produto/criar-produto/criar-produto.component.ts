@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
-import { ImagemProduto } from 'src/app/model/imagem-produto.entity';
 import { Produto } from 'src/app/model/produto.entity';
 import { CriarProdutoService } from 'src/app/usecases/produto/criar-produto.service';
 import { EnviarImagemComponent } from '../../imagem-produto/enviar-imagem/enviar-imagem.component';
+import { AdicionarEspecificacaoComponent } from '../adicionar-especificacao/adicionar-especificacao.component';
 
 const PORCENTAGEM = 100;
 
@@ -19,7 +21,6 @@ export class CriarProdutoComponent implements OnInit {
   public caracteristicas!: FormGroup
   public precificacao!: FormGroup
   public dimensoes!: FormGroup
-  public imagens: ImagemProduto[] = []
   public condicaoProduto = ['Novo', 'Usado', 'Seminovo', 'Reembalado']
   public cores = [
     { nome: 'Preto', codigo: '#000000' },
@@ -29,14 +30,22 @@ export class CriarProdutoComponent implements OnInit {
     { nome: 'Vermelho', codigo: '#FF0000' },
   ]
   @ViewChild('imagens')
-  public imagensComponent!: EnviarImagemComponent
+  public componenteEnviarImagem!: EnviarImagemComponent
+  @ViewChild('especificacoes')
+  public componenteAdicionarEspecificacoes!: AdicionarEspecificacaoComponent; 
+  public cadastrando: boolean = false;
 
   public constructor(
+    private readonly router: Router,
+    private readonly _fb: FormBuilder,
+    private readonly toastr: ToastrService,
     private readonly criar: CriarProdutoService,
-    private readonly _fb: FormBuilder
-  ) { }
+  ) {}
 
   public cadastrarProduto() {
+    this.cadastrando = true;
+    const imagensProduto = this.componenteEnviarImagem.imagens;
+    const especificacoes = this.componenteAdicionarEspecificacoes.especificacoes;
     const novoProduto = new Produto({
       id: null,
       nome: this.produto.value.nome,
@@ -51,13 +60,28 @@ export class CriarProdutoComponent implements OnInit {
       freteGratis: this.caracteristicas.value.freteGratis,
       recemLancado: this.caracteristicas.value.recemLancado,
       conteudoEmbalagem: this.caracteristicas.value.conteudoEmbalagem,
-      preso: this.precificacao.value.preco,
+      preco: this.precificacao.value.preco,
       parcelamento: this.precificacao.value.parcelamento,
       taxaDesconto: this.precificacao.value.taxaDesconto / PORCENTAGEM,
-      imagens: this.imagensComponent.imagens
-    })
-
-    console.log(novoProduto)
+      imagens: imagensProduto,
+      altura: this.dimensoes.value.altura,
+      largura: this.dimensoes.value.largura,
+      profundidade: this.dimensoes.value.profundidade,
+      peso: this.dimensoes.value.peso,
+      aprovacaoMedia: 0,
+      unidadesVendidas: 0,
+      especificacoes: especificacoes
+    });
+    console.log(novoProduto);
+    this.criar.executar(novoProduto).subscribe(response =>{
+      this.toastr.success('Cadastrado com sucesso', 'Tudo Ok!', { progressBar: true });
+      this.router.navigateByUrl('/produto/listar');
+    }, evento => {
+      console.log(evento);
+      this.toastr.error(evento.error.mensagem, 'Houve um ERRO', { progressBar: true });
+    }).add(() => {
+      this.cadastrando = false;
+    });
   }
 
   public formatLabelDesconto(taxaDesconto: number) {
@@ -65,7 +89,7 @@ export class CriarProdutoComponent implements OnInit {
   }
 
   public comparadorCor(cor1: any, cor2: any): boolean {
-    if (cor1.nome == cor2.nome)
+    if(cor1.nome == cor2.nome)
       return true;
     return false
   }
@@ -87,7 +111,6 @@ export class CriarProdutoComponent implements OnInit {
       linha: ['PlayStation', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
       detalhes: ['Console PlaySatation 4 Pro você terá entreterimento dos os dias', [Validators.minLength(4), Validators.maxLength(9000)]],
     })
-
     this.caracteristicas = this._fb.group({
       condicao: ['Novo', [Validators.required]],
       garantia: [24, [Validators.required]],
@@ -97,7 +120,6 @@ export class CriarProdutoComponent implements OnInit {
       cor: ['Branco', [Validators.required]],
       conteudoEmbalagem: ['Console PlaySatation 4, Manual de instruções, Cabo HDMI, Controle Dualshock Black e carregador USB', [Validators.required]]
     })
-
     this.precificacao = this._fb.group({
       preco: [2499.99, [Validators.required]],
       parcelamento: [12, [Validators.required]],
@@ -105,7 +127,6 @@ export class CriarProdutoComponent implements OnInit {
       valorDesconto: [0],
       precoDesconto: [0]
     })
-
     this.dimensoes = this._fb.group({
       peso: [2.21, [Validators.required]],
       altura: [55, [Validators.required]],

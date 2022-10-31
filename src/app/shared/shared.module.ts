@@ -17,6 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FilesizePipe } from '../pipes/filesize.pipe';
 import { DragDropDirective } from '../directives/drag-drop.directive';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -42,6 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatProgressSpinnerModule,
     MatCheckboxModule,
     MatTooltipModule,
+    MatMenuModule,
     ToastrModule.forRoot() 
   ],
   exports: [
@@ -59,6 +61,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    MatMenuModule,
     FilesizePipe,  
     DragDropDirective,
     MatTooltipModule,

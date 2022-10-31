@@ -19,6 +19,11 @@
     'opsz' 48
 }
 
+* {
+    margin: 0;
+    padding: 0
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -109,12 +114,12 @@
 
 .card .card-body h2.card-price {
     color: #202024;
-    font-size: 1.7em;
+    font-size: 2.1em;
 }
 
 .card .card-body h3.card-title {
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .card .card-footer {

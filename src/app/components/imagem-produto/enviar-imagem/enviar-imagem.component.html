@@ -5,8 +5,8 @@
         <input type="file" id="input-upload" (change)="carregarImagem($event)" accept="image/png, image/jpg, image/jpeg" hidden>
     </div>
     <div *ngIf="imagens.length == 0" class="alert" color="warning">Você ainda não adicionou fotos a este produto. Adicione até 10 imagens. Para satisfação de seus clientes procure utiizar imagens que tenham fundo transparente</div>
-    <div *ngIf="imagensSelecionadas.length > 1" class="alert" color="warning">
-        {{ imagensSelecionadas.length }} selecionado(s) 
+    <div *ngIf="contador > 0" class="alert" color="warning">
+        {{ contador }} selecionado(s) 
         <button mat-icon-button color="accent" (click)="removerSelecionados()" matTooltip="Remover selecionados">
             <mat-icon>cancel</mat-icon>
         </button>
@@ -19,8 +19,9 @@
         <div class="item-description">  
             <mat-checkbox (change)="selecionarImagem($event.checked, img)" [checked]="img.estaSelecionada"></mat-checkbox>        
             <div class="img-preview">
-                <img class="img-uploaded" [src]="img.url" [alt]="img.nomeOriginal" width="70px">
+                <img class="img-uploaded" [src]="img.url" [alt]="img.nomeOriginal" width="74px" loading="lazy">
                 <span class="resolution-img">{{ img.largura }} x {{ img.altura }} pixels</span> 
+                <p *ngIf="img.imagemPrincipal" class="main-img" >IMAGEM PRINCIPAL</p>
             </div>
             <div class="img-details">
                 <mat-spinner *ngIf="img.estaRemovida" [diameter]="20"></mat-spinner>

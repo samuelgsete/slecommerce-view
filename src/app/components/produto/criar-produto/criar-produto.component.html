@@ -67,11 +67,18 @@
             </form>
         </mat-step>
         <mat-step label="Adicionar Imagens">
-            <app-enviar-imagem #imagens ></app-enviar-imagem>
+            <app-enviar-imagem #imagens></app-enviar-imagem>
             <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
             <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
         </mat-step>
-        <mat-step label="Outras Características">
+
+        <mat-step label="Especificações do Produto">
+            <app-adicionar-especificacao #especificacoes ></app-adicionar-especificacao>
+            <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+            <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
+        </mat-step>
+
+        <mat-step label="Outras Informações">
             <form [formGroup]="caracteristicas">
                 <div class="row">
                     <mat-form-field class="width-fix" appearance="legacy">
@@ -148,6 +155,7 @@
                 <button class="btn margin-left-button" color="purple" [disabled]="!caracteristicas.valid" matStepperNext>PRÓXIMO</button>
             </form>
         </mat-step>
+                
         <mat-step label="Dimensões do Produto">
             <form [formGroup]="dimensoes">
                 <div class="row">
@@ -233,8 +241,11 @@
         <mat-step label="Tudo Pronto">
             <div class="complete-registration">
                 <img src="../../../../assets/img/svg/completing_re_i7ap.svg" alt="Complete registration" width="120px">
+                <mat-spinner *ngIf="cadastrando" class="created" [diameter]="30"></mat-spinner>
                 <p>Seu produto está pronto para ser anunciado</p>
-                <button class="btn" color="success" (click)="cadastrarProduto()">FINALIZAR CADASTRO</button>
+                <button class="btn" color="success" (click)="cadastrarProduto()">
+                    {{ !cadastrando ? 'FINALIZAR CADASTRO' : 'FINALIZAR CADASTRO...' }}
+                </button>
             </div>
         </mat-step>
     </mat-stepper>

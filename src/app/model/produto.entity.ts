@@ -1,4 +1,5 @@
 import { EntidadeBase } from "./entidade-base.entity";
+import { Especificacao } from "./especificacao.entity";
 import { ImagemProduto } from "./imagem-produto.entity";
 
 export class Produto extends EntidadeBase {
@@ -23,6 +24,8 @@ export class Produto extends EntidadeBase {
     public profundidade!: number
     public peso!: number
     public imagens: ImagemProduto[] = []
+    public especificacoes: Especificacao[] = []
+    public selecionado: boolean = false;
 
     public constructor(values: Object = {}) { 
         super();

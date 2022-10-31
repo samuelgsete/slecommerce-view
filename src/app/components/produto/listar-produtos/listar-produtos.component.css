@@ -1,4 +1,29 @@
 div.container {
     display: flex;
+    flex-direction: column;
+    padding: 4%;
     justify-content: center;
+    align-items: center;
+}
+
+div.row {
+    width: 96%;
+    display: flex;
+    column-gap: 2%;
+}
+
+.not-found {
+    display: flex;
+    padding: 4%;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(var(--gray-6));
+}
+
+.not-found p {
+    font-size: 1.5em;
+}
+
+.not-found img {
+    margin: 4% 0;
 }

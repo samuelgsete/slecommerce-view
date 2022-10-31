@@ -17,7 +17,6 @@ import { ImagemProdutoModule } from './components/imagem-produto/imagem-produto.
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    BrowserAnimationsModule,
     ProdutoModule,
     ImagemProdutoModule
   ],

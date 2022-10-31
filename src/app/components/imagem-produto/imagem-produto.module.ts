@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { EnviarImagemComponent } from './enviar-imagem/enviar-imagem.component';
 import { EnviarImagem } from 'src/app/usecases/imagem-produto/enviar-imagem.service';
@@ -12,7 +13,8 @@ import { RemoverImagemService } from 'src/app/usecases/imagem-produto/remover-im
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     EnviarImagemComponent

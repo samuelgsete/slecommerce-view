@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
@@ -11,7 +11,8 @@ export class CriarProdutoService {
 
     public constructor(private readonly http: HttpClient) {}
 
-    public criar(novoProduto: Produto): Observable<any> {
-        return this.http.post<any>(this.urlBase, novoProduto);
+    public executar(novoProduto: Produto): Observable<any> {
+        let customHeaders = new HttpHeaders().set('Location', '')
+        return this.http.post<any>(this.urlBase, novoProduto, { headers: customHeaders, observe: 'response' });
     }
 }
