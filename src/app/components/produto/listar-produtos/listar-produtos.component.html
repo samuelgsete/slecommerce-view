@@ -1,4 +1,11 @@
 <div class="container">
+    <div class="header">
+        <div class="title">
+            <h1>Gerencie seus Produtos</h1>
+            <p>Visualize, navegue, edite produtos ou adicione um novo produto</p>
+        </div>
+        <button class="btn" color="purple" (click)="irParaCadastro()">NOVO PRODUTO</button>
+    </div>
     <div class="row">
         <mat-form-field class="width-fix" appearance="outline">
             <mat-label>Qual produto deseja gerenciar?</mat-label>
@@ -16,7 +23,7 @@
         </mat-menu>
     </div>
     <div class="not-found" *ngIf="produtos.length == 0">
-        <img src="../../../../assets/img/svg/undraw_empty_re_opql.svg" alt="Not FOund" width="240px">
+        <img src="../../../../assets/img/svg/undraw_empty_re_opql.svg" alt="Not Found" width="280px">
         <p>Nenhum resultado encontrado</p>
     </div>
     <table *ngIf="produtos.length > 0"> 
@@ -46,13 +53,10 @@
                 <button 
                     mat-icon-button 
                     color="primary" 
-                    matTooltip="Atualize seu estoque">
-                    <mat-icon>history</mat-icon>
+                    matTooltip="Salvar alterações">
+                    <mat-icon>data_saver_on</mat-icon>
                 </button>
             </td>
         </tr>
     </table>
-    <div class="row">
-        <button class="btn" color="purple" (click)="irParCadastro()">NOVO PRODUTO</button>
-    </div>
 </div>

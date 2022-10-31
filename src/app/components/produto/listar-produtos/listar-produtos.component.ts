@@ -36,7 +36,7 @@ export class ListarProdutosComponent implements OnInit {
     });
   }
 
-  public irParCadastro() {
+  public irParaCadastro() {
     this.router.navigateByUrl('/produto/criar');
   }
 

@@ -32,9 +32,5 @@ table tr {
 
 table tr td img {
     width: 60px;
-    transition: transform 0.4s;
-}
-
-table tr:hover td img {
-    transform: scale(1.2);
+    height: 60px;
 }
