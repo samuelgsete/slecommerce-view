@@ -10,6 +10,7 @@
 @import url('../src/assets/css/table.css');
 
 @import '~ngx-toastr/toastr';
+@import "~ngx-spinner/animations/ball-clip-rotate-pulse.css";
 
 * {
     margin: 0;

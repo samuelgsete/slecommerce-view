@@ -7,10 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProdutoModule } from './components/produto/produto.module';
 import { ImagemProdutoModule } from './components/imagem-produto/imagem-produto.module';
+import { CatalogoModule } from './components/catalogo/catalogo.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +19,8 @@ import { ImagemProdutoModule } from './components/imagem-produto/imagem-produto.
     AppRoutingModule,
     BrowserAnimationsModule,
     ProdutoModule,
-    ImagemProdutoModule
+    ImagemProdutoModule,
+    CatalogoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

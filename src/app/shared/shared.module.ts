@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +19,10 @@ import { DragDropDirective } from '../directives/drag-drop.directive';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -44,7 +47,19 @@ import { ToastrModule } from 'ngx-toastr';
     MatCheckboxModule,
     MatTooltipModule,
     MatMenuModule,
-    ToastrModule.forRoot() 
+    ToastrModule.forRoot(),
+    NgCircleProgressModule.forRoot({
+      radius: 38,
+      outerStrokeWidth: 8,
+      innerStrokeWidth: 1,
+      outerStrokeColor: "#7315F7",
+      innerStrokeColor: "#FFBF00",
+      animation: true,
+      animationDuration: 300,
+      showSubtitle: false
+    }),
+    MatDialogModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
   ],
   exports: [
     BrowserAnimationsModule,
@@ -65,7 +80,11 @@ import { ToastrModule } from 'ngx-toastr';
     FilesizePipe,  
     DragDropDirective,
     MatTooltipModule,
-    ToastrModule
-  ]
+    ToastrModule,
+    NgCircleProgressModule,
+    MatDialogModule,
+    NgxSpinnerModule
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule { }

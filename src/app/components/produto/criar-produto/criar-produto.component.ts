@@ -42,6 +42,10 @@ export class CriarProdutoComponent implements OnInit {
     private readonly criar: CriarProdutoService,
   ) {}
 
+  public produtosCadastrados(): void {
+    this.router.navigateByUrl('/produto/listar');
+  }
+
   public cadastrarProduto() {
     this.cadastrando = true;
     const imagensProduto = this.componenteEnviarImagem.imagens;

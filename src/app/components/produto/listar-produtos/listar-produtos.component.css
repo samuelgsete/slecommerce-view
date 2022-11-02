@@ -55,3 +55,26 @@ div.row {
 .not-found img {
     margin: 4% 0;
 }
+
+.inventory {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.footer-table {
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+}
+
+.footer-table p {
+    font-size: 0.89em;
+    color: rgb(var(--gray-6))
+}
+
+.spacing-fix {
+    margin-right: 5px;
+}

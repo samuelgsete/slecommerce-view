@@ -4,7 +4,7 @@
             <h1>Gerencie seus Produtos</h1>
             <p>Visualize, navegue, edite produtos ou adicione um novo produto</p>
         </div>
-        <button class="btn" color="purple" (click)="irParaCadastro()">NOVO PRODUTO</button>
+        <button class="btn" color="purple" outline="true" (click)="irParaCadastro()">NOVO PRODUTO</button>
     </div>
     <div class="row">
         <mat-form-field class="width-fix" appearance="outline">
@@ -17,7 +17,7 @@
         </button>
         <mat-menu #filtro="matMenu">
             <button mat-menu-item (click)="produtosMaivendidos()">Mais vendidos</button>
-            <button mat-menu-item>Maiores descontos</button>
+            <button mat-menu-item (click)="produtosMaiorDesconto()">Maiores descontos</button>
             <button mat-menu-item (click)="produtosMaisCaros()">Maiores preços</button>
             <button mat-menu-item (click)=" produtosMaisBaratos()">Menores preços</button>
         </mat-menu>
@@ -28,21 +28,30 @@
     </div>
     <table *ngIf="produtos.length > 0"> 
         <tr>
-            <th>Produto</th>
+            <th>ID</th>
             <th>Nome</th>
             <th>Preço</th>
             <th>Desconto</th>
             <th>Estoque</th>
-            <th>Unidades Vendidas</th>
             <th>Ações</th>
         </tr>
         <tr *ngFor="let produto of produtos">
-            <td><img [src]="produto.imagens[0].url" [alt]="produto.imagens[0].nomeRandomico" loading="lazy"></td>
+            <td>{{ produto.id }}</td>
             <td>{{ produto.nome }}</td>
             <td>{{ (produto.preco - produto.taxaDesconto * produto.preco) | currency: 'BRL' }}</td>
             <td>{{ (produto.taxaDesconto * produto.preco) | currency: 'BRL' }} ({{ produto.taxaDesconto | percent }})</td>
-            <td>{{ produto.estoque }} uni</td>
-            <td>{{ produto.unidadesVendidas }} unidade(s)</td>
+            <td>
+                <div class="inventory">
+                    {{ produto.estoque }} uni
+                    <button 
+                        (click)="abrirModalAtualizarEstoque(produto)"
+                        mat-icon-button 
+                        color="primary" 
+                        matTooltip="Atualizar estoque">
+                        <mat-icon>update</mat-icon>
+                    </button>
+                </div>
+            </td>
             <td>
                 <button 
                     mat-icon-button 
@@ -53,10 +62,18 @@
                 <button 
                     mat-icon-button 
                     color="primary" 
-                    matTooltip="Salvar alterações">
-                    <mat-icon>data_saver_on</mat-icon>
+                    matTooltip="Vizualizar esse produto">
+                    <mat-icon>visibility</mat-icon>
                 </button>
             </td>
         </tr>
     </table>
+    <div class="footer-table">
+        <p>Total de Registros.: {{ paginacao.totalElementos }}</p>
+        <div class="paginate">
+            <button class="spacing-fix" mat-raised-button [disabled]="paginacao.primeiraPagina">Anterior</button>
+            <button mat-raised-button [disabled]="paginacao.ultimaPagina">Próxima</button>
+        </div>
+    </div>
 </div>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

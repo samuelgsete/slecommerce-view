@@ -1,0 +1,16 @@
+<div mat-dialog-content>
+  <div class="row">
+    <h1>Seu Estoque</h1>
+    <mat-spinner *ngIf="progresso" [diameter]="20"></mat-spinner>
+  </div>
+  <mat-form-field class="width-fix" appearance="legacy">
+    <mat-label>Estoque Atual</mat-label>
+    <input matInput type="number" [formControl]="estoque" value="0" min="0" max="100">
+    <span matSuffix>uni</span>
+    <mat-error *ngIf="estoque.errors?.['required']">O estoque é obrigatório</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="fecharModal()">CANCELAR</button>
+    <button mat-button (click)="atualizarEstoque()" [disabled]="!estoque.valid">SALVAR</button>
+</div>

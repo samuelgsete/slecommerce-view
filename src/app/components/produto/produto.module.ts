@@ -13,10 +13,14 @@ import { ProdutosMaisVendidosService } from 'src/app/usecases/produto/produtos-m
 import { ProdutosMaiorPreco } from 'src/app/usecases/produto/produtos-maiorpreco.service';
 import { ProdutosMenorPrecoService } from 'src/app/usecases/produto/produtos-menorpreco.service';
 import { ListarProdutosPaginado } from 'src/app/usecases/produto/listar-produtos-paginado';
+import { ListarProdutosMaiorDesconto } from 'src/app/usecases/produto/listar-produtos-maiordesconto';
+import { AtualizarEstoqueComponent } from './atualizar-estoque/atualizar-estoque.component';
+import { AtualizarEstoqueService } from 'src/app/usecases/produto/atualizar-estoque.service';
 
 @NgModule({
   declarations: [  
     ListarProdutosComponent,
+    AtualizarEstoqueComponent,
     CriarProdutoComponent,
     AdicionarEspecificacaoComponent
   ],
@@ -29,14 +33,17 @@ import { ListarProdutosPaginado } from 'src/app/usecases/produto/listar-produtos
   exports: [
     ListarProdutosComponent,
     CriarProdutoComponent,
-    AdicionarEspecificacaoComponent
+    AdicionarEspecificacaoComponent,
+    AtualizarEstoqueComponent,
   ],
   providers: [
     ListarProdutosService,
     CriarProdutoService,
+    AtualizarEstoqueService,
     ProdutosMaisVendidosService,
     ProdutosMaiorPreco,
     ProdutosMenorPrecoService,
+    ListarProdutosMaiorDesconto,
     ListarProdutosPaginado
   ]
 })
