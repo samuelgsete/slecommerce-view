@@ -72,12 +72,6 @@
             <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
         </mat-step>
 
-        <mat-step label="Especificações do Produto">
-            <app-adicionar-especificacao #especificacoes ></app-adicionar-especificacao>
-            <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
-            <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
-        </mat-step>
-
         <mat-step label="Outras Informações">
             <form [formGroup]="caracteristicas">
                 <div class="row">
@@ -155,7 +149,13 @@
                 <button class="btn margin-left-button" color="purple" [disabled]="!caracteristicas.valid" matStepperNext>PRÓXIMO</button>
             </form>
         </mat-step>
-                
+
+        <mat-step label="Especificações do Produto">
+            <app-adicionar-especificacao #especificacoes ></app-adicionar-especificacao>
+            <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+            <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
+        </mat-step>
+
         <mat-step label="Dimensões do Produto">
             <form [formGroup]="dimensoes">
                 <div class="row">
@@ -194,6 +194,7 @@
                 <button class="btn margin-left-button" color="purple" [disabled]="!dimensoes.valid" matStepperNext>PRÓXIMO</button>
             </form>
         </mat-step>
+            
         <mat-step label="Informações de Precificação">
             <form [formGroup]="precificacao">
                 <div class="alert" color="primary">Seus clientes vão gostar de um bom desconto. Ofereca uma boa taxa de desconto sem comprometer sua margem de lucro</div>

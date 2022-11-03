@@ -1,6 +1,6 @@
 <div class="card-upload">
     <div class="drag-and-drop" dragDrop (fileDropped)="onFileDropped($event)">
-        <mat-icon>upload_file</mat-icon>
+        <mat-icon class="icon-upload">upload_file</mat-icon>
         <p>Arraste e solte aqui ou <label for="input-upload" class="browser">navegue</label> pelo seu sistema</p>
         <input type="file" id="input-upload" (change)="carregarImagem($event)" accept="image/png, image/jpg, image/jpeg" hidden>
     </div>
@@ -10,10 +10,7 @@
         <button mat-icon-button color="accent" (click)="removerSelecionados()" matTooltip="Remover selecionados">
             <mat-icon>cancel</mat-icon>
         </button>
-    </div>
-    <div *ngFor="let arquivo of arquivos" class="progress-bar">
-        <circle-progress [percent]="progresso"></circle-progress>
-    </div>    
+    </div>   
     <div class="item-uploaded" *ngFor="let img of imagens; let i = index"> 
         <div class="item-description">  
             <mat-checkbox (change)="selecionarImagem($event.checked, img)" [checked]="img.estaSelecionada"></mat-checkbox>        
@@ -25,12 +22,15 @@
             <div class="img-details">
                 <mat-spinner *ngIf="img.estaRemovida" [diameter]="20"></mat-spinner>
                 <h3 class="name-img">{{ img.nomeRandomico }}</h3>
-                <a [href]="img.url" class="url-img" target="_blank" matTooltip="Url da imagem">{{ img.url }}</a>
+                <a class="url-img" [href]="img.url" target="_blank" matTooltip="Url da imagem">{{ img.url }}</a>
                 <p class="size-img" >{{ img.tamanho | filesize }}</p>
             </div>
         </div>
-        <button mat-icon-button color="warn" (click)="removerImagem(img.nomeRandomico,i)" matTooltip="Remover esta imagem">
+        <button class="btn-delete" mat-icon-button color="warn" (click)="removerImagem(img.nomeRandomico,i)" matTooltip="Remover esta imagem">
             <mat-icon>cancel</mat-icon>
         </button>
     </div>
+    <div *ngFor="let arquivo of arquivos" class="progress-bar">
+        <circle-progress [percent]="progresso"></circle-progress>
+    </div> 
 </div>

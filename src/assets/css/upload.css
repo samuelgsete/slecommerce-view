@@ -15,8 +15,13 @@
 }
 
 .card-upload .drag-and-drop .browser {
-    color: rgb(var(--default));
+    color: rgb(var(--purple));
+    font-weight: bold;
     cursor: pointer;
+}
+
+.card-upload .drag-and-drop .icon-upload {
+    color: rgb(var(--purple));
 }
 
 .card-upload .item-uploaded {

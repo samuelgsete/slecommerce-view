@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { Produto } from 'src/app/model/produto.entity';
 import { CriarProdutoService } from 'src/app/usecases/produto/criar-produto.service';
+import { cores } from 'src/app/utils/cores.util';
 import { EnviarImagemComponent } from '../../imagem-produto/enviar-imagem/enviar-imagem.component';
 import { AdicionarEspecificacaoComponent } from '../adicionar-especificacao/adicionar-especificacao.component';
 
@@ -22,13 +23,8 @@ export class CriarProdutoComponent implements OnInit {
   public precificacao!: FormGroup
   public dimensoes!: FormGroup
   public condicaoProduto = ['Novo', 'Usado', 'Seminovo', 'Reembalado']
-  public cores = [
-    { nome: 'Preto', codigo: '#000000' },
-    { nome: 'Branco', codigo: '#F8F8FF' },
-    { nome: 'Azul', codigo: '#6A5ACD' },
-    { nome: 'Verde', codigo: '#00FA9A' },
-    { nome: 'Vermelho', codigo: '#FF0000' },
-  ]
+  public cores = cores;
+
   @ViewChild('imagens')
   public componenteEnviarImagem!: EnviarImagemComponent
   @ViewChild('especificacoes')
