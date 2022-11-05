@@ -31,6 +31,15 @@
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Fabricante</mat-label>
+                        <input formControlName="fabricante" minlength="2" maxlength="30" matInput required>
+                        <mat-error *ngIf="produto['controls']['fabricante'].errors?.['required']">A fabricante é obrigatório</mat-error>
+                        <mat-error *ngIf="produto['controls']['fabricante'].errors?.['minlength']">Informe no mínimo 2 caracteres</mat-error>
+                        <mat-error *ngIf="produto['controls']['fabricante'].errors?.['maxlength']">Informe no mínimo 30 caracteres</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
                         <mat-label>Modelo</mat-label>
                         <input formControlName="modelo" minlength="2" maxlength="15" matInput required>
                         <mat-error *ngIf="produto['controls']['modelo'].errors?.['required']">O modelo é obrigatório
@@ -41,8 +50,6 @@
                         <mat-error *ngIf="produto['controls']['modelo'].errors?.['maxlength']">Informe no mínimo 15
                             caracteres</mat-error>
                     </mat-form-field>
-                </div>
-                <div class="row">
                     <mat-form-field class="width-fix" appearance="legacy">
                         <mat-label>Linha</mat-label>
                         <input formControlName="linha" minlength="2" maxlength="30" matInput required>
@@ -54,7 +61,7 @@
                 <div class="row">
                     <mat-form-field class="width-fix" appearance="legacy">
                         <textarea formControlName="detalhes" #detalhes matInput placeholder="Detalhes" minlength="4"
-                            maxlength="9000"></textarea>
+                            maxlength="20000"></textarea>
                         <mat-error *ngIf="produto['controls']['detalhes'].errors?.['minlength']">Informe no mínimo 4
                             caracteres
                         </mat-error>

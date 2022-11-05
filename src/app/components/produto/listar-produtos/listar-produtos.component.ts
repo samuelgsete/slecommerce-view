@@ -39,6 +39,7 @@ export class ListarProdutosComponent implements OnInit {
   ) {}
 
   public listarPaginado(paginacao: Paginacao) {
+    this.carregamento = true;
     this.spinner.show();
     this.listarProdutosPaginado.executar(paginacao).subscribe(response => {
       this.produtos = response.content;
@@ -46,11 +47,16 @@ export class ListarProdutosComponent implements OnInit {
       this.paginacao.ultimaPagina = response.last;
       this.paginacao.totalElementos = response.totalElements;
       this.spinner.hide();
+      this.carregamento = false;
     });
   }
 
   public irParaCadastro() {
     this.router.navigateByUrl('/produto/criar');
+  }
+
+  public verProduto(produtoId: number): void {
+    this.router.navigateByUrl(`/produto/${produtoId}/ver`);
   }
 
   public produtosMaivendidos() {

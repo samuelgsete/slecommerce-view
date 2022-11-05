@@ -1,0 +1,11 @@
+div.star-rater {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+div.star-rater .number-of-evaluators {
+    font-weight: bold;
+    color: rgb(var(--purple));
+    margin-top: 8px;
+}

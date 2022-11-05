@@ -1,9 +1,9 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-
 import { Observable } from "rxjs";
+
 import { Paginacao } from "src/app/utils/paginacao.entity";
-import { environment } from "src/environments/environment";
+import { environment } from "src/environments/environment.prod"; // urls em produção
 
 @Injectable()
 export class ListarProdutosPaginado {

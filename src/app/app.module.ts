@@ -11,7 +11,7 @@ import { CatalogoModule } from './components/catalogo/catalogo.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

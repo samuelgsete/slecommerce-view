@@ -8,6 +8,7 @@
 @import url('../src/assets/css/upload.css');
 @import url('../src/assets/css/animations.css');
 @import url('../src/assets/css/table.css');
+@import url('../src/assets/css/list-property.css');
 
 @import '~ngx-toastr/toastr';
 @import "~ngx-spinner/animations/ball-clip-rotate-pulse.css";

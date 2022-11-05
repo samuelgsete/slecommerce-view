@@ -1,1 +1,110 @@
 <ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
+<div class="container" *ngIf="!carregamento">
+    <div class="see-product">
+        <div class="see-images">
+            <app-ver-imagens [imagens]="produto.imagens"></app-ver-imagens>
+            <app-calcular-frete></app-calcular-frete>
+        </div>
+        <div class="see-description">
+            <div class="product-rater">
+                <app-star-rater [aprovacaoMedia]="3" [totalAvaliadores]="1089"></app-star-rater>
+            </div>
+            <h1 class="product-name">{{ produto.nome }}</h1>
+            <p class="availability-product">(ID.: {{ produto.id }}
+                | <span> {{ produto.estoque > 0 ? 'Em Estoque' : 'Em Falta' }}</span>)
+            </p>
+            
+            <div class="product-promo">
+                <p class="previous-prince">{{ produto.preco | currency: 'BRL' }}</p>
+                <span class="discount-percent">{{ produto.taxaDesconto | percent }} OFF</span>
+            </div>
+            <h1 class="discount-prince">{{ (produto.preco - produto.preco * produto.taxaDesconto) | currency: 'BRL' }}</h1>
+            <p class="product-installment vertical-margin">Em até <span class="value-installment">{{ produto.parcelamento }} x de {{((produto.preco - produto.preco * produto.taxaDesconto) / produto.parcelamento)| currency: 'BRL'}}</span> sem juros</p>
+            <span class="save-money">
+                Economia de 
+                <span class="discount">{{ produto.preco * produto.taxaDesconto | currency: 'BRL' }}</span>
+            </span>
+            <button class="btn" color="pink" [disabled]="!quantidadeItem.valid">ADICIONAR AO CARRINHO</button>
+            <table>
+                <tr>
+                    <th>Estoque</th>
+                    <td>{{ produto.estoque }} uni</td>
+                </tr>
+                <tr>
+                    <th>Unidades vendidas</th>
+                    <td>{{ produto.unidadesVendidas }} uni</td>
+                </tr>
+                <tr>
+                    <th>Condição do produto</th>
+                    <td>{{ produto.condicao }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <mat-accordion multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Descrição</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="text-details">{{ produto.detalhes }}</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Outros Detalhes</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="list-property">
+                <div class="item-list" >
+                    <label class="name-property">Fabricante</label>
+                    <label class="value-property">{{ produto.fabricante }}</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Marca</label>
+                    <label class="value-property">{{ produto.marca }}</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Modelo</label>
+                    <label class="value-property">{{ produto.modelo }}</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Linha</label>
+                    <label class="value-property">{{ produto.linha }}</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Garantia</label>
+                    <label class="value-property">{{ produto.garantia }} meses</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Peso</label>
+                    <label class="value-property">{{ produto.peso }} kg</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Altura</label>
+                    <label class="value-property">{{ produto.altura }} mm</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Largura</label>
+                    <label class="value-property">{{ produto.largura }} mm</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Profundidade</label>
+                    <label class="value-property">{{ produto.profundidade }} mm</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Conteúdo da Embalagem</label>
+                    <label class="value-property">{{ produto.conteudoEmbalagem }}</label>
+                </div>
+            </div>
+          </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Especificações</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="list-property">
+                <div class="item-list" *ngFor="let especificacao of produto.especificacoes">
+                    <label class="name-property">{{ especificacao.nome }}</label>
+                    <label class="value-property">{{ especificacao.valor }}</label>
+                </div>
+            </div>
+          </mat-expansion-panel>
+    </mat-accordion>
+</div>

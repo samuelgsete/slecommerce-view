@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+div.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+    width: 90%;
+}
+
+.text-details {
+    color: rgb(var(--gray-5));
+}
+
+mat-panel-title {
+    color: rgb(var(--gray-6));
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+div.see-product {
+    width: 90%;
+    padding: 5%;
+    display: flex;
+    column-gap: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+div.container h1, p {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 2px;
+}
+
+
+div.see-product .see-description {
+    display: flex;
+    flex-direction: column;
+}
+
+div.see-product .see-description .availability-product {
+    color: rgb(var(--gray-6));
+}
+
+div.see-product .see-description .availability-product span {
+    font-weight: bold;
+    color: rgb(var(--default));
+}
+
+div.see-product .see-description .discount-prince {
+    font-size: 2.5em;
+    font-family: 'Lato', sans-serif;
+    color: rgb(var(--purple));
+    font-weight: bold;
+}
+
+div.see-product .see-description .previous-prince {
+    color: rgb(var(--gray-6));
+    text-decoration: line-through;
+}
+
+div.see-product .see-description .product-promo {
+    display: flex;
+    column-gap: 4px;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+div.see-product .see-description .discount-percent {
+    color: rgb(var(--success));
+    font-weight: bold;
+}
+
+div.see-product .see-description .product-installment {
+    color: rgb(var(--gray-6));
+}
+
+div.see-product .see-description .product-installment .value-installment {
+    font-weight: bold;
+    color: rgb(var(--dark));
+}
+
+div.see-product .see-description .save-money {
+    color: rgb(var(--gray-6));
+    font-size: 0.9em;
+    font-family: 'Arial';
+    border-radius: 3px;
+    padding: 8px 0;
+}
+
+div.see-product .see-description .save-money .discount {
+    border-radius: 3px;
+    padding: 8px;
+    color: #ffff;
+    background-color: rgb(var(--amber));
+    max-width: max-content;
+}
+
+.vertical-margin {
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.see-description button {
+    max-width: max-content;
+}

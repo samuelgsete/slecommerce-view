@@ -11,15 +11,8 @@ import { Especificacao } from 'src/app/model/especificacao.entity';
 export class AdicionarEspecificacaoComponent implements OnInit {
 
   public formulario!: FormGroup;
-  public especificacoes: Especificacao[] = [
-    new Especificacao({ id: null, nome: 'Wi-Fi', valor: '5G', selecionado: true }),
-    new Especificacao({ id: null, nome: 'Armazenamento', valor: '1 Tb', selecionado: true }),
-    new Especificacao({ id: null, nome: 'Memória RAM', valor: '8 Gb', selecionado: true }),
-    new Especificacao({ id: null, nome: 'CPU', valor: 'AMD Jaguar', selecionado: true }),
-    new Especificacao({ id: null, nome: 'GPU', valor: 'AMD Radeon', selecionado: true }),
-    new Especificacao({ id: null, nome: 'Núcleos de CPU', valor: '8', selecionado: true }),
-  ];
-  public contador: number = 6;
+  public especificacoes: Especificacao[] = [];
+  public contador: number = 0;
 
   @ViewChild('inputnome')
   public nome!: ElementRef;

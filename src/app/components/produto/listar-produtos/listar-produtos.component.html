@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!carregamento">
     <div class="header">
         <div class="title">
             <h1>Gerencie seus Produtos</h1>
@@ -60,6 +60,7 @@
                     <mat-icon>edit</mat-icon>
                 </button>
                 <button 
+                    (click)="verProduto(produto.id)"
                     mat-icon-button 
                     color="primary" 
                     matTooltip="Vizualizar esse produto">

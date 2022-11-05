@@ -1,0 +1,12 @@
+<div class="star-rater">
+    <div class="stars">
+        <span 
+            class="material-icons"
+            *ngFor="let star of [1,2,3,4,5]" 
+            [ngClass]="{'checked': star <= aprovacaoMedia, 'unchecked' : star > aprovacaoMedia }"
+        >
+            star
+        </span>
+    </div>
+    <p class="number-of-evaluators">({{ totalAvaliadores }} avaliadores)</p>
+</div>

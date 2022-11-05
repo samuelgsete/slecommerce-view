@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-    mainUrl: 'http://localhost:8080',
-    uploadImgUrl: 'https://app-gs-img.herokuapp.com'
+  mainUrl: 'http://localhost:8080',
+  uploadImgUrl: 'http://localhost:8180'
 };
 
 /*

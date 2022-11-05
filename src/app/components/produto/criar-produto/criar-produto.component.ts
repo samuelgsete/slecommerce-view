@@ -49,6 +49,7 @@ export class CriarProdutoComponent implements OnInit {
     const novoProduto = new Produto({
       id: null,
       nome: this.produto.value.nome,
+      fabricante: this.produto.value.fabricante,
       marca: this.produto.value.marca,
       modelo: this.produto.value.modelo,
       linha: this.produto.value.linha,
@@ -105,23 +106,24 @@ export class CriarProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.produto = this._fb.group({
-      nome: ['PlayStation 4 Pro 1TB de HDD', [Validators.required, Validators.minLength(4), Validators.maxLength(255)]],
-      marca: ['Sony', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
-      modelo: ['PlayStation 4', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
-      linha: ['PlayStation', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
-      detalhes: ['Console PlaySatation 4 Pro você terá entreterimento dos os dias', [Validators.minLength(4), Validators.maxLength(9000)]],
+      nome: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(255)]],
+      marca: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
+      modelo: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
+      linha: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
+      fabricante: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      detalhes: ['', [Validators.minLength(4), Validators.maxLength(20000)]],
     })
     this.caracteristicas = this._fb.group({
-      condicao: ['Novo', [Validators.required]],
-      garantia: [24, [Validators.required]],
-      estoque: ['25', [Validators.required]],
+      condicao: ['', [Validators.required]],
+      garantia: [12, [Validators.required]],
+      estoque: ['', [Validators.required]],
       freteGratis: [true],
       recemLancado: [false],
-      cor: ['Branco', [Validators.required]],
-      conteudoEmbalagem: ['Console PlaySatation 4, Manual de instruções, Cabo HDMI, Controle Dualshock Black e carregador USB', [Validators.required]]
+      cor: ['', [Validators.required]],
+      conteudoEmbalagem: ['', [Validators.required]]
     })
     this.precificacao = this._fb.group({
-      preco: [2499.99, [Validators.required]],
+      preco: [99.99, [Validators.required]],
       parcelamento: [12, [Validators.required]],
       taxaDesconto: [1, [Validators.required]],
       valorDesconto: [0],

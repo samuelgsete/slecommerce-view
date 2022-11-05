@@ -20,14 +20,18 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { StarRaterComponent } from './components/star-rater/star-rater.component';
 
 @NgModule({
   declarations: [
     FilesizePipe,
-    DragDropDirective
+    DragDropDirective,
+    StarRaterComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +52,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatTooltipModule,
     MatMenuModule,
     ToastrModule.forRoot(),
+    MatExpansionModule,
     NgCircleProgressModule.forRoot({
       radius: 38,
       outerStrokeWidth: 8,
@@ -81,9 +86,11 @@ import { NgxSpinnerModule } from "ngx-spinner";
     DragDropDirective,
     MatTooltipModule,
     ToastrModule,
+    MatExpansionModule,
     NgCircleProgressModule,
     MatDialogModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    StarRaterComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

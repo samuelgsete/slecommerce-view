@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 import { Produto } from "src/app/model/produto.entity";
-import { environment } from "src/environments/environment";
+import { environment } from "src/environments/environment.prod"; // urls em produção
 
 @Injectable()
 export class BuscarProdutoService {

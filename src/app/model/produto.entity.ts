@@ -6,6 +6,7 @@ export class Produto extends EntidadeBase {
     public nome!: string
     public preco!: number
     public taxaDesconto!: number
+    public fabricante!: string
     public marca!: string
     public modelo!: string
     public linha!: string
