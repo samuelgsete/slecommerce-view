@@ -1,0 +1,68 @@
+div.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2% 4%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    animation: up 0.5s;
+}
+
+div.container mat-stepper {
+    width: 55%;
+}
+
+div.container mat-stepper div.row {
+    display: flex;
+    column-gap: 2%;
+    margin: 4px 0;
+}
+
+div.form form div.slider {
+    display: flex;
+    flex-direction: column;
+}
+
+label.slider-label {
+    font-size: 0.78em;
+    color: rgb(var(--gray-6));
+}
+
+div.preview-color {
+    border-radius: 50%; 
+    width: 20px; 
+    height: 20px; 
+    float: right; 
+    margin-top: 9px;
+}
+
+div.container mat-stepper div.row .col {
+    padding: 2% 0;
+}
+
+.label-toggle {
+    margin: 4% 0;
+}
+
+div.complete-registration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4% 0;
+}
+
+div.complete-registration img {
+    margin: 15px;
+    cursor: pointer;
+}
+
+div.complete-registration p {
+    font-size: 1.24em;
+}
+
+.margin-left-button {
+    margin-left: 8px;
+}
+
+.created {
+    margin: 8px 0;
+}

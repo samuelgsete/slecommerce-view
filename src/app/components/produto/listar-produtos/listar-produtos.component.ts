@@ -43,6 +43,7 @@ export class ListarProdutosComponent implements OnInit {
     this.spinner.show();
     this.listarProdutosPaginado.executar(paginacao).subscribe(response => {
       this.produtos = response.content;
+      console.log(this.produtos);
       this.paginacao.primeiraPagina = response.first;
       this.paginacao.ultimaPagina = response.last;
       this.paginacao.totalElementos = response.totalElements;
@@ -57,6 +58,10 @@ export class ListarProdutosComponent implements OnInit {
 
   public verProduto(produtoId: number): void {
     this.router.navigateByUrl(`/produto/${produtoId}/ver`);
+  }
+
+  public irParaEditarProduto(produtoId: number): void {
+    this.router.navigateByUrl(`/produto/${produtoId}/editar`);
   }
 
   public produtosMaivendidos() {

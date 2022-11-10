@@ -5,6 +5,7 @@ export class Especificacao extends EntidadeBase {
     public nome!: string;
     public valor!: string;
     public selecionado: boolean = false;
+    public removida: boolean = false;
    
     public constructor(values: Object = {}) {
         super()

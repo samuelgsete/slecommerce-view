@@ -10,7 +10,7 @@
         <button mat-icon-button color="accent" (click)="removerSelecionados()" matTooltip="Remover selecionados">
             <mat-icon>cancel</mat-icon>
         </button>
-    </div>  
+    </div>   
     <div class="drag-drop" cdkDropList (cdkDropListDropped)="alterarImagemPrincipal($event)">
         <div class="item-uploaded" *ngFor="let img of imagens; let i = index" cdkDrag> 
             <div class="item-description">  
@@ -31,7 +31,7 @@
                 <mat-icon>cancel</mat-icon>
             </button>
         </div>
-    </div> 
+    </div>
     <div *ngFor="let arquivo of arquivos" class="progress-bar">
         <circle-progress [percent]="progresso"></circle-progress>
     </div> 

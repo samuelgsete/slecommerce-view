@@ -16,13 +16,21 @@ import { ListarProdutosPaginado } from 'src/app/usecases/produto/listar-produtos
 import { ListarProdutosMaiorDesconto } from 'src/app/usecases/produto/listar-produtos-maiordesconto';
 import { AtualizarEstoqueComponent } from './atualizar-estoque/atualizar-estoque.component';
 import { AtualizarEstoqueService } from 'src/app/usecases/produto/atualizar-estoque.service';
+import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
+import { AtualizarProdutoService } from 'src/app/usecases/produto/atualizar-produto.service';
+import { DeletarEspecificacaoProdutoService } from 'src/app/usecases/especificacao/deletar-especificacao-produto.service';
+import { EditarEspecificacaoComponent } from './editar-especificacao/editar-especificacao.component';
+import { PrecificacaoProdutoComponent } from './precificacao-produto/precificacao-produto.component';
 
 @NgModule({
   declarations: [  
     ListarProdutosComponent,
     AtualizarEstoqueComponent,
     CriarProdutoComponent,
-    AdicionarEspecificacaoComponent
+    AdicionarEspecificacaoComponent,
+    EditarProdutoComponent,
+    EditarEspecificacaoComponent,
+    PrecificacaoProdutoComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +43,9 @@ import { AtualizarEstoqueService } from 'src/app/usecases/produto/atualizar-esto
     CriarProdutoComponent,
     AdicionarEspecificacaoComponent,
     AtualizarEstoqueComponent,
+    EditarProdutoComponent,
+    EditarEspecificacaoComponent,
+    PrecificacaoProdutoComponent
   ],
   providers: [
     ListarProdutosService,
@@ -44,7 +55,9 @@ import { AtualizarEstoqueService } from 'src/app/usecases/produto/atualizar-esto
     ProdutosMaiorPreco,
     ProdutosMenorPrecoService,
     ListarProdutosMaiorDesconto,
-    ListarProdutosPaginado
+    ListarProdutosPaginado,
+    AtualizarProdutoService,
+    DeletarEspecificacaoProdutoService,
   ]
 })
 export class ProdutoModule {}

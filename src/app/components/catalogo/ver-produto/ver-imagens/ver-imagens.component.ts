@@ -14,7 +14,6 @@ export class VerImagensComponent implements OnInit {
   public imagemVizualizada!: ImagemProduto;
   @ViewChild('scrollImages') scrollImages!: ElementRef;
 
-
   public constructor() { }
 
   public alternarImagem(imagem: ImagemProduto): void {
@@ -27,11 +26,11 @@ export class VerImagensComponent implements OnInit {
     window.open(urlImagem);
   }
 
-  public scrollUp(el: HTMLElement) {
+  public scrollUp(el: HTMLElement): void {
     el.scrollTop -= SCROLL_VALUE;
   }
 
-  public scrollDown(el: HTMLElement) {
+  public scrollDown(el: HTMLElement): void {
     el.scrollTop += SCROLL_VALUE;
   }
 

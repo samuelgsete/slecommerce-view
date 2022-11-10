@@ -8,6 +8,7 @@ import { CriarProdutoService } from 'src/app/usecases/produto/criar-produto.serv
 import { cores } from 'src/app/utils/cores.util';
 import { EnviarImagemComponent } from '../../imagem-produto/enviar-imagem/enviar-imagem.component';
 import { AdicionarEspecificacaoComponent } from '../adicionar-especificacao/adicionar-especificacao.component';
+import { PrecificacaoProdutoComponent } from '../precificacao-produto/precificacao-produto.component';
 
 const PORCENTAGEM = 100;
 
@@ -26,9 +27,12 @@ export class CriarProdutoComponent implements OnInit {
   public cores = cores;
 
   @ViewChild('imagens')
-  public componenteEnviarImagem!: EnviarImagemComponent
+  public componenteEnviarImagem!: EnviarImagemComponent;
   @ViewChild('especificacoes')
   public componenteAdicionarEspecificacoes!: AdicionarEspecificacaoComponent; 
+  @ViewChild('precificacao')
+  public componentePrecificacao!: PrecificacaoProdutoComponent;
+
   public cadastrando: boolean = false;
 
   public constructor(
@@ -42,7 +46,7 @@ export class CriarProdutoComponent implements OnInit {
     this.router.navigateByUrl('/produto/listar');
   }
 
-  public cadastrarProduto() {
+  public cadastrarProduto(): void {
     this.cadastrando = true;
     const imagensProduto = this.componenteEnviarImagem.imagens;
     const especificacoes = this.componenteAdicionarEspecificacoes.especificacoes;
@@ -53,6 +57,7 @@ export class CriarProdutoComponent implements OnInit {
       marca: this.produto.value.marca,
       modelo: this.produto.value.modelo,
       linha: this.produto.value.linha,
+      precificacao: this.componentePrecificacao.getPrecificacao(),
       detalhes: this.produto.value.detalhes,
       condicao: this.caracteristicas.value.condicao,
       garantia: this.caracteristicas.value.garantia,
@@ -61,9 +66,6 @@ export class CriarProdutoComponent implements OnInit {
       freteGratis: this.caracteristicas.value.freteGratis,
       recemLancado: this.caracteristicas.value.recemLancado,
       conteudoEmbalagem: this.caracteristicas.value.conteudoEmbalagem,
-      preco: this.precificacao.value.preco,
-      parcelamento: this.precificacao.value.parcelamento,
-      taxaDesconto: this.precificacao.value.taxaDesconto / PORCENTAGEM,
       imagens: imagensProduto,
       altura: this.dimensoes.value.altura,
       largura: this.dimensoes.value.largura,
@@ -73,7 +75,6 @@ export class CriarProdutoComponent implements OnInit {
       unidadesVendidas: 0,
       especificacoes: especificacoes
     });
-    console.log(novoProduto);
     this.criar.executar(novoProduto).subscribe(response =>{
       this.toastr.success('Cadastrado com sucesso', 'Tudo Ok!', { progressBar: true });
       this.router.navigateByUrl('/produto/listar');
@@ -85,7 +86,7 @@ export class CriarProdutoComponent implements OnInit {
     });
   }
 
-  public formatLabelDesconto(taxaDesconto: number) {
+  public formatLabelDesconto(taxaDesconto: number): string {
     return taxaDesconto + "%";
   }
 
@@ -93,15 +94,6 @@ export class CriarProdutoComponent implements OnInit {
     if(cor1.nome == cor2.nome)
       return true;
     return false
-  }
-
-  public atualizarPreco() {
-    const taxaDesconto = this.precificacao.controls['taxaDesconto'].value / 100;
-    const precoAtual = this.precificacao.controls['preco'].value;
-    const desconto = precoAtual * taxaDesconto
-    const novoPreco = precoAtual - desconto;
-    this.precificacao.controls['valorDesconto'].patchValue(desconto);
-    this.precificacao.controls['precoDesconto'].patchValue(novoPreco);
   }
 
   ngOnInit(): void {
@@ -126,6 +118,7 @@ export class CriarProdutoComponent implements OnInit {
       preco: [99.99, [Validators.required]],
       parcelamento: [12, [Validators.required]],
       taxaDesconto: [1, [Validators.required]],
+      descontoAvista: [0, [Validators.required]],
       valorDesconto: [0],
       precoDesconto: [0]
     })

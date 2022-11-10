@@ -30,16 +30,16 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Preço</th>
-            <th>Desconto</th>
+            <th>Preço Parcelado</th>
+            <th>Preço Avista</th>
             <th>Estoque</th>
             <th>Ações</th>
         </tr>
         <tr *ngFor="let produto of produtos">
             <td>{{ produto.id }}</td>
             <td>{{ produto.nome }}</td>
-            <td>{{ (produto.preco - produto.taxaDesconto * produto.preco) | currency: 'BRL' }}</td>
-            <td>{{ (produto.taxaDesconto * produto.preco) | currency: 'BRL' }} ({{ produto.taxaDesconto | percent }})</td>
+            <td>{{ produto.precificacao.precoParcelamento | currency: 'BRL' }} ({{ produto.precificacao.taxaDescontoParcelamento | percent }})</td>
+            <td>{{ produto.precificacao.precoAvista | currency: 'BRL' }} ({{ produto.precificacao.taxaDescontoAvista | percent }})</td>
             <td>
                 <div class="inventory">
                     {{ produto.estoque }} uni
@@ -54,6 +54,7 @@
             </td>
             <td>
                 <button 
+                    (click)="irParaEditarProduto(produto.id)"
                     mat-icon-button 
                     color="primary" 
                     matTooltip="Edite esse produto">

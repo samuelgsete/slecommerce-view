@@ -2,11 +2,11 @@
     <h1>Consultar Frete e Prazo de entrega</h1>
 </div>
 <div class="row">
-    <mat-form-field class="width-fix" appearance="outline">
+    <mat-form-field appearance="outline">
         <mat-label>Digite seu CEP</mat-label>
-        <input matInput [formControl]="cep">
+        <input matInput [formControl]="cep" mask="00.000-000">
     </mat-form-field>
-    <button mat-fab class="no-shadow" color="primary">
+    <button mat-fab class="no-shadow" color="primary" [disabled]="!cep.valid">
         <mat-icon>local_shipping</mat-icon>
     </button>
 </div>

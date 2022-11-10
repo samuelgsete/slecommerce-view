@@ -10,7 +10,7 @@
     cursor: pointer;
     animation: fade 0.4s;
     transition: transform 0.3s;
-    width: 80%;
+    width: 70%;
     height: 70%;
     padding: 0 5%;
 }
@@ -58,4 +58,8 @@
 
 .others-images .images:hover {
     transform: scale(1.05);
+}
+
+.show-image {
+    animation: fade 0.8s;
 }

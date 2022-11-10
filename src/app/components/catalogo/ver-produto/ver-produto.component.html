@@ -3,42 +3,29 @@
     <div class="see-product">
         <div class="see-images">
             <app-ver-imagens [imagens]="produto.imagens"></app-ver-imagens>
-            <app-calcular-frete></app-calcular-frete>
         </div>
         <div class="see-description">
             <div class="product-rater">
-                <app-star-rater [aprovacaoMedia]="3" [totalAvaliadores]="1089"></app-star-rater>
+                <app-star-rater [aprovacaoMedia]="4" [totalAvaliadores]="1089"></app-star-rater>
             </div>
             <h1 class="product-name">{{ produto.nome }}</h1>
             <p class="availability-product">(ID.: {{ produto.id }}
-                | <span> {{ produto.estoque > 0 ? 'Em Estoque' : 'Em Falta' }}</span>)
+                | <span [ngClass]="{ 'available': produto.estoque > 0, 'unavailable' : produto.estoque == 0}"> {{ produto.estoque > 0 ? 'Em Estoque' : 'Em Falta' }}</span>)
             </p>
             
             <div class="product-promo">
-                <p class="previous-prince">{{ produto.preco | currency: 'BRL' }}</p>
-                <span class="discount-percent">{{ produto.taxaDesconto | percent }} OFF</span>
+                <p class="previous-prince">{{ produto.precificacao.precoBase | currency: 'BRL' }}</p>
+                <span class="discount-percent">{{ produto.precificacao.taxaDescontoParcelamento | percent }} OFF</span>
             </div>
-            <h1 class="discount-prince">{{ (produto.preco - produto.preco * produto.taxaDesconto) | currency: 'BRL' }}</h1>
-            <p class="product-installment vertical-margin">Em até <span class="value-installment">{{ produto.parcelamento }} x de {{((produto.preco - produto.preco * produto.taxaDesconto) / produto.parcelamento)| currency: 'BRL'}}</span> sem juros</p>
+            <h1 class="incash-prince">{{ produto.precificacao.precoAvista | currency: 'BRL' }}</h1>
+            <span class="spot-promotion">À vista no PIX em até <span class="off">{{ produto.precificacao.taxaDescontoAvista | percent }} OFF</span></span>
             <span class="save-money">
-                Economia de 
-                <span class="discount">{{ produto.preco * produto.taxaDesconto | currency: 'BRL' }}</span>
+                Economize
+                <span class="discount">{{ produto.precificacao.descontoAvista | currency: 'BRL' }}</span>
             </span>
-            <button class="btn" color="pink" [disabled]="!quantidadeItem.valid">ADICIONAR AO CARRINHO</button>
-            <table>
-                <tr>
-                    <th>Estoque</th>
-                    <td>{{ produto.estoque }} uni</td>
-                </tr>
-                <tr>
-                    <th>Unidades vendidas</th>
-                    <td>{{ produto.unidadesVendidas }} uni</td>
-                </tr>
-                <tr>
-                    <th>Condição do produto</th>
-                    <td>{{ produto.condicao }}</td>
-                </tr>
-            </table>
+            <p class="product-installment vertical-margin">Parcele em até <span class="value-installment">{{ produto.precificacao.parcelamento }} x de {{ ( produto.precificacao.precoParcelamento / produto.precificacao.parcelamento) | currency: 'BRL'}}</span> sem juros</p>
+            <button class="btn" color="pink" [disabled]="produto.estoque == 0">ADICIONAR AO CARRINHO</button>
+            <app-calcular-frete></app-calcular-frete>
         </div>
     </div>
     <mat-accordion multi>
@@ -70,8 +57,24 @@
                     <label class="value-property">{{ produto.linha }}</label>
                 </div>
                 <div class="item-list" >
+                    <label class="name-property">Estoque</label>
+                    <label class="value-property">{{ produto.estoque }} uni</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Unidades vendidas</label>
+                    <label class="value-property">{{ produto.unidadesVendidas }} uni</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Condição do Produto</label>
+                    <label class="value-property">{{ produto.condicao }}</label>
+                </div>
+                <div class="item-list" >
                     <label class="name-property">Garantia</label>
                     <label class="value-property">{{ produto.garantia }} meses</label>
+                </div>
+                <div class="item-list" >
+                    <label class="name-property">Cor</label>
+                    <label class="value-property">{{ produto.cor.nome }}</label>
                 </div>
                 <div class="item-list" >
                     <label class="name-property">Peso</label>
@@ -105,6 +108,6 @@
                     <label class="value-property">{{ especificacao.valor }}</label>
                 </div>
             </div>
-          </mat-expansion-panel>
+        </mat-expansion-panel>
     </mat-accordion>
 </div>

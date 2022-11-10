@@ -1,0 +1,54 @@
+<form [formGroup]="formularioPrecificacao">
+    <div class="row">
+        <div class="alert" color="primary">Seus clientes vão gostar de um bom desconto. Ofereca uma boa taxa de desconto sem comprometer sua margem de lucro</div>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="legacy">
+            <mat-label>Preço Base</mat-label>
+            <input formControlName="precoBase" (keyup)="precificar()" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" matInput required>
+            <mat-error *ngIf="formularioPrecificacao['controls']['precoBase'].errors?.['required']">O preço base é obrigatório</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <div class="slider" class="width-fix">
+            <label class="slider-label">Taxa de Desconto Avista ({{ descontoAvista.value }}%)</label>
+            <mat-slider #descontoAvista class="width-fix" formControlName="taxaDescontoAvista" [displayWith]="formatLabelDesconto" (change)="precificar()" min="0" max="70" thumbLabel="true" vertical="false"></mat-slider>
+        </div>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="legacy">
+            <mat-label>Preço Avista</mat-label>
+            <input formControlName="precoAvista" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" matInput readonly>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="legacy">
+            <mat-label>Desconto Avista</mat-label>
+            <input formControlName="descontoAvista" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" matInput readonly>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <div class="slider" class="width-fix">
+            <label class="slider-label">Taxa de Desconto Parcelado ({{ descontoParcelado.value }}%)</label>
+            <mat-slider #descontoParcelado class="width-fix" formControlName="taxaDescontoParcelamento" [displayWith]="formatLabelDesconto" (change)="precificar()" min="0" max="70" thumbLabel="true" vertical="false"></mat-slider>
+        </div>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="legacy">
+            <mat-label>Preço a Prazo</mat-label>
+            <input formControlName="precoParcelamento" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" matInput readonly>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="legacy">
+            <mat-label>Desconto a Prazo</mat-label>
+            <input formControlName="descontoParcelamento" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" matInput readonly>
+        </mat-form-field> 
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="legacy">
+            <mat-label>Parcelamento</mat-label>
+            <mat-select formControlName="parcelamento">
+                <mat-option *ngFor="let parcelamento of [1,2,3,4,5,6,7,8,9,10,11,12]" [value]="parcelamento">
+                    {{ parcelamento }}x {{(formularioPrecificacao['controls']['precoParcelamento'].value / parcelamento) | currency:'BRL'}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</form>

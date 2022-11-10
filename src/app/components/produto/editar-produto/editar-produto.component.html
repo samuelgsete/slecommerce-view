@@ -1,4 +1,5 @@
-<div class="container">
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
+<div *ngIf="!carregamento" class="container">
     <mat-stepper linear="true" orientation="vertical">
         <mat-step label="Informações Gerais">
             <form [formGroup]="produto">
@@ -67,18 +68,17 @@
                         </mat-error>
                         <mat-error *ngIf="produto['controls']['detalhes'].errors?.['maxlength']">Informe no mínimo 9000
                             caracteres</mat-error>
-                        <mat-hint>{{detalhes.value.length || 0}}/9000</mat-hint>
+                        <mat-hint>{{detalhes.value.length || 0}}/20000</mat-hint>
                     </mat-form-field>
                 </div>
                 <button class="btn" color="purple" [disabled]="!produto.valid" matStepperNext>PRÓXIMO</button>
             </form>
         </mat-step>
         <mat-step label="Adicionar Imagens">
-            <app-enviar-imagem #imagens></app-enviar-imagem>
+            <app-editar-imagem #imagens [imagens]="produtoCriado.imagens"></app-editar-imagem>
             <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
             <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
         </mat-step>
-
         <mat-step label="Outras Informações">
             <form [formGroup]="caracteristicas">
                 <div class="row">
@@ -158,7 +158,7 @@
         </mat-step>
 
         <mat-step label="Especificações do Produto">
-            <app-adicionar-especificacao #especificacoes ></app-adicionar-especificacao>
+            <app-editar-especificacao #especificacoes [especificacoes]="produtoCriado.especificacoes" ></app-editar-especificacao>
             <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
             <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
         </mat-step>
@@ -203,18 +203,17 @@
         </mat-step>
             
         <mat-step label="Informações de Precificação">
-            <app-precificacao-produto #precificacao></app-precificacao-produto>
+            <<app-precificacao-produto #precificacao [precificacao]="produtoCriado.precificacao"></app-precificacao-produto>
             <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
-            <button class="btn margin-left-button" color="purple" [disabled]="!caracteristicas.valid" matStepperNext>PRÓXIMO</button>
+            <button class="btn margin-left-button" color="purple" matStepperNext>PRÓXIMO</button>
         </mat-step>
-        
         <mat-step label="Tudo Pronto">
             <div class="complete-registration">
                 <img src="../../../../assets/img/svg/completing_re_i7ap.svg" alt="Complete registration" width="120px">
-                <mat-spinner *ngIf="cadastrando" class="created" [diameter]="30"></mat-spinner>
-                <p>Seu produto está pronto para ser anunciado</p>
-                <button class="btn" color="success" (click)="cadastrarProduto()">
-                    {{ !cadastrando ? 'FINALIZAR CADASTRO' : 'FINALIZAR CADASTRO...' }}
+                <mat-spinner *ngIf="atualizando" class="created" [diameter]="30"></mat-spinner>
+                <p>Seu produto está pronto para ser atualizado</p>
+                <button class="btn" color="success" (click)="atualizarProduto()">
+                    {{ !atualizando ? 'ATUALIZAR OFERTA' : 'ATUALIZAR OFERTA...' }}
                 </button>
             </div>
         </mat-step>

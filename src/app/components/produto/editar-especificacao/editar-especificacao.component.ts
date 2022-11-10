@@ -2,13 +2,15 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Especificacao } from 'src/app/model/especificacao.entity';
+import { DeletarEspecificacaoProdutoService } from 'src/app/usecases/especificacao/deletar-especificacao-produto.service';
+
 
 @Component({
-  selector: 'app-adicionar-especificacao',
-  templateUrl: './adicionar-especificacao.component.html',
-  styleUrls: ['./adicionar-especificacao.component.css']
+  selector: 'app-editar-especificacao',
+  templateUrl: './editar-especificacao.component.html',
+  styleUrls: ['./editar-especificacao.component.css']
 })
-export class AdicionarEspecificacaoComponent implements OnInit {
+export class EditarEspecificacaoComponent implements OnInit {
 
   public formulario!: FormGroup;
   @Input() public especificacoes: Especificacao[] = [];
@@ -17,7 +19,10 @@ export class AdicionarEspecificacaoComponent implements OnInit {
   @ViewChild('inputnome')
   public nome!: ElementRef;
 
-  public constructor(private readonly _fb: FormBuilder) {}
+  public constructor(
+    private readonly _fb: FormBuilder,
+    private readonly deletarEspecificacao: DeletarEspecificacaoProdutoService
+  ) {}
 
   public adicionarEspecificacao(especificacao: any) {
     const novaEspecificacao = new Especificacao({
@@ -43,9 +48,11 @@ export class AdicionarEspecificacaoComponent implements OnInit {
   public removerSelecionados() {
     const especificacoesSelecionadas = this.especificacoes.filter(especificacao => especificacao.selecionado == true);
     especificacoesSelecionadas.forEach(especificacaoSelecionada => {
-      const index = this.especificacoes.indexOf(especificacaoSelecionada);
-      this.especificacoes.splice(index, 1);
-      this.contador--;
+      this.deletarEspecificacao.executar(especificacaoSelecionada.id).subscribe(response => {
+        const index = this.especificacoes.indexOf(especificacaoSelecionada);
+        this.especificacoes.splice(index, 1);
+        this.contador--;
+      });
     });
   }
 

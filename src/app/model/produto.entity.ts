@@ -1,11 +1,13 @@
+import { Cor } from "./cor.entity";
 import { EntidadeBase } from "./entidade-base.entity";
 import { Especificacao } from "./especificacao.entity";
 import { ImagemProduto } from "./imagem-produto.entity";
+import { Precificacao } from "./precificacao.entity";
 
 export class Produto extends EntidadeBase {
+
     public nome!: string
-    public preco!: number
-    public taxaDesconto!: number
+    public precificacao!: Precificacao
     public fabricante!: string
     public marca!: string
     public modelo!: string
@@ -13,7 +15,6 @@ export class Produto extends EntidadeBase {
     public garantia!: number
     public estoque!: number
     public unidadesVendidas!: number
-    public parcelamento!: number
     public detalhes!: number
     public freteGratis!: boolean
     public aprovacaoMedia!: number
@@ -26,7 +27,7 @@ export class Produto extends EntidadeBase {
     public peso!: number
     public imagens: ImagemProduto[] = []
     public especificacoes: Especificacao[] = []
-    public selecionado: boolean = false;
+    public cor!: Cor;
 
     public constructor(values: Object = {}) { 
         super();

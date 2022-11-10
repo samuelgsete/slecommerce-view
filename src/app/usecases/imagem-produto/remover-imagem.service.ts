@@ -6,7 +6,7 @@ import { environment } from "src/environments/environment.prod"; // urls em prod
 
 @Injectable()
 export class RemoverImagemService {
-    
+    // Deleta a imagem do servidor de upload
     private urlBase =  environment.uploadImgUrl.concat("/imagem")
 
     public constructor(private readonly http: HttpClient) {}

@@ -21,10 +21,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxMaskModule } from 'ngx-mask'
+
 import { StarRaterComponent } from './components/star-rater/star-rater.component';
 
 @NgModule({
@@ -53,6 +56,7 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     MatMenuModule,
     ToastrModule.forRoot(),
     MatExpansionModule,
+    DragDropModule,
     NgCircleProgressModule.forRoot({
       radius: 38,
       outerStrokeWidth: 8,
@@ -64,7 +68,8 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
       showSubtitle: false
     }),
     MatDialogModule,
-    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    NgxMaskModule.forRoot()
   ],
   exports: [
     BrowserAnimationsModule,
@@ -87,11 +92,13 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     MatTooltipModule,
     ToastrModule,
     MatExpansionModule,
+    DragDropModule,
     NgCircleProgressModule,
     MatDialogModule,
     NgxSpinnerModule,
+    NgxMaskModule,
     StarRaterComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SharedModule { }
+export class SharedModule {}

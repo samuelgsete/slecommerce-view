@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 
 div.container {
     display: flex;
@@ -33,7 +34,6 @@ div.container h1, p {
     margin: 2px;
 }
 
-
 div.see-product .see-description {
     display: flex;
     flex-direction: column;
@@ -43,16 +43,33 @@ div.see-product .see-description .availability-product {
     color: rgb(var(--gray-6));
 }
 
-div.see-product .see-description .availability-product span {
+div.see-product .see-description .availability-product span.available {
     font-weight: bold;
     color: rgb(var(--default));
 }
 
-div.see-product .see-description .discount-prince {
+div.see-product .see-description .availability-product span.unavailable {
+    font-weight: bold;
+    color: rgb(var(--danger));
+}
+
+div.see-product .see-description .incash-prince {
     font-size: 2.5em;
     font-family: 'Lato', sans-serif;
     color: rgb(var(--purple));
     font-weight: bold;
+}
+
+div.see-product .see-description .spot-promotion {
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(var(--gray-8));
+    margin: 3px 0;
+}
+
+div.see-product .see-description .spot-promotion .off {
+    color: rgb(var(--purple));
+    font-weight: bolder;
 }
 
 div.see-product .see-description .previous-prince {
@@ -68,7 +85,7 @@ div.see-product .see-description .product-promo {
 }
 
 div.see-product .see-description .discount-percent {
-    color: rgb(var(--success));
+    color: rgb(var(--default));
     font-weight: bold;
 }
 
@@ -83,7 +100,7 @@ div.see-product .see-description .product-installment .value-installment {
 
 div.see-product .see-description .save-money {
     color: rgb(var(--gray-6));
-    font-size: 0.9em;
+    font-size: 1.0em;
     font-family: 'Arial';
     border-radius: 3px;
     padding: 8px 0;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ImagemProduto } from 'src/app/model/imagem-produto.entity';
 
 import { Produto } from 'src/app/model/produto.entity';
 import { BuscarProdutoService } from 'src/app/usecases/produto/buscar-produto.service';
@@ -30,10 +31,17 @@ export class VerProdutoComponent implements OnInit {
     this.spinner.show();
     this.buscarProduto.executar(produtoId).subscribe(response => {
       this.produto = response;
-      console.log(this.produto);
+      const imagens: ImagemProduto[] = this.produto.imagens;
+      imagens.sort(this.ordenarImg);
       this.spinner.hide();
       this.carregamento = false;
     });
+  }
+
+  public ordenarImg(imgA: ImagemProduto, imgB: ImagemProduto) {
+    if(imgA.imagemPrincipal)
+      return -1;
+    return 1;
   }
 
   ngOnInit(): void {

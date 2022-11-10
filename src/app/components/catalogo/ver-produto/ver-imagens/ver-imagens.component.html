@@ -8,7 +8,7 @@
             <mat-icon>arrow_upward</mat-icon>
         </button>
         <div class="scroll-images" #scrollImages>
-            <div class="images" *ngFor="let imagem of imagens" (click)="alternarImagem(imagem)"
+            <div class="images" *ngFor="let imagem of imagens" (mouseenter)="alternarImagem(imagem)"
                 [ngClass]="{ 'selected-image': imagem.imagemPrincipal, 'unselected-image': !imagem.imagemPrincipal }">
                 <img 
                     [src]="imagem.url" 
@@ -20,7 +20,8 @@
             </div>
         </div>
         <button 
-            mat-icon-button color="primary" 
+            mat-icon-button 
+            color="primary" 
             (click)="scrollDown(scrollImages)"
             *ngIf="imagens.length > 4"
         >
