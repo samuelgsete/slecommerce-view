@@ -1,7 +1,9 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import SwiperCore, { Pagination, Autoplay, EffectCoverflow } from 'swiper';
+
 import { ImagemProduto } from 'src/app/model/imagem-produto.entity';
 
-const SCROLL_VALUE = 100;
+SwiperCore.use([ Pagination, Autoplay, EffectCoverflow ]);
 
 @Component({
   selector: 'app-ver-imagens',
@@ -11,30 +13,8 @@ const SCROLL_VALUE = 100;
 export class VerImagensComponent implements OnInit {
 
   @Input() public imagens: ImagemProduto[] = [];
-  public imagemVizualizada!: ImagemProduto;
-  @ViewChild('scrollImages') scrollImages!: ElementRef;
 
-  public constructor() { }
+  public constructor() {}
 
-  public alternarImagem(imagem: ImagemProduto): void {
-    this.imagemVizualizada.imagemPrincipal = false;
-    this.imagemVizualizada = imagem;
-    this.imagemVizualizada.imagemPrincipal = true;
-  }
-
-  public verImagem(urlImagem: string): void {
-    window.open(urlImagem);
-  }
-
-  public scrollUp(el: HTMLElement): void {
-    el.scrollTop -= SCROLL_VALUE;
-  }
-
-  public scrollDown(el: HTMLElement): void {
-    el.scrollTop += SCROLL_VALUE;
-  }
-
-  ngOnInit(): void {
-    this.imagemVizualizada = this.imagens[0];
-  }
+  ngOnInit(): void {}
 }

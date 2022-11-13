@@ -43,7 +43,6 @@ export class ListarProdutosComponent implements OnInit {
     this.spinner.show();
     this.listarProdutosPaginado.executar(paginacao).subscribe(response => {
       this.produtos = response.content;
-      console.log(this.produtos);
       this.paginacao.primeiraPagina = response.first;
       this.paginacao.ultimaPagina = response.last;
       this.paginacao.totalElementos = response.totalElements;

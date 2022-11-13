@@ -1,0 +1,19 @@
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
+<div class="container" *ngIf="!carregamento">
+    <div class="product-catalog" *ngFor="let produto of produtos">
+        <div class="images">
+            <app-ver-imagens [imagens]="produto.imagens"></app-ver-imagens>
+        </div>
+        <p class="product-description">{{ produto.nome }}</p>
+        <app-star-rater [aprovacaoMedia]="4" [totalAvaliadores]="1089"></app-star-rater>
+        <div class="product-promo">
+            <p class="previous-prince">{{ produto.precificacao.precoBase | currency: 'BRL' }}</p>
+            <span class="discount-percent">{{ produto.precificacao.taxaDescontoParcelamento | percent }} OFF</span>
+        </div>
+        <h1 class="incash-prince">{{ produto.precificacao.precoAvista | currency: 'BRL' }}</h1>
+        <span class="spot-promotion">À vista no PIX <span class="off">{{ produto.precificacao.taxaDescontoAvista | percent }} OFF</span></span>
+        <button class="btn" color="pink" [disabled]="produto.estoque == 0">QUERO COMPRAR</button>
+        <hr>
+        <p class="product-installment">Em até <span class="value-installment">{{ produto.precificacao.parcelamento }} x de {{ ( produto.precificacao.precoParcelamento / produto.precificacao.parcelamento) | currency: 'BRL'}}</span> sem juros</p>
+    </div>
+</div>

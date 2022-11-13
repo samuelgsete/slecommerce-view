@@ -13,6 +13,13 @@
 @import '~ngx-toastr/toastr';
 @import "~ngx-spinner/animations/ball-clip-rotate-pulse.css";
 
+@import '~swiper/swiper.min.css';
+@import '~swiper/modules/navigation/navigation.min.css';
+@import '~swiper/modules/pagination/pagination.min.css';
+@import '~swiper/modules/effect-coverflow/effect-coverflow.less';
+@import '~swiper/modules/zoom/zoom.min.css';
+@import '~swiper/modules/effect-creative/effect-creative.min.css';
+
 * {
     margin: 0;
     padding: 0;

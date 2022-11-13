@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+.container {
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 2%;
+    row-gap: 2%;
+}
+
+.product-catalog p, span, h1 {
+    margin: 1px 0;
+    padding: 2px 0;
+}
+
+.product-catalog {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    padding: 25px 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: box-shadow 0.4s;
+    border: 2pt solid #fff;
+    border-radius: 6px;
+    transition: border 0.4s;
+    cursor: pointer;
+}
+
+.product-catalog:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 2pt solid rgb(var(--purple));
+}
+
+.product-catalog .product-description {
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(var(--gray-8));
+}
+
+.product-catalog .images {
+    width: 220px;
+    margin: 0 auto;
+}
+
+.product-catalog .spot-promotion .off {
+    color: rgb(var(--purple));
+    font-weight: bolder;
+}
+
+.product-catalog .previous-prince {
+    color: rgb(var(--gray-6));
+    text-decoration: line-through;
+}
+
+.product-catalog .product-promo {
+    display: flex;
+    column-gap: 4px;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.product-catalog .incash-prince {
+    font-size: 2.1em;
+    font-family: 'Lato', sans-serif;
+    color: rgb(var(--purple));
+    font-weight: bold;
+}
+
+.product-catalog .discount-percent {
+    color: rgb(var(--default));
+    font-weight: bold;
+}
+
+.product-catalog .spot-promotion {
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(var(--gray-8));
+    margin: 3px 0;
+}
+
+.product-catalog .spot-promotion .off {
+    color: rgb(var(--purple));
+    font-weight: bolder;
+}
+
+.product-catalog .product-installment {
+    color: rgb(var(--gray-6));
+    text-align: center;
+    font-size: 1.12em;
+}
+
+.product-catalog .product-installment .value-installment {
+    font-weight: bold;
+    color: rgb(var(--success));
+}
+
+.product-catalog hr {
+    margin-top: 3px;
+    margin-bottom: 5px;
+    border: 1px solid rgb(var(--gray-2));
+}

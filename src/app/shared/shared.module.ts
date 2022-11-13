@@ -27,6 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxMaskModule } from 'ngx-mask'
+import { SwiperModule } from "swiper/angular";
 
 import { StarRaterComponent } from './components/star-rater/star-rater.component';
 
@@ -69,7 +70,8 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     }),
     MatDialogModule,
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    SwiperModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -97,6 +99,7 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     MatDialogModule,
     NgxSpinnerModule,
     NgxMaskModule,
+    SwiperModule,
     StarRaterComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

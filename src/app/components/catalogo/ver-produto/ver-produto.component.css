@@ -34,6 +34,10 @@ div.container h1, p {
     margin: 2px;
 }
 
+div.see-product div.see-images {
+    width: 480px;
+}
+
 div.see-product .see-description {
     display: flex;
     flex-direction: column;

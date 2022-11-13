@@ -1,41 +1,13 @@
-<div class="images-preview">
-    <div class="others-images">
-        <button 
-            mat-icon-button color="primary" 
-            (click)="scrollUp(scrollImages)"
-            *ngIf="imagens.length > 4"
-        >
-            <mat-icon>arrow_upward</mat-icon>
-        </button>
-        <div class="scroll-images" #scrollImages>
-            <div class="images" *ngFor="let imagem of imagens" (mouseenter)="alternarImagem(imagem)"
-                [ngClass]="{ 'selected-image': imagem.imagemPrincipal, 'unselected-image': !imagem.imagemPrincipal }">
-                <img 
-                    [src]="imagem.url" 
-                    [alt]="imagem.nomeRandomico" 
-                    width="100%" 
-                    height="100%" 
-                    loading="lazy"
-                >
-            </div>
-        </div>
-        <button 
-            mat-icon-button 
-            color="primary" 
-            (click)="scrollDown(scrollImages)"
-            *ngIf="imagens.length > 4"
-        >
-            <mat-icon>arrow_downward</mat-icon>
-        </button>
-    </div>
-    <img 
-        class="main-image" 
-        [src]="imagemVizualizada.url" 
-        [alt]="imagemVizualizada.nomeRandomico" 
-        width="100%"
-        height="100%" 
-        loading="lazy" 
-        (click)="verImagem(imagemVizualizada.url)"
-        matTooltip="Clique para ver a imagem em tamanho real"
-    >
-</div>
+<swiper
+    [slidesPerView]="1"
+    [loop]="true"
+    [autoplay]="{ delay: 9500 }"
+    effect="coverflow"
+    [pagination]="{ clickable: true }"
+    [speed]="800"
+    style="width: 100%"
+>
+    <ng-template swiperSlide *ngFor="let img of imagens">
+        <img [src]="img.url" [alt]="img.nomeRandomico" loading="lazy" width="100%" height="100%">
+    </ng-template>
+</swiper>
