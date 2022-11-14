@@ -1,46 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-div.header {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2% 10%;
-}
-
-div.header * {
-    margin: 0;
-}
-
-div.header div.title p {
-    font-family: 'Open Sans', sans-serif;
-    color: rgb(var(--gray-6));
-    margin: 5px;
-}
-
-div.header div.title h1 {
-    font-weight: bold;
-    font-family: 'Ubuntu', sans-serif;
-}
-
 div.container {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2% 4%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-
 div.container mat-stepper {
-    width: 55%;
+    max-width: min-content;
 }
 
 div.container mat-stepper div.row {
     display: flex;
     column-gap: 2%;
-    margin: 4px 0;
+    margin: 1% 0;
 }
 
 div.form form div.slider {

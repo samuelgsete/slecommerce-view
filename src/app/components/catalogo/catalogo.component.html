@@ -12,7 +12,14 @@
         </div>
         <h1 class="incash-prince">{{ produto.precificacao.precoAvista | currency: 'BRL' }}</h1>
         <span class="spot-promotion">À vista no PIX <span class="off">{{ produto.precificacao.taxaDescontoAvista | percent }} OFF</span></span>
-        <button class="btn" color="pink" [disabled]="produto.estoque == 0">QUERO COMPRAR</button>
+        <button 
+            class="btn" 
+            color="pink" 
+            [disabled]="produto.estoque == 0"
+            (click)="irParaProduto(produto.id)"
+        >
+            QUERO COMPRAR
+        </button>
         <hr>
         <p class="product-installment">Em até <span class="value-installment">{{ produto.precificacao.parcelamento }} x de {{ ( produto.precificacao.precoParcelamento / produto.precificacao.parcelamento) | currency: 'BRL'}}</span> sem juros</p>
     </div>

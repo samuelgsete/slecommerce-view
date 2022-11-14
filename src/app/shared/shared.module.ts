@@ -30,10 +30,12 @@ import { NgxMaskModule } from 'ngx-mask'
 import { SwiperModule } from "swiper/angular";
 
 import { StarRaterComponent } from './components/star-rater/star-rater.component';
+import { TextSmallPipe } from '../pipes/text-small.pipe';
 
 @NgModule({
   declarations: [
     FilesizePipe,
+    TextSmallPipe,
     DragDropDirective,
     StarRaterComponent
   ],
@@ -100,7 +102,8 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     NgxSpinnerModule,
     NgxMaskModule,
     SwiperModule,
-    StarRaterComponent
+    StarRaterComponent,
+    TextSmallPipe,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

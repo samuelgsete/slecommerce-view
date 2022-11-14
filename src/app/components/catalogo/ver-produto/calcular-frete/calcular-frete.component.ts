@@ -12,7 +12,7 @@ export class CalcularFreteComponent implements OnInit {
     validators: Validators.required
   })
 
-  public constructor() { }
+  public constructor() {}
 
   ngOnInit(): void {}
 }

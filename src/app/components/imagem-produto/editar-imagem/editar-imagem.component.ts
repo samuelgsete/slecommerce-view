@@ -22,7 +22,6 @@ export class EditarImagemComponent implements OnInit {
   public progresso: number = 0;
   public imagensSelecionadas: ImagemProduto[] = [];
   public contador = 0; // conta a quantidade de imagens selecionadas
-  public maxUploads: boolean = true;
 
   public constructor(
     private readonly toastr: ToastrService, 
@@ -85,18 +84,20 @@ export class EditarImagemComponent implements OnInit {
       confirmButtonText: 'Sim',
       cancelButtonText: 'Não'
     }).then((result) => {
-      this.imagens[index].estaRemovida = true;
-      this.removerImg.executar(img.nomeRandomico).subscribe(response => {
-        this.deletarImagem.executar(img.id).subscribe(response => {
-        if(this.imagens[index].estaSelecionada) 
-          this.contador--;
-        if(this.imagens[0] != null)
-          this.imagens[0].imagemPrincipal = true;
-        }).add(() => {
-          this.imagens.splice(index, 1);
-          this.toastr.info('Removido com sucesso', 'Tudo bem!', { progressBar: true });
+      if(result.isConfirmed) {
+        this.imagens[index].estaRemovida = true;
+        this.removerImg.executar(img.nomeRandomico).subscribe(response => {
+          this.deletarImagem.executar(img.id).subscribe(response => {
+          if(this.imagens[index].estaSelecionada) 
+            this.contador--;
+          if(this.imagens[0] != null)
+            this.imagens[0].imagemPrincipal = true;
+          }).add(() => {
+            this.imagens.splice(index, 1);
+            this.toastr.info('Removido com sucesso', 'Tudo bem!', { progressBar: true });
+          })
         })
-      })
+      }
     });
   }
 
@@ -109,20 +110,22 @@ export class EditarImagemComponent implements OnInit {
       confirmButtonText: 'Sim',
       cancelButtonText: 'Não'
     }).then((result) => {
-      let imagensSelecionadas = this.imagens.filter((imagem) => imagem.estaSelecionada == true);
-      imagensSelecionadas.forEach(imagemSelecionada => {
-        this.removerImg.executar(imagemSelecionada.nomeRandomico).subscribe(response => {
-          this.deletarImagem.executar(imagemSelecionada.id).subscribe(response => {
-            let index = this.imagens.indexOf(imagemSelecionada);
-            this.imagens[index].estaRemovida = false;
-            this.imagens.splice(index, 1);
-            this.contador = 0;
-            this.toastr.info('Removido com sucesso', 'Tudo bem!', { progressBar: true });
-            if(this.imagens[0] != null)
-              this.imagens[0].imagemPrincipal = true;
-          });
+      if(result.isConfirmed) {
+        let imagensSelecionadas = this.imagens.filter((imagem) => imagem.estaSelecionada == true);
+        imagensSelecionadas.forEach(imagemSelecionada => {
+          this.removerImg.executar(imagemSelecionada.nomeRandomico).subscribe(response => {
+            this.deletarImagem.executar(imagemSelecionada.id).subscribe(response => {
+              let index = this.imagens.indexOf(imagemSelecionada);
+              this.imagens[index].estaRemovida = false;
+              this.imagens.splice(index, 1);
+              this.contador = 0;
+              this.toastr.info('Removido com sucesso', 'Tudo bem!', { progressBar: true });
+              if(this.imagens[0] != null)
+                this.imagens[0].imagemPrincipal = true;
+            });
+          })
         })
-      })
+      }
     })
   }
 

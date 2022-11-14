@@ -23,7 +23,14 @@
                 <div class="img-details">
                     <mat-spinner *ngIf="img.estaRemovida" [diameter]="20"></mat-spinner>
                     <h3 class="name-img">{{ img.nomeRandomico }}</h3>
-                    <a class="url-img" [href]="img.url" target="_blank" matTooltip="Url da imagem">{{ img.url }}</a>
+                    <a 
+                        class="url-img" 
+                        [href]="img.url" 
+                        target="_blank" 
+                        matTooltip="Ver imagem"
+                    >
+                        {{ img.url | textsmall: '30' }}
+                    </a>
                     <p class="size-img" >{{ img.tamanho | filesize }}</p>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 import SwiperCore, { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper';
 
@@ -21,6 +22,7 @@ export class CatalogoComponent implements OnInit {
   public carregamento: boolean = false;
 
   public constructor(
+    private readonly router: Router,
     private spinner: NgxSpinnerService,
     private readonly listarProdutosPaginado: ListarProdutosPaginado,
   ) {}
@@ -40,6 +42,10 @@ export class CatalogoComponent implements OnInit {
 
   public imagemPrincipal(imagens: ImagemProduto[]): ImagemProduto | undefined {
     return imagens.find( img => { return img.imagemPrincipal })
+  }
+
+  public irParaProduto(id: number): void {
+    this.router.navigateByUrl(`/produto/${id}/ver`);
   }
 
   ngOnInit(): void {
