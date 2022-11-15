@@ -1,0 +1,137 @@
+<div class="content">
+    <section class="form">
+        <header>
+            <div class="logotipo">
+                <img src="/assets/img/logotipo.png" alt="Logotipo" width="74px">
+                <h1>Olá, tudo bem?</h1>
+            </div>
+            <button class="btn" color="purple" outline="true">FAZER LOGIN</button>
+        </header>
+        <main class="main-content">
+            <form [formGroup]="formularioCliente">
+                <div class="row">
+                    <h2>Crie sua conta Gratuíta</h2>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input matInput formControlName="nome" minlength="2" maxlength="20" required>
+                        <mat-error *ngIf="formularioCliente['controls']['nome'].errors?.['required']">
+                            O nome é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['nome'].errors?.['minlength']">
+                            Informe no mínimo 2 caracteres
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['nome'].errors?.['maxlength']">
+                            Informe no mínimo 20 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="fill">
+                        <mat-label>Sobrenome</mat-label>
+                        <input matInput formControlName="sobrenome" minlength="2" maxlength="20" required>
+                        <mat-error *ngIf="formularioCliente['controls']['sobrenome'].errors?.['required']">
+                            O sobrenome é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['sobrenome'].errors?.['minlength']">
+                            Informe no mínimo 2 caracteres
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['sobrenome'].errors?.['maxlength']">
+                            Informe no mínimo 20 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="fill">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput formControlName="email" required>
+                        <mat-error *ngIf="formularioCliente['controls']['email'].errors?.['required']">
+                            O email é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['email'].errors?.['email']">
+                            O email deve ser válido
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="fill">
+                        <mat-label>CPF</mat-label>
+                        <input matInput formControlName="cpf" mask="000.000.000-00" required>
+                        <mat-error *ngIf="formularioCliente['controls']['cpf'].errors?.['required']">
+                            O cpf é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['cpf'].errors?.['mask']">
+                            Informe um formato válido
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="fill">
+                        <mat-label>Telefone</mat-label>
+                        <input matInput formControlName="telefone" mask="(00) 00000-0000" required>
+                        <mat-error *ngIf="formularioCliente['controls']['telefone'].errors?.['required']">
+                            O telefone é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['telefone'].errors?.['mask']">
+                            Informe um formato válido
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="fill">
+                        <mat-label>Usuário</mat-label>
+                        <input matInput formControlName="usuario" minlength="5" maxlength="20" required>
+                        <mat-error *ngIf="formularioCliente['controls']['usuario'].errors?.['required']">
+                            O usuario é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['usuario'].errors?.['minlength']">
+                            Informe no mínimo 5 caracteres
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['usuario'].errors?.['maxlength']">
+                            Informe no máximo 10 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="fill">
+                        <mat-label>Senha</mat-label>
+                        <input matInput type="password" formControlName="senha" minlength="5" maxlength="20" required>
+                        <mat-error *ngIf="formularioCliente['controls']['senha'].errors?.['required']">
+                            A senha é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['senha'].errors?.['minlength']">
+                            Informe no mínimo 5 caracteres
+                        </mat-error>
+                        <mat-error *ngIf="formularioCliente['controls']['senha'].errors?.['maxlength']">
+                            Informe no máximo 10 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-checkbox #termos class="terms" formControlName="termosUso">
+                        Aceito os <a href="#">Termos de uso</a> e <a href="#">Políticas de Privacidade</a>.
+                    </mat-checkbox>
+                </div>
+                <button 
+                    class="btn" 
+                    color="pink" 
+                    block="true" 
+                    [disabled]="!formularioCliente.valid || !termos.checked"
+                    (click)="registrarCliente(formularioCliente.value)"
+                >
+                    CRIAR CONTA
+                </button>
+            </form>
+        </main>
+        <footer>
+            <hr>
+            &copy; 2022 Todos os Direitos Autorais estão reservados
+        </footer>
+    </section>
+    <section class="landing-page">
+        <img class="ilustration" src="/assets/img/svg/undraw_online_information_re_erks.svg" alt="Ilustração" width="30%">
+        <h1>Confira nossas vantagens</h1>
+        <ul>
+            <li *ngFor="let vantagem of vantagens">
+                <mat-icon>done_all</mat-icon>
+                {{ vantagem }}
+            </li>
+        </ul>
+    </section>
+</div>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

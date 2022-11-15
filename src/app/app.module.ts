@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ProdutoModule } from './components/produto/produto.module';
 import { ImagemProdutoModule } from './components/imagem-produto/imagem-produto.module';
 import { CatalogoModule } from './components/catalogo/catalogo.module';
+import { ClienteModule } from './components/cliente/cliente.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CatalogoModule } from './components/catalogo/catalogo.module';
     BrowserAnimationsModule,
     ProdutoModule,
     ImagemProdutoModule,
-    CatalogoModule
+    CatalogoModule,
+    ClienteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

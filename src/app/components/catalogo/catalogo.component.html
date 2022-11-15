@@ -5,7 +5,7 @@
             <app-ver-imagens [imagens]="produto.imagens"></app-ver-imagens>
         </div>
         <p class="product-description">{{ produto.nome }}</p>
-        <app-star-rater [aprovacaoMedia]="4" [totalAvaliadores]="1089"></app-star-rater>
+        <app-star-rater [aprovacaoMedia]="produto.aprovacaoMedia" [totalAvaliadores]="1089"></app-star-rater>
         <div class="product-promo">
             <p class="previous-prince">{{ produto.precificacao.precoBase | currency: 'BRL' }}</p>
             <span class="discount-percent">{{ produto.precificacao.taxaDescontoParcelamento | percent }} OFF</span>

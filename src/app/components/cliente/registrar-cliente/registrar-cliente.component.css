@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+div.content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+section.landing-page {
+    color: rgb(var(--gray-2));
+    background-color: rgb(var(--default));
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+section.landing-page .ilustration {
+    margin: 10px 0;
+}
+
+section.landing-page {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+section.landing-page ul {
+    font-size: 1.15em;
+    list-style: none;
+}
+
+section.landing-page ul li {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    font-family: 'Quicksand', sans-serif;
+    animation: down 0.6s;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+section.landing-page ul li mat-icon {
+    margin-right: 5px;
+}
+
+section.form, section.landing-page {
+    display: flex;
+    flex-direction: column;
+    padding: 2% 5%;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 92%;
+}
+
+header {
+    padding: 1% 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    animation: up 0.5s;
+}
+
+header div.logotipo {
+    display: flex;
+    align-items: center;
+    font-family: 'Archivo', sans-serif;
+}
+
+header div.logotipo h1 {
+    font-size: 1.2em;
+}
+
+
+main.main-content {
+    max-width: min-content;
+    animation: fade 0.5s;
+}
+
+main.main-content h2 {
+    margin: 20px 0;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 1.yem;
+    color: rgb(var(--dark));
+}
+
+.row {
+    display: flex;
+    column-gap: 8px;
+}
+
+.row * {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.terms {
+    color: rgb(var(--gray-8));
+    margin: 7px 0;
+}
+
+.registred {
+    font-size: 1.1em;
+    color: rgb(var(--gray-8));
+}
+
+.registred a, .terms a {
+    font-weight: bold;
+    color: rgb(var(--default));
+    text-decoration: none;
+}
+
+footer {
+    padding: 2% 0;
+    font-size: 1.0em;
+    color: rgb(var(--gray-6));
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    text-align: center;
+    animation: down 0.5s;
+}
+
+footer hr {
+    border: 1px solid rgb(var(--gray-3));
+    margin-bottom: 10px;
+}
+
+mat-error {
+    margin-left: -10px;
+    font-weight: bold;
+}

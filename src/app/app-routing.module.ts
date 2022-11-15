@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { VerProdutoComponent } from './components/catalogo/ver-produto/ver-produto.component';
+import { RegistrarClienteComponent } from './components/cliente/registrar-cliente/registrar-cliente.component';
 import { CriarProdutoComponent } from './components/produto/criar-produto/criar-produto.component';
 import { EditarProdutoComponent } from './components/produto/editar-produto/editar-produto.component';
 import { ListarProdutosComponent } from './components/produto/listar-produtos/listar-produtos.component';
@@ -12,11 +13,12 @@ const routes: Routes = [
   { path: 'produto/listar', component: ListarProdutosComponent },
   { path: 'produto/criar', component: CriarProdutoComponent },
   { path: 'produto/:id/ver', component: VerProdutoComponent },
-  { path: 'produto/:id/editar', component: EditarProdutoComponent }
+  { path: 'produto/:id/editar', component: EditarProdutoComponent },
+  { path: 'cliente/registrar', component: RegistrarClienteComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
