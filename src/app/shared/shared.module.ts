@@ -22,6 +22,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -57,6 +58,7 @@ import { TextSmallPipe } from '../pipes/text-small.pipe';
     MatCheckboxModule,
     MatTooltipModule,
     MatMenuModule,
+    MatButtonToggleModule,
     ToastrModule.forRoot(),
     MatExpansionModule,
     DragDropModule,
@@ -99,6 +101,7 @@ import { TextSmallPipe } from '../pipes/text-small.pipe';
     DragDropModule,
     NgCircleProgressModule,
     MatDialogModule,
+    MatButtonToggleModule,
     NgxSpinnerModule,
     NgxMaskModule,
     SwiperModule,

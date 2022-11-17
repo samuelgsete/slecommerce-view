@@ -1,0 +1,66 @@
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
+<div class="content" *ngIf="!carregamento">
+    <section>
+        <div class="card-cart" *ngFor="let item of carrinho.itens">  
+            <mat-checkbox [checked]="item.selecionado" (change)="selecionarItem($event.checked, carrinho.id, item)"></mat-checkbox>         
+            <img class="product-img" [src]="imagemPrincipal(item.produto.imagens)?.url" alt="Foto produto">
+            <div class="product-request">
+                <p class="product-name" (click)="verProduto(item.produto.id)">{{ item.produto.nome }}</p>
+                <p class="product-price">
+                    {{ item.quantidade }}x {{ item.produto.precificacao.precoAvista | currency: 'BRL' }} | <span class="in-stock" *ngIf="item.produto.estoque > 0">Em Estoque</span>
+                </p>
+                <mat-button-toggle-group #group="matButtonToggleGroup">
+                    <mat-button-toggle (click)="removerQuantidadeItem(carrinho.id, item)" [disabled]="item.quantidade == 1">
+                      <mat-icon>remove</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle>
+                        {{ item.quantidade }} uni
+                    </mat-button-toggle>
+                    <mat-button-toggle [disabled]="item.quantidade == item.produto.estoque"  (click)="addQuantidadeItem(carrinho.id, item)">
+                      <mat-icon>add</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <div class="item-actions">
+                <mat-spinner class="spinner" *ngIf="item.atualizando" [diameter]="20"></mat-spinner>
+                <h3 class="product-subtotal">
+                    {{ item.quantidade * item.produto.precificacao.precoAvista | currency: 'BRL' }}
+                </h3>
+                <button class="btn remove-item" color="light" (click)="removerItemCarrinho(carrinho.id, item)">REMOVER</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="card-order">
+            <div class="card-title">
+                <h1>Resumo do Pedido</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <p class="item-resume">Subtotal Avista</p>
+                    <div class="in-cash">
+                        <p class="item-value">{{ carrinho.resumoPedido.subtotalAvista | currency: 'BRL' }}</p>
+                        <span>(Exclusivo no PIX)</span>
+                        <p class="discount">{{ carrinho.resumoPedido.descontoAvista | currency: 'BRL' }} OFF</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <p class="item-resume">Subtotal Parcelado</p>
+                    <div class="instalments">
+                        <p class="item-value">{{ carrinho.resumoPedido.subtotalParcelado | currency: 'BRL' }}</p>
+                        <span>(Em até {{ carrinho.resumoPedido.parcelamento }} x {{ (carrinho.resumoPedido.subtotalParcelado / carrinho.resumoPedido.parcelamento ) | currency: 'BRL' }})</span>
+                        <p class="discount">{{ carrinho.resumoPedido.descontoParcelado | currency: 'BRL' }} OFF</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <p class="item-resume">Produtos selecionados</p>
+                    <p class="item-value">{{ carrinho.totalItens }}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn" color="purple" block="true">IR PARA PAGAMENTO</button>
+                <button class="btn margin-fix" color="pink" outline=true block="true">ADICIONAR MAIS PRODUTOS</button>
+            </div>
+        </div>
+    </section>
+</div>

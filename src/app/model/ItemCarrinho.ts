@@ -5,6 +5,8 @@ export class ItemCarrinho extends EntidadeBase {
     
     public quantidade!: number;
     public produto!: Produto;
+    public selecionado!: boolean;
+    public atualizando: boolean = false;
 
     public constructor(values: Object = {}) { 
         super();

@@ -9,6 +9,7 @@ import { ProdutoModule } from './components/produto/produto.module';
 import { ImagemProdutoModule } from './components/imagem-produto/imagem-produto.module';
 import { CatalogoModule } from './components/catalogo/catalogo.module';
 import { ClienteModule } from './components/cliente/cliente.module';
+import { CarrinhoModule } from './components/carrinho/carrinho.module';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { ClienteModule } from './components/cliente/cliente.module';
     ProdutoModule,
     ImagemProdutoModule,
     CatalogoModule,
-    ClienteModule
+    ClienteModule,
+    CarrinhoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

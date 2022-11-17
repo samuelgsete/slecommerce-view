@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { VerProdutoComponent } from './components/catalogo/ver-produto/ver-produto.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'produto/criar', component: CriarProdutoComponent },
   { path: 'produto/:id/ver', component: VerProdutoComponent },
   { path: 'produto/:id/editar', component: EditarProdutoComponent },
-  { path: 'cliente/registrar', component: RegistrarClienteComponent }
+  { path: 'cliente/registrar', component: RegistrarClienteComponent },
+  { path: 'cliente/:id/carrinho', component: CarrinhoComponent }
 ];
 
 @NgModule({

@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
-import { ImagemProduto } from 'src/app/model/imagem-produto.entity';
+import { ToastrService } from 'ngx-toastr';
 
+import { ImagemProduto } from 'src/app/model/imagem-produto.entity';
+import { ItemCarrinho } from 'src/app/model/ItemCarrinho';
 import { Produto } from 'src/app/model/produto.entity';
+import { AdicionarItemCarrinhoService } from 'src/app/usecases/carrinho/adicionar-item-carrinho.service';
 import { BuscarProdutoService } from 'src/app/usecases/produto/buscar-produto.service';
 
 @Component({
@@ -23,8 +26,10 @@ export class VerProdutoComponent implements OnInit {
   public constructor(
     private readonly router: Router,
     private spinner: NgxSpinnerService,
-    private readonly buscarProduto: BuscarProdutoService
-  ) { }
+    private readonly toastr: ToastrService,
+    private readonly buscarProduto: BuscarProdutoService,
+    private readonly adicionarItemCarrinho: AdicionarItemCarrinhoService
+  ) {}
 
   public carregarProduto(produtoId: number): void {
     this.carregamento = true;
@@ -42,6 +47,21 @@ export class VerProdutoComponent implements OnInit {
     if(imgA.imagemPrincipal)
       return -1;
     return 1;
+  }
+
+  public adicionarProdutoAoCarrinho(): void {
+    const carrinhoId = 1;
+    const novoItem = new ItemCarrinho({
+      quantidade: 1,
+      produto: this.produto,
+      selecionado: true,
+    })
+    this.adicionarItemCarrinho.executar(carrinhoId, novoItem).subscribe(response => {
+      console.log(response);
+      this.toastr.success('O produto foi adicionado ao seu carrinho', 'Tudo Ok!', { progressBar: true });
+    }, err => {
+
+    });
   }
 
   ngOnInit(): void {

@@ -13,6 +13,7 @@ import { ListarProdutosMaiorDesconto } from 'src/app/usecases/produto/listar-pro
 import { ProdutosMaiorPreco } from 'src/app/usecases/produto/produtos-maiorpreco.service';
 import { ProdutosMaisVendidosService } from 'src/app/usecases/produto/produtos-maisvendidos.service';
 import { ProdutosMenorPrecoService } from 'src/app/usecases/produto/produtos-menorpreco.service';
+import { AdicionarItemCarrinhoService } from 'src/app/usecases/carrinho/adicionar-item-carrinho.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ProdutosMenorPrecoService } from 'src/app/usecases/produto/produtos-men
     ListarProdutosMaiorDesconto,
     ProdutosMaiorPreco,
     ProdutosMaisVendidosService,
-    ProdutosMenorPrecoService
+    ProdutosMenorPrecoService,
+    AdicionarItemCarrinhoService,
   ]
 })
 export class CatalogoModule {}

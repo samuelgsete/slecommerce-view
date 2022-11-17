@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RegistrarClienteComponent } from './registrar-cliente/registrar-cliente.component';
 import { RegistrarClienteService } from 'src/app/usecases/cliente/registrar-cliente.service';
+import { CriarCarrinhoService } from 'src/app/usecases/carrinho/criar-carrinho.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegistrarClienteService } from 'src/app/usecases/cliente/registrar-clie
     RegistrarClienteComponent
   ],
   providers: [
-    RegistrarClienteService
+    RegistrarClienteService,
+    CriarCarrinhoService,
   ]
 })
 export class ClienteModule {}

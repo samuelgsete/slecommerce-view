@@ -22,7 +22,14 @@
                 <span class="discount">{{ produto.precificacao.descontoAvista | currency: 'BRL' }}</span>
             </span>
             <p class="product-installment vertical-margin">Parcele em até <span class="value-installment">{{ produto.precificacao.parcelamento }} x de {{ ( produto.precificacao.precoParcelamento / produto.precificacao.parcelamento) | currency: 'BRL'}}</span> sem juros</p>
-            <button class="btn" color="pink" [disabled]="produto.estoque == 0">ADICIONAR AO CARRINHO</button>
+            <button 
+                class="btn" 
+                color="pink" 
+                [disabled]="produto.estoque == 0"
+                (click)="adicionarProdutoAoCarrinho()"
+            >
+                ADICIONAR AO CARRINHO
+            </button>
             <app-calcular-frete></app-calcular-frete>
         </div>
     </div>
