@@ -6,12 +6,14 @@ import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './layout.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { FooterComponent } from './footer/footer.component';
+import { BannerDestaquesComponent } from './banner-destaques/banner-destaques.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     TopBarComponent,
-    FooterComponent
+    FooterComponent,
+    BannerDestaquesComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { FooterComponent } from './footer/footer.component';
   exports: [
     LayoutComponent,
     TopBarComponent,
-    FooterComponent
+    FooterComponent,
+    BannerDestaquesComponent
   ]
 })
 export class LayoutModule {}

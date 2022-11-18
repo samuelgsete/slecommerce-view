@@ -3,12 +3,13 @@
 
 header.top-bar {
     width: 96%;
-    padding: 1% 2%;
+    padding: 0.5% 2%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(var(--dark), 0.99);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: rgb(var(--dark-1));
+    position: fixed;
+    z-index: 999999;
 }
 
 header.top-bar div.logotipo {

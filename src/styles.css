@@ -19,6 +19,8 @@
 @import '~swiper/modules/effect-coverflow/effect-coverflow.less';
 @import '~swiper/modules/zoom/zoom.min.css';
 @import '~swiper/modules/effect-creative/effect-creative.min.css';
+@import '~swiper/modules/effect-fade/effect-fade.min.css';
+@import '~swiper/modules/effect-flip/effect-flip.min.css';
 
 * {
     margin: 0;
