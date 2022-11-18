@@ -10,6 +10,7 @@ import { ImagemProdutoModule } from './components/imagem-produto/imagem-produto.
 import { CatalogoModule } from './components/catalogo/catalogo.module';
 import { ClienteModule } from './components/cliente/cliente.module';
 import { CarrinhoModule } from './components/carrinho/carrinho.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CarrinhoModule } from './components/carrinho/carrinho.module';
     ImagemProdutoModule,
     CatalogoModule,
     ClienteModule,
-    CarrinhoModule
+    CarrinhoModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

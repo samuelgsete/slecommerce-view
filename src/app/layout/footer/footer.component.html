@@ -1,0 +1,49 @@
+<footer>
+    <section class="about">
+        <div class="social-media">
+            <p class="title">REDES SOCIAIS</p>
+            <ul>
+                <li *ngFor="let rede of redesSociais">
+                    <img [src]="rede.urlImg" [alt]="rede.nome" loading="lazy">
+                </li>
+            </ul>
+        </div>
+        <div class="store">
+            <p class="title">CONTATOS</p>
+            <p>
+                <mat-icon>phone</mat-icon>
+                +55 (85)98971-1010
+            </p>
+            <p>
+                <mat-icon>mail</mat-icon>
+                layladuarte@gmail.com
+            </p>
+        </div>
+        <div class="payments">
+            <p class="title">PAGAMENTO</p>
+            <ul>
+                <li *ngFor="let pagamento of pagamentos">
+                    <img [src]="pagamento.urlImg" [alt]="pagamento.nome" loading="lazy">
+                </li>
+            </ul>
+        </div>
+        <div class="developer">
+            <p class="title">DESENVOLVEDOR</p>
+            <p>
+                <mat-icon>support_agent</mat-icon>
+                Samuel de Souza Taveira
+            </p>
+            <p>
+                <mat-icon>send</mat-icon>
+                samuelgsdev@hotmail.com
+            </p>
+            <p>
+                <mat-icon>join_full</mat-icon>
+                https://github.com/samuelgsete
+            </p>
+        </div>
+    </section>
+    <section class="copyright">
+        &copy; {{ anoAtual }} {{ nomeFantasia }}. Todos os direitos autorais reservados
+    </section>
+</footer>

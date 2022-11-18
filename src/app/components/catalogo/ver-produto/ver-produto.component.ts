@@ -65,7 +65,7 @@ export class VerProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const produtoId = parseInt(this.router.url.split('/')[2]);
+    const produtoId = parseInt(this.router.url.split('/')[3]);
     this.carregarProduto(produtoId);
   }
 }

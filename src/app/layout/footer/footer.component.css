@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(var(--dark));
+    color: rgb(var(--gray-1));
+    font-size: 0.99em;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 40px;
+}
+
+footer section.about p.title {
+    font-family: 'Rubik', sans-serif !important;
+    font-weight: bold;
+    color: rgb(var(--pink));
+}
+
+footer section.about {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer section.about p {
+    color: rgb(var(--gray-4));
+    display: flex;
+    column-gap: 6px;
+}
+
+footer section.about div.social-media ul, 
+footer section.about div.payments ul {
+    display: flex;
+    column-gap: 12px;
+    list-style: none;
+}
+
+footer section div.social-media ul li img {
+    width: 30px;
+}
+
+footer section.copyright {
+    padding: 20px;
+    background-color: rgb(var(--pink));
+    color: rgb(var(--gray-0));
+    font-size: 0.99em;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}

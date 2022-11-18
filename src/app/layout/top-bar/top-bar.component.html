@@ -1,0 +1,29 @@
+<header class="top-bar">
+    <div class="logotipo">
+        <img src="/assets/img/logotipo-removebg-preview.png" alt="">
+        <span>LyStore</span>
+    </div>
+    <div class="search">
+        <div class="input-search">
+            <input type="text" placeholder="Informe o que você deseja comprar">
+            <button mat-icon-button color="primary">
+                <mat-icon>search</mat-icon>
+            </button> 
+        </div>
+    </div>
+    <nav class="nav-bar">
+        <div class="user">
+            <span class="avatar">
+                {{ usuario[0] }}
+            </span>
+            <span class="username">Olá, {{ usuario }}</span>
+        </div>
+        <ul>
+            <li *ngFor="let rota of rotas">
+                <button mat-icon-button color="primary" (click)="navegarPara(rota.destino)">
+                    <mat-icon>{{ rota.icone }}</mat-icon>
+                </button> 
+            </li>
+        </ul>
+    </nav>
+</header>

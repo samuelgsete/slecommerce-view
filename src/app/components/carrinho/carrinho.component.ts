@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
@@ -19,6 +20,9 @@ export class CarrinhoComponent implements OnInit {
 
   public carrinho: Carrinho = new Carrinho();
   public carregamento: boolean = false;
+  public cupomDesconto: FormControl = new FormControl('', {
+    validators: Validators.required
+  })
 
   public constructor(
     public readonly router: Router,
@@ -32,8 +36,7 @@ export class CarrinhoComponent implements OnInit {
   public carregarCarrinho(): void {
     this.carregamento = true;
     this.spinner.show();
-    const clienteId = parseInt(this.router.url.split('/')[2]);
-    console.log(clienteId);
+    const clienteId = 1; // ID Cliente provisioriamente estático
     this.buscarCarrinho.executar(clienteId).subscribe(response => {
       this.carrinho = response;
       console.log(this.carrinho);
@@ -88,7 +91,11 @@ export class CarrinhoComponent implements OnInit {
   }
 
   public verProduto(produtoId: number): void {
-    this.router.navigateByUrl(`produto/${produtoId}/ver`);
+    this.router.navigateByUrl(`loja/produto/${produtoId}/ver`);
+  }
+
+  public irParaCatalogo(): void {
+    this.router.navigateByUrl('loja/catalogo');
   }
 
   ngOnInit(): void {

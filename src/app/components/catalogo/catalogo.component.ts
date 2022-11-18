@@ -45,7 +45,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   public irParaProduto(id: number): void {
-    this.router.navigateByUrl(`/produto/${id}/ver`);
+    this.router.navigateByUrl(`loja/produto/${id}/ver`);
   }
 
   ngOnInit(): void {

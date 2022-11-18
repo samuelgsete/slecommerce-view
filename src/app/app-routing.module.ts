@@ -8,6 +8,7 @@ import { RegistrarClienteComponent } from './components/cliente/registrar-client
 import { CriarProdutoComponent } from './components/produto/criar-produto/criar-produto.component';
 import { EditarProdutoComponent } from './components/produto/editar-produto/editar-produto.component';
 import { ListarProdutosComponent } from './components/produto/listar-produtos/listar-produtos.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   { path: 'catalogo/ver', component: CatalogoComponent },
@@ -16,7 +17,11 @@ const routes: Routes = [
   { path: 'produto/:id/ver', component: VerProdutoComponent },
   { path: 'produto/:id/editar', component: EditarProdutoComponent },
   { path: 'cliente/registrar', component: RegistrarClienteComponent },
-  { path: 'cliente/:id/carrinho', component: CarrinhoComponent }
+  { path: 'loja', component: LayoutComponent, children: [
+    { path: 'catalogo', component: CatalogoComponent },
+    { path: 'produto/:id/ver', component: VerProdutoComponent },
+    { path: 'carrinho', component: CarrinhoComponent }
+  ]}
 ];
 
 @NgModule({

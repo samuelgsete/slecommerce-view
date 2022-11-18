@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+header.top-bar {
+    width: 96%;
+    padding: 1% 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(var(--dark), 0.99);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+header.top-bar div.logotipo {
+    display: flex;
+    align-items: center;
+    color: rgb(var(--gray-1));
+    width: 100%;
+}
+
+header.top-bar div.logotipo * {
+    font-size: 1.4em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header.top-bar img {
+    width: 80px;
+}
+
+header.top-bar div.search {
+    width: 100%;
+}
+
+header.top-bar div.search div.input-search {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2%;
+    border-radius: 5px;
+    width: 96%;
+}
+
+header.top-bar div.search div.input-search input {
+    border: none;
+    padding: 2%;
+    width: 96%;
+}
+
+header.top-bar div.search div.input-search input:focus {
+    outline: none;
+}
+
+header.top-bar div.user {
+    color: rgb(var(--gray-3));
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    font-size: 0.95em;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+header.top-bar div.user span.avatar {
+    background-color: rgb(var(--purple-light));
+    padding: 10px;
+    font-size: 1.8em;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: rgb(var(--gray-3));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header.top-bar div.user span.username {
+    transition: color 0.5s;
+}
+
+header.top-bar div.user:hover span.username {
+    color: rgb(var(--gray-2));
+}
+
+header.top-bar nav.nav-bar {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+header.top-bar nav.nav-bar ul {
+    display: flex;
+    list-style: none;
+}
+
+header.top-bar nav.nav-bar ul li {
+    padding: 8px;
+}
+
+header.top-bar nav.nav-bar ul li button {
+    color: rgb(var(--purple-light)) !important;
+}
