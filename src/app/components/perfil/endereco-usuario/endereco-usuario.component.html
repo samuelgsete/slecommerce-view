@@ -1,0 +1,41 @@
+<main>
+    <div class="card-address">
+        <div class="card-address-title">
+            <h1>Meus endereços</h1>
+            <button class="btn" color="pink" (click)="abrirModalAdicionarEndereco()">+ INSERIR NOVO</button>
+        </div>
+        <div class="card-address-body" *ngFor="let endereco of enderecos">
+            <div class="description-address">
+                <p class="receiver">
+                    {{ endereco.destinatario }}
+                    <span class="phone-receiver">| {{ endereco.telefone | mask: '(00)00000-0000' }}</span>
+                </p>
+                <p class="full-address">Rua {{ endereco.rua }}, nº {{ endereco.numero }}, {{ endereco.cep  | mask: '00.000-000' }}, {{ endereco.bairro }}, {{ endereco.municipio }}-{{ endereco.uf }}</p>
+                <span *ngIf="endereco.enderecoPadrao" class="default-address">ENDEREÇO PADRÃO</span>
+            </div>
+            <div class="edit-address">
+                <mat-button-toggle-group #group="matButtonToggleGroup">
+                    <mat-button-toggle matTooltip="Editar" (click)="abrirModalEditarEndereco(endereco)">
+                        <mat-icon>edit</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle 
+                        matTooltip="Remover endereço" 
+                        [ngStyle]="{ 'pointer-events': endereco.enderecoPadrao ? 'none' : 'auto' }" 
+                        [disabled]="endereco.enderecoPadrao"
+                        (click)="removerEndereco(endereco.id)"
+                    >
+                        <mat-icon>delete</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle 
+                        matTooltip="Tornar endereço padrão" 
+                        [ngStyle]="{ 'pointer-events': endereco.enderecoPadrao ? 'none' : 'auto' }" 
+                        (click)="tornarEnderecoPadrao(endereco.id, true)"
+                    >
+                        <mat-icon>done_all</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+        </div>
+    </div>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

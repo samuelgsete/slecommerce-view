@@ -1,4 +1,6 @@
 .banner {
     background-color: rgb(var(--dark-1));
     padding-top: 2%;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

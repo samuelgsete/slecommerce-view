@@ -14,7 +14,7 @@ div.content {
 
 section.landing-page {
     color: rgb(var(--gray-2));
-    background-color: rgb(var(--default));
+    background-color: rgb(var(--dark-1));
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 

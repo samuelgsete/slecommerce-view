@@ -5,6 +5,8 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { VerProdutoComponent } from './components/catalogo/ver-produto/ver-produto.component';
 import { RegistrarClienteComponent } from './components/cliente/registrar-cliente/registrar-cliente.component';
+import { AdicionarEnderecoComponent } from './components/perfil/adicionar-endereco/adicionar-endereco.component';
+import { EnderecoUsuarioComponent } from './components/perfil/endereco-usuario/endereco-usuario.component';
 import { CriarProdutoComponent } from './components/produto/criar-produto/criar-produto.component';
 import { EditarProdutoComponent } from './components/produto/editar-produto/editar-produto.component';
 import { ListarProdutosComponent } from './components/produto/listar-produtos/listar-produtos.component';
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'loja', component: LayoutComponent, children: [
     { path: 'catalogo', component: CatalogoComponent },
     { path: 'produto/:id/ver', component: VerProdutoComponent },
-    { path: 'carrinho', component: CarrinhoComponent }
+    { path: 'carrinho', component: CarrinhoComponent },
+    { path: 'perfil/endereco', component: EnderecoUsuarioComponent },
+    { path: 'perfil/endereco/adicionar', component: AdicionarEnderecoComponent }
   ]}
 ];
 

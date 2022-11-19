@@ -11,6 +11,7 @@ import { CatalogoModule } from './components/catalogo/catalogo.module';
 import { ClienteModule } from './components/cliente/cliente.module';
 import { CarrinhoModule } from './components/carrinho/carrinho.module';
 import { LayoutModule } from './layout/layout.module';
+import { PerfilModule } from './components/perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LayoutModule } from './layout/layout.module';
     CatalogoModule,
     ClienteModule,
     CarrinhoModule,
-    LayoutModule
+    LayoutModule,
+    PerfilModule
   ],
   providers: [],
   bootstrap: [AppComponent]

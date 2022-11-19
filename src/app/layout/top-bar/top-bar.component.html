@@ -12,11 +12,16 @@
         </div>
     </div>
     <nav class="nav-bar">
-        <div class="user">
+        <div class="user" [matMenuTriggerFor]="user">
             <span class="avatar">
                 {{ usuario[0] }}
             </span>
             <span class="username">Olá, {{ usuario }}</span>
+            <mat-menu #user="matMenu">
+                <button mat-menu-item>Meus pedidos</button>
+                <button mat-menu-item>Minha conta</button>
+                <button mat-menu-item>Sair</button>
+            </mat-menu>
         </div>
         <ul>
             <li *ngFor="let rota of rotas">

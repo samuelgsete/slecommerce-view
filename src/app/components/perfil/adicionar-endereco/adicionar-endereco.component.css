@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+section {
+    padding: 0% 2% 0% 2%; /* cima, direita, baixo, esquerda*/
+    display: flex;
+    justify-content: center;
+}
+
+div.card-address {
+    display: flex;
+    flex-direction: column;
+}
+
+div.card-address div.card-address-title {
+    padding: 2%;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.4pt solid rgb(var(--gray-3));
+}
+
+div.card-address div.card-address-title * {
+    margin: 0;
+}
+
+div.card-address div.card-address-title h1 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+div.card-address div.card-address-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+div.card-address div.card-address-body div.card-address-footer {
+    border-top: 1.4pt solid rgb(var(--gray-3));
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.label-toggle {
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}

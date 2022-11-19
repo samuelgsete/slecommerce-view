@@ -1,0 +1,98 @@
+<section class="add-address">
+    <div class="card-address">
+        <div class="card-address-title">
+            <h1>Editar Endereço</h1>
+        </div>
+        <div class="card-address-body">
+            <div class="row">
+                <mat-form-field class="width-fix" appearance="legacy">
+                    <mat-label>CEP</mat-label>
+                    <input matInput [formControl]="cep" mask="00.000-000" required>
+                    <mat-error *ngIf="cep.errors?.['required']">
+                        O cep é obrigatório
+                    </mat-error>
+                </mat-form-field>
+                <button class="btn" color="purple" [disabled]="!cep.valid" (click)="verificarCep(cep.value)">OK</button>
+            </div>
+            <form [formGroup]="formularioEndereco">
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Rua</mat-label>
+                        <input matInput formControlName="rua" maxlength="64" required>
+                        <mat-error *ngIf="formularioEndereco['controls']['rua'].errors?.['required']">
+                            A rua é obrigatória
+                        </mat-error>
+                        <mat-error *ngIf="formularioEndereco['controls']['rua'].errors?.['maxlength']">
+                            Informe no máximo 64 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Número</mat-label>
+                        <input matInput formControlName="numero" required>
+                        <mat-error *ngIf="formularioEndereco['controls']['numero'].errors?.['required']">
+                            O número é obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Bairro</mat-label>
+                        <input matInput formControlName="bairro" maxlength="64" required>
+                        <mat-error *ngIf="formularioEndereco['controls']['bairro'].errors?.['required']">
+                            O bairro é obrigatóriO
+                        </mat-error>
+                        <mat-error *ngIf="formularioEndereco['controls']['bairro'].errors?.['maxlength']">
+                            Informe no máximo 64 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Municipio</mat-label>
+                        <input matInput formControlName="municipio" maxlength="64" required>
+                        <mat-error *ngIf="formularioEndereco['controls']['municipio'].errors?.['required']">
+                            O municipio é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioEndereco['controls']['municipio'].errors?.['maxlength']">
+                            Informe no máximo 64 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>UF</mat-label>
+                        <input matInput formControlName="uf" maxlength="2" required>
+                        <mat-error *ngIf="formularioEndereco['controls']['uf'].errors?.['required']">
+                            O código de estado é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioEndereco['controls']['uf'].errors?.['maxlength']">
+                            Informe no máximo 2 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Destinatário</mat-label>
+                        <input matInput formControlName="destinatario" maxlength="64" required>
+                        <mat-error *ngIf="formularioEndereco['controls']['destinatario'].errors?.['required']">
+                            O destinatario é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioEndereco['controls']['destinatario'].errors?.['maxlength']">
+                            Informe no máximo 64 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Telefone</mat-label>
+                        <input matInput formControlName="telefone" maxlength="64" mask="(00)00000-0000" required>
+                        <mat-error *ngIf="formularioEndereco['controls']['telefone'].errors?.['required']">
+                            O telefone é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioEndereco['controls']['telefone'].errors?.['maxlength']">
+                            Informe no máximo 64 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="card-address-footer">
+                    <button mat-button [disabled]="!formularioEndereco.valid" (click)="editarEndereco(formularioEndereco.value)">EDITAR ENDEREÇO</button>
+                    <button mat-button (click)="fecharModal()">CANCELAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

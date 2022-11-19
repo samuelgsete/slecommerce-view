@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+main {
+    padding: 2% 4%;
+}
+
+div.card-address {
+    display: flex;
+    flex-direction: column;
+}
+
+div.card-address div.card-address-title {
+    padding: 2%;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.6pt solid rgb(var(--gray-3));
+}
+
+div.card-address div.card-address-title * {
+    margin: 0;
+}
+
+div.card-address div.card-address-title h1 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+div.card-address div.card-address-body {
+    padding: 2%;
+    width: 96%;
+    border-bottom: 1.4pt solid rgb(var(--gray-4));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.card-address div.card-address-body div.description-address .receiver {
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(var(--pink));
+}
+
+div.card-address div.card-address-body div.description-address .receiver .phone-receiver {
+    font-weight: normal;
+     font-size: 0.92em;
+     color: rgb(var(--dark-1));
+}
+
+div.card-address div.card-address-body div.description-address p.full-address {
+    font-size: 0.98em;
+    color: rgb(var(--gray-8));
+    font-family: 'Rubik', sans-serif;
+}
+
+div.card-address div.card-address-body div.description-address span.default-address {
+    color: rgb(var(--purple));
+    padding: 6px 1px;
+    background-color: rgba(var(--purple-light), 0.09);
+    font-size: 0.94em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+div.card-address div.card-address-body div.edit-address mat-icon {
+    color: rgb(var(--purple));
+}

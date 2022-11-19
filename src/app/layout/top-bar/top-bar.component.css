@@ -9,7 +9,7 @@ header.top-bar {
     align-items: center;
     background-color: rgb(var(--dark-1));
     position: fixed;
-    z-index: 999999;
+    z-index: 999;
 }
 
 header.top-bar div.logotipo {
@@ -53,13 +53,20 @@ header.top-bar div.search div.input-search input:focus {
 }
 
 header.top-bar div.user {
+    padding: 5px 10px;
     color: rgb(var(--gray-3));
+    border-radius: 5px;
     display: flex;
     column-gap: 8px;
     align-items: center;
     font-size: 0.95em;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
+    transition: background 0.6s;
+}
+
+header.top-bar div.user:hover {
+    background-color: rgb(var(--dark));
 }
 
 header.top-bar div.user span.avatar {
