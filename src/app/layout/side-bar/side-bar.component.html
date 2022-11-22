@@ -1,0 +1,14 @@
+<aside class="side-bar" *ngIf="mostrarMenu">
+    <button mat-icon-button (click)="ocultarMenu()">
+         <mat-icon>close</mat-icon>
+    </button>
+    <ul>
+        <li *ngFor="let rota of rotas">
+            <mat-icon>{{ rota.icone }}</mat-icon>
+            <span>{{ rota.nome }}</span>
+        </li>
+    </ul>
+    <button mat-icon-button>
+        <mat-icon matTooltip="Fazer Logout">logout</mat-icon>
+   </button>
+</aside>

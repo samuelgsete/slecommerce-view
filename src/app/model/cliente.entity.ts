@@ -10,6 +10,8 @@ export class Cliente extends EntidadeBase {
     public telefone!: string;
     public usuario!: string;
     public senha!: string;
+    public estaAtivo!: boolean;
+    public registradoDesde!: string;
     public carrinho: Carrinho = new Carrinho();
 
     public constructor(values: Object = {}) { 

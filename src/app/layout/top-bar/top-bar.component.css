@@ -19,7 +19,7 @@ header.top-bar div.logotipo {
     width: 100%;
 }
 
-header.top-bar div.logotipo * {
+header.top-bar div.logotipo span {
     font-size: 1.4em;
     font-family: 'Montserrat', sans-serif;
 }

@@ -1,0 +1,14 @@
+<main>
+    <aside class="side-bar">
+        <ul>
+            <li *ngFor="let rota of rotas">
+                <a [routerLink]="rota.destino" routerLinkActive="router-active">
+                    {{ rota.nome }}
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+</main>

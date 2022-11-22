@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EnderecoUsuarioComponent } from './endereco-usuario/endereco-usuario.component';
@@ -11,15 +12,22 @@ import { TornarEnderecoPadraoService } from 'src/app/usecases/endereco/tornar-en
 import { RemoverEnderecoService } from 'src/app/usecases/endereco/remover-endereco.service';
 import { ConsultarCepService } from 'src/app/usecases/endereco/consultar-cep.service';
 import { EditarEnderecoComponent } from './editar-endereco/editar-endereco.component';
+import { PerfilComponent } from './perfil.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { BuscarClienteService } from 'src/app/usecases/cliente/buscar-cliente.service';
+import { EditarClienteService } from 'src/app/usecases/cliente/editar-cliente.service';
 
 @NgModule({
   declarations: [
     EnderecoUsuarioComponent,
     AdicionarEnderecoComponent,
-    EditarEnderecoComponent
+    EditarEnderecoComponent,
+    PerfilComponent,
+    EditarPerfilComponent
   ],
   imports: [
     CommonModule,
+    RouterModule,
     SharedModule
   ],
   providers: [
@@ -28,7 +36,9 @@ import { EditarEnderecoComponent } from './editar-endereco/editar-endereco.compo
     EditarEnderecoService,
     TornarEnderecoPadraoService,
     RemoverEnderecoService,
-    ConsultarCepService
+    ConsultarCepService,
+    BuscarClienteService,
+    EditarClienteService
   ]
 })
 export class PerfilModule {}

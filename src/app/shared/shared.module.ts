@@ -32,11 +32,13 @@ import { SwiperModule } from "swiper/angular";
 
 import { StarRaterComponent } from './components/star-rater/star-rater.component';
 import { TextSmallPipe } from '../pipes/text-small.pipe';
+import { ExibirTempoPipe } from '../pipes/exibir-tempo.pipe';
 
 @NgModule({
   declarations: [
     FilesizePipe,
     TextSmallPipe,
+    ExibirTempoPipe,
     DragDropDirective,
     StarRaterComponent
   ],
@@ -107,6 +109,7 @@ import { TextSmallPipe } from '../pipes/text-small.pipe';
     SwiperModule,
     StarRaterComponent,
     TextSmallPipe,
+    ExibirTempoPipe
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -9,10 +9,8 @@ import { Router } from '@angular/router';
 export class TopBarComponent implements OnInit {
 
   public usuario: string = 'Samuel';
-
   public rotas: any[] = [
     { icone: 'shope', destino: '/loja/catalogo' },
-    { icone: 'favorite', destino: '#' },
     { icone: 'shopping_basket', destino: 'loja/carrinho' }
   ]
 

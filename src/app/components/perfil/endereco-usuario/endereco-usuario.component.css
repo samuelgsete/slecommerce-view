@@ -5,6 +5,7 @@
 
 main {
     padding: 2% 4%;
+    width: 92%;
 }
 
 div.card-address {
@@ -67,5 +68,5 @@ div.card-address div.card-address-body div.description-address span.default-addr
 }
 
 div.card-address div.card-address-body div.edit-address mat-icon {
-    color: rgb(var(--purple));
+    color: rgb(var(--dark-1));
 }

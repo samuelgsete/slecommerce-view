@@ -7,13 +7,15 @@ import { LayoutComponent } from './layout.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BannerDestaquesComponent } from './banner-destaques/banner-destaques.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     TopBarComponent,
     FooterComponent,
-    BannerDestaquesComponent
+    BannerDestaquesComponent,
+    SideBarComponent
   ],
   imports: [
     CommonModule,
