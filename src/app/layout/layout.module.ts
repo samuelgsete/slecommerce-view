@@ -8,6 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BannerDestaquesComponent } from './banner-destaques/banner-destaques.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { ListarProdutosPaginado } from '../usecases/produto/listar-produtos-paginado';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,9 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     TopBarComponent,
     FooterComponent,
     BannerDestaquesComponent
+  ],
+  providers: [
+    ListarProdutosPaginado
   ]
 })
 export class LayoutModule {}

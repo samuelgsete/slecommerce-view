@@ -2,13 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5% 2%;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+}
 
 .container {
-    padding: 2%;
+    padding: 1% 2%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 2%;
-    row-gap: 1%;
+    column-gap: 20px;
+    row-gap: 20px;
 }
 
 .product-catalog p, span, h1 {
@@ -19,7 +33,6 @@
 .product-catalog {
     display: flex;
     flex-direction: column;
-    width: 85%;
     padding: 25px 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     transition: box-shadow 0.4s;

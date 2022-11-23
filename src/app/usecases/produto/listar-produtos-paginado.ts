@@ -15,6 +15,7 @@ export class ListarProdutosPaginado {
     public executar(paginacao: Paginacao): Observable<any> {
         let parametros = new HttpParams()
             .set('palavraChave', paginacao.palavraChave)
+            .set('ordenacao', paginacao.ordenacao)
             .set('page', paginacao.paginaAtual)
             .set('size', paginacao.tamanhoPagina)
 

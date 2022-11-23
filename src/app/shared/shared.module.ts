@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -64,6 +65,7 @@ import { ExibirTempoPipe } from '../pipes/exibir-tempo.pipe';
     ToastrModule.forRoot(),
     MatExpansionModule,
     DragDropModule,
+    MatAutocompleteModule,
     NgCircleProgressModule.forRoot({
       radius: 38,
       outerStrokeWidth: 8,
@@ -101,6 +103,7 @@ import { ExibirTempoPipe } from '../pipes/exibir-tempo.pipe';
     ToastrModule,
     MatExpansionModule,
     DragDropModule,
+    MatAutocompleteModule,
     NgCircleProgressModule,
     MatDialogModule,
     MatButtonToggleModule,

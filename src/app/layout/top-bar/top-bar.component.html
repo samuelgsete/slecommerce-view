@@ -5,11 +5,34 @@
     </div>
     <div class="search">
         <div class="input-search">
-            <input type="text" placeholder="Informe o que você deseja comprar">
+            <input 
+                type="text" 
+                placeholder="Informe o que você deseja comprar"
+                [formControl]="consultar"
+                [matAutocomplete]="auto"
+            >
             <button mat-icon-button color="primary">
                 <mat-icon>search</mat-icon>
             </button> 
         </div>
+        <mat-autocomplete 
+            class="autocomplete" 
+            autoActiveFirstOption 
+            (optionSelected)="itemSelecionado($event.option.value)" 
+            #auto="matAutocomplete" 
+            [displayWith]="displayFn"
+        >
+            <mat-option *ngIf="consultando">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    Resultados para '{{ consultar.value }}'
+                    <mat-spinner class="created" [diameter]="20"></mat-spinner>
+                </div>
+            </mat-option>
+            <mat-option *ngFor="let produto of produtos" [value]="produto">
+                <img class="img" [src]="produto.imagens[0].url" width="48px">
+                <span>{{ produto.nome }}</span>
+            </mat-option>
+        </mat-autocomplete>
     </div>
     <nav class="nav-bar">
         <div class="user" [matMenuTriggerFor]="user">

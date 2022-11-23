@@ -56,7 +56,7 @@ export class ListarProdutosComponent implements OnInit {
   }
 
   public verProduto(produtoId: number): void {
-    this.router.navigateByUrl(`/produto/${produtoId}/ver`);
+    this.router.navigateByUrl(`/loja/produto/${produtoId}/ver`);
   }
 
   public irParaEditarProduto(produtoId: number): void {

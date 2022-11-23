@@ -1,5 +1,6 @@
 export class Paginacao {
 
+    public ordenacao: string = '';
     public palavraChave: string = '';
     public totalElementos: number = 0;
     public paginaAtual: number = 0;

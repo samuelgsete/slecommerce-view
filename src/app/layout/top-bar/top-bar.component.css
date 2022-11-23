@@ -46,6 +46,8 @@ header.top-bar div.search div.input-search input {
     border: none;
     padding: 2%;
     width: 96%;
+    color: rgb(var(--gray-7));
+    font-family: 'Inter', sans-serif;
 }
 
 header.top-bar div.search div.input-search input:focus {
@@ -109,4 +111,9 @@ header.top-bar nav.nav-bar ul li {
 
 header.top-bar nav.nav-bar ul li button {
     color: rgb(var(--purple-light)) !important;
+}
+
+.img {
+    vertical-align: middle;
+    margin-right: 8px;
 }

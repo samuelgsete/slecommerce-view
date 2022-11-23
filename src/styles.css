@@ -38,15 +38,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     box-shadow: none !important;
 }
 
-body::-webkit-scrollbar {
-    width: 8px;
+body *::-webkit-scrollbar, body::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 4px;
 }
   
-body::-webkit-scrollbar-track {
+body *::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
     background: rgb(var(--gray-2));
 }
   
-body::-webkit-scrollbar-thumb {
+body *::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb  {
     background-color: rgba(var(--purple-light), 0.7);
     border: none;
 }

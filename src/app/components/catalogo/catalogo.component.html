@@ -1,4 +1,15 @@
 <ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
+<header>
+    <h1>Nosso catálogo</h1>
+    <mat-form-field appearance="outline">
+        <mat-label>Ordenar por</mat-label>
+        <mat-select (selectionChange)="ordenarProdutos($event.value)">
+            <mat-option *ngFor="let ordem of ordenacaoProdutos" [value]="ordem.ordenacao">
+               {{ ordem.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</header>
 <div class="container" *ngIf="!carregamento">
     <div class="product-catalog" *ngFor="let produto of produtos">
         <div class="images">
