@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+main {
+    padding: 1% 4%;
+    width: 92%;
+}
+
+div.card-favorite-products {
+    display: flex;
+    flex-direction: column;
+}
+
+div.card-favorite-products div.card-favorite-products-title {
+    padding: 2%;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.4pt solid rgb(var(--gray-2));
+}
+
+div.card-favorite-products div.card-favorite-products-title * {
+    margin: 0;
+}
+
+div.card-favorite-products div.card-favorite-products-title h1 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+div.card-favorite-products div.card-favorite-products-body {
+    padding: 2%;
+    width: 96%;
+    border-bottom: 1.4pt solid rgb(var(--gray-4));
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+div.card-profile div.card-profile-body {
+    padding: 2%;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+div.item-favorite {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    border-bottom: 1.4pt solid rgb(var(--gray-3));
+    padding: 15px 0;
+}
+
+div.item-favorite p.product-name {
+    color: rgb(var(--gray-7));
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.97em;
+    transition: all 0.4s;
+}
+
+div.item-favorite p.product-name:hover {
+    text-decoration: underline;
+    color: rgb(var(--primary));
+    cursor: pointer;
+}
+
+img.img-product {
+    max-width: 90px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    float: left;
+    margin-right: 8px;
+}
+
+span.available {
+    font-weight: bold;
+    color: rgb(var(--default));
+}
+
+span.unavailable {
+    font-weight: bold;
+    color: rgb(var(--danger));
+}

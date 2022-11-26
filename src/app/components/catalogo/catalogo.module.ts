@@ -40,7 +40,7 @@ import { AdicionarItemCarrinhoService } from 'src/app/usecases/carrinho/adiciona
     ProdutosMaiorPreco,
     ProdutosMaisVendidosService,
     ProdutosMenorPrecoService,
-    AdicionarItemCarrinhoService,
+    AdicionarItemCarrinhoService
   ]
 })
 export class CatalogoModule {}

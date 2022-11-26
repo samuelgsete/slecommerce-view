@@ -20,7 +20,7 @@
                     </mat-button-toggle>
                     <mat-button-toggle 
                         matTooltip="Remover endereço" 
-                        [ngStyle]="{ 'pointer-events': endereco.enderecoPadrao ? 'none' : 'auto' }" 
+                        [ngClass]="{ 'btn-group-disabled': endereco.enderecoPadrao }" 
                         [disabled]="endereco.enderecoPadrao"
                         (click)="removerEndereco(endereco.id)"
                     >
@@ -28,7 +28,7 @@
                     </mat-button-toggle>
                     <mat-button-toggle 
                         matTooltip="Tornar endereço padrão" 
-                        [ngStyle]="{ 'pointer-events': endereco.enderecoPadrao ? 'none' : 'auto' }" 
+                        [ngClass]="{ 'btn-group-disabled': endereco.enderecoPadrao }" 
                         (click)="tornarEnderecoPadrao(endereco.id, true)"
                     >
                         <mat-icon>done_all</mat-icon>

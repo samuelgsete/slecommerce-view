@@ -36,6 +36,7 @@ export class VerProdutoComponent implements OnInit {
     this.spinner.show();
     this.buscarProduto.executar(produtoId).subscribe(response => {
       this.produto = response;
+      console.log(this.produto);
       const imagens: ImagemProduto[] = this.produto.imagens;
       imagens.sort(this.ordenarImg);
       this.spinner.hide();
@@ -51,17 +52,19 @@ export class VerProdutoComponent implements OnInit {
 
   public adicionarProdutoAoCarrinho(): void {
     const carrinhoId = 1;
+    this.spinner.show();
     const novoItem = new ItemCarrinho({
       quantidade: 1,
       produto: this.produto,
       selecionado: true,
     })
     this.adicionarItemCarrinho.executar(carrinhoId, novoItem).subscribe(response => {
-      console.log(response);
       this.toastr.success('O produto foi adicionado ao seu carrinho', 'Tudo Ok!', { progressBar: true });
     }, err => {
 
-    });
+    }).add(() => {
+      this.spinner.hide();
+    })
   }
 
   ngOnInit(): void {

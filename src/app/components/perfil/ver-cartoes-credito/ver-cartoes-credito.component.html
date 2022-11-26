@@ -1,0 +1,17 @@
+<main>
+    <div class="card-payment">
+        <div class="card-payment-title">
+            <h1>Meus cartões</h1>
+            <button class="btn" color="purple" (click)="abrirModalAdicionarCartao()">+ NOVO CARTÃO</button>
+        </div>
+        <div class="card-payment-body" *ngFor="let cartao of cartoes">
+            <div class="card-description">
+                <img class="img-card" [src]="mostrarBandeiraCartao(cartao.bandeira)" alt="">
+                <p class="card-holder">{{ cartao.titular }}</p>
+                <p class="card-number">{{ cartao.numero | esconderdados }}</p>
+            </div>
+            <button class="btn" color="pink" outline="true" (click)="remover.executar(cartao.id)">EXCLUIR CARTÃO</button>
+        </div>
+    </div>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

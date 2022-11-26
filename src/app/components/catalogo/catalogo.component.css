@@ -54,7 +54,8 @@ header h1 {
 }
 
 .product-catalog .images {
-    width: 220px;
+    width: 230px;
+    height: 230px;
     margin: 0 auto;
 }
 

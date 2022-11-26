@@ -8,6 +8,8 @@ import { RegistrarClienteComponent } from './components/cliente/registrar-client
 import { EditarPerfilComponent } from './components/perfil/editar-perfil/editar-perfil.component';
 import { EnderecoUsuarioComponent } from './components/perfil/endereco-usuario/endereco-usuario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProdutosFavoritosComponent } from './components/perfil/produtos-favoritos/produtos-favoritos.component';
+import { VerCartoesCreditoComponent } from './components/perfil/ver-cartoes-credito/ver-cartoes-credito.component';
 import { CriarProdutoComponent } from './components/produto/criar-produto/criar-produto.component';
 import { EditarProdutoComponent } from './components/produto/editar-produto/editar-produto.component';
 import { ListarProdutosComponent } from './components/produto/listar-produtos/listar-produtos.component';
@@ -26,7 +28,9 @@ const routes: Routes = [
     { path: 'carrinho', component: CarrinhoComponent },
     { path: 'perfil', component: PerfilComponent, children: [
       { path: 'endereco', component: EnderecoUsuarioComponent },
-      { path: 'editar', component: EditarPerfilComponent }
+      { path: 'editar', component: EditarPerfilComponent },
+      { path: 'produtos/favoritos', component: ProdutosFavoritosComponent },
+      { path: 'cartoes-credito/ver', component: VerCartoesCreditoComponent },
     ]}
   ]}
 ];

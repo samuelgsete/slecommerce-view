@@ -12,8 +12,8 @@ export class PerfilComponent implements OnInit {
     { nome: 'Editar perfil', destino: 'editar', estaAtiva: true },
     { nome: 'Meus pedidos', destino: 'loja/perfil/endereco', estaAtiva: false },
     { nome: 'Meus enderecos', destino: 'endereco', estaAtiva: false },
-    { nome: 'Meus favoritos', destino: 'loja/perfil/endereco', estaAtiva: false },
-    { nome: 'Cartões crédito/débito', destino: 'loja/perfil/endereco', estaAtiva: false },
+    { nome: 'Meus favoritos', destino: 'produtos/favoritos', estaAtiva: false },
+    { nome: 'Cartões crédito', destino: 'cartoes-credito/ver', estaAtiva: false },
     { nome: 'Segurança', destino: 'loja/perfil/endereco', estaAtiva: false }
   ]
 

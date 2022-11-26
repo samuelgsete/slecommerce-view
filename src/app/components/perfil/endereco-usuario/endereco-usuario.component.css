@@ -68,5 +68,18 @@ div.card-address div.card-address-body div.description-address span.default-addr
 }
 
 div.card-address div.card-address-body div.edit-address mat-icon {
-    color: rgb(var(--dark-1));
+    color: rgb(var(--purple));
+}
+
+mat-button-toggle-group, mat-button-toggle-group mat-button-toggle {
+    border: none !important;
+}
+
+.btn-group-disabled {
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+.btn-group-disabled mat-icon {
+    color: rgb(var(--gray-4)) !important;
 }

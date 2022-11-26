@@ -5,7 +5,6 @@
             <app-ver-imagens [imagens]="produto.imagens"></app-ver-imagens>
         </div>
         <div class="see-description">
-            <app-star-rater [aprovacaoMedia]="4" [totalAvaliadores]="1089"></app-star-rater>
             <h1 class="product-name">{{ produto.nome }}</h1>
             <p class="availability-product">(ID.: {{ produto.id }}
                 | <span [ngClass]="{ 'available': produto.estoque > 0, 'unavailable' : produto.estoque == 0}"> {{ produto.estoque > 0 ? 'Em Estoque' : 'Em Falta' }}</span>)

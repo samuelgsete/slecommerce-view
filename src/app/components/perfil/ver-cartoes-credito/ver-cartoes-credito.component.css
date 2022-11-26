@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+main {
+    padding: 2% 4%;
+    width: 92%;
+}
+
+div.card-payment {
+    display: flex;
+    flex-direction: column;
+}
+
+div.card-payment div.card-payment-title {
+    padding: 2%;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.6pt solid rgb(var(--gray-3));
+}
+
+div.card-payment div.card-payment-title * {
+    margin: 0;
+}
+
+div.card-payment div.card-payment-title h1 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+div.card-payment div.card-payment-body {
+    padding: 2%;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.4pt solid rgb(var(--gray-4));
+}
+
+div.card-payment div.card-payment-body p.card-holder {
+    color: rgb(var(--gray-7));
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.99em;
+}
+
+div.card-payment div.card-payment-body p.card-number {
+    color: rgb(var(--dark-1));
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.99em;
+}
+
+div.card-payment div.card-payment-body {
+    color: rgb(var(--gray-7));
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.99em;
+}
+
+img.img-card {
+    max-width: 90px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    margin: 4px 0;
+}

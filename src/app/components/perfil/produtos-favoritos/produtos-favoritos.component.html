@@ -1,0 +1,26 @@
+<main>
+    <div class="card-favorite-products">
+        <div class="card-favorite-products-title">
+            <h1>Produtos favoritos</h1>
+            <button 
+                class="btn" 
+                color="pink" 
+            >
+                ADICIONAR MAIS
+            </button>
+        </div>
+    </div>
+    <div class="card-favorite-products-body">
+        <div class="item-favorite" *ngFor="let produtoFavorito of produtosFavoritos">
+            <div class="product-description">
+                <img class="img-product" [src]="produtoFavorito.urlImagem" alt="Produto" loading="lazy">
+                <p class="product-name">{{ produtoFavorito.nome }}</p>
+                <p class="availability-product">(ID.: {{ produtoFavorito.id }}
+                    | <span [ngClass]="{ 'available': produtoFavorito.estoque > 0, 'unavailable' : produtoFavorito.estoque == 0}"> {{ produtoFavorito.estoque > 0 ? 'Em Estoque' : 'Em Falta' }}</span>)
+                </p>
+            </div>
+            <button class="btn" color="purple" outline="true">REMOVER</button>
+        </div>
+    </div>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

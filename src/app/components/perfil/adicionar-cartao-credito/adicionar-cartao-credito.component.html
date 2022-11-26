@@ -1,0 +1,82 @@
+<section class="ui-section">
+    <div class="ui-card">
+        <div class="ui-card-title">
+            <h1>Novo Cartão</h1>
+            <button mat-icon-button (click)="modalRef.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <div class="ui-card-body">
+            <form [formGroup]="formularioCartao">
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Numero</mat-label>
+                        <input matInput formControlName="numero" mask="0000 0000 0000 0000" required>
+                        <mat-error *ngIf="formularioCartao['controls']['numero'].errors?.['required']">
+                            O numero é obrigatório
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Bandeira</mat-label>
+                        <mat-select formControlName="bandeira" required readonly>
+                            <mat-option *ngFor="let bandeira of bandeiras" [value]="bandeira.nome">
+                                {{ bandeira.nome }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="formularioCartao['controls']['bandeira'].errors?.['required']">
+                            A bandeira é obrigatória
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>Titular</mat-label>
+                        <input matInput formControlName="titular" maxlength="64" required>
+                        <mat-error *ngIf="formularioCartao['controls']['titular'].errors?.['required']">
+                            O titular é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCartao['controls']['titular'].errors?.['maxlength']">
+                            Informe no máximo 64 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Validade</mat-label>
+                        <input matInput formControlName="validade" mask="00/00" required>
+                        <mat-error *ngIf="formularioCartao['controls']['validade'].errors?.['required']">
+                            A validade é obrigatória
+                        </mat-error>
+                        <mat-error *ngIf="formularioCartao['controls']['validade'].errors?.['mask']">
+                            Formato inválido
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="width-fix" appearance="legacy">
+                        <mat-label>CVV</mat-label>
+                        <input matInput formControlName="cvv" maxlength="3" minlength="3" mask="000" required>
+                        <mat-error *ngIf="formularioCartao['controls']['cvv'].errors?.['required']">
+                            O cvv é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formularioCartao['controls']['cvv'].errors?.['mask']">
+                            Formato inválido
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+            <div class="ui-card-footer">
+                <button 
+                    class="btn" 
+                    color="purple" 
+                    block="true" 
+                    [disabled]="!formularioCartao.valid"
+                    (click)="adicionar.executar(clienteId, formularioCartao.value)"
+                >
+                    ADICIONAR CARTÃO
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
