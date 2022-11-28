@@ -19,7 +19,7 @@ main div.card-cart:first-child {
 }
 
 main div.card-cart {
-    width: 92%;
+    max-width: 680px;
     background-color: #fff;
     padding: 4%;
     display: flex;
@@ -32,7 +32,10 @@ main div.card-cart {
 }
 
 main div.card-cart img.product-img {
-    width: 120px;
+    max-width: 90px;
+    max-height: 100px;
+    width: auto;
+    width: auto;
     margin: 0;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }

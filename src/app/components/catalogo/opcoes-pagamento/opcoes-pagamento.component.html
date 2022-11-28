@@ -1,0 +1,68 @@
+<header>
+    <h1>Opções de pagamento</h1>
+</header>
+<main>
+    <div class="ui-card">
+        <div class="ui-card-body">
+            <img [src]="imagemPrincipal()" alt="" width="280px" loading="lazy">
+            <div class="ui-card-description">
+                <p class="badge" color="primary" >-{{ produto.precificacao.descontoAvista | currency: 'BRL' }}</p>
+                <p class="ui-card-name">{{ produto.nome }}</p>
+                <h1 class="ui-card-prince">{{ produto.precificacao.precoAvista | currency: 'BRL' }}</h1>
+                <p class="ui-card-installment">
+                    Ou em até 
+                    {{ produto.precificacao.parcelamento }}x de
+                    {{ produto.precificacao.precoParcelamento/produto.precificacao.parcelamento |  currency: 'BRL' }}
+                </p>
+                <button class="btn" color="purple" outline="true">COMPRAR</button>
+            </div>
+        </div>
+        <mat-accordion multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Pagamento no cartão</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div class="ui-table">
+                    <div class="ui-row" *ngFor="let prazo of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
+                        <div class="ui-row-content" *ngIf="prazo <= produto.precificacao.parcelamento">
+                            <div class="ui-col">
+                                {{ prazo }}x {{ produto.precificacao.precoParcelamento/prazo | currency: 'BRL' }} sem juros
+                            </div>
+                            <div class="ui-col">
+                                {{ produto.precificacao.precoParcelamento | currency: 'BRL' }}
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <button class="btn" color="purple">PAGAR COM CARTÃO</button>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Pagamento no PIX</mat-panel-title>
+                </mat-expansion-panel-header>
+                <p class="payment-pix">
+                    Ao escolher essa modalidade ficará disponível o codigo Pix por até 30 minutos. 
+                    Utilize o aplicativo bancario de sua preferência para efetuar o pagamento avista. O Pix é um método de pagamento
+                    instantâneo criado pelo Banco Central.
+                </p>
+                <button class="btn" color="purple">PAGAR COM PIX</button>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Pagamento no Boleto</mat-panel-title>
+                </mat-expansion-panel-header>
+                <p class="payment-bank">
+                    Ao finalizar a compra com esse método de pagamento será gerado um boleto bancário 
+                    com vencimento de 2 dias utéis. Utilize um aplicativo bancário ou diriga-se até
+                    uma agência bancária para pagamento do boleto avista. Geralmente a aprovação do pagamento 
+                    ocorre em 2 dias uteis.
+                </p>
+                <button class="btn" color="purple">PAGAR COM BOLETO</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

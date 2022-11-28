@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+header {
+    padding: 1.5% 2%;
+}
+
+header h1 {
+    color: rgb(var(--dark-1));
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+}
+
+main {
+    width: 92%;
+    display: flex;
+    justify-content: center;
+}
+
+.ui-card {
+    max-width: 700px;
+}
+
+.ui-card .ui-card-body {
+    padding: 25px;
+    display: flex;
+    column-gap: 25px;
+    align-items: center;
+    border-bottom: 1.4pt solid rgb(var(--gray-3));
+}
+
+.ui-card-name {
+    font-family: 'Barlow',sans-serif;
+    font-size: 1.4em;
+    color: rgb(var(--gray-7));
+}
+
+.ui-card-prince {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 12px 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(var(--purple));
+}
+
+.ui-card-installment {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(var(--gray-6));
+}
+
+p.badge {
+    max-width: min-content;
+    white-space: nowrap;
+    margin: 12px 0;
+    font-size: 1.2em;
+}
+
+mat-panel-title {
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(var(--gray-7));
+}
+
+.ui-table {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+
+.ui-table .ui-row-content {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ui-table .ui-row {
+    color: rgb(var(--gray-6));
+    font-size: 0.9em;
+    font-family: 'Barlow', sans-serif !important;
+}
+
+.ui-table .ui-row:first-child {
+    border-top: 1.3pt solid rgb(var(--gray-3));
+}
+
+.ui-table .ui-row:last-child {
+    border-bottom: 1.3pt solid rgb(var(--gray-3));
+}
+
+.ui-table .ui-row:nth-child(even) {
+    background-color: rgb(var(--gray-7), 0.09);
+}
+
+p.payment-pix, p.payment-bank {
+    font-size: 1.05em;
+    font-family: 'Barlow', sans-serif !important;
+    color: rgb(var(--gray-6));
+    text-align: justify;
+}

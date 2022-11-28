@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { OpcoesPagamentoComponent } from './components/catalogo/opcoes-pagamento/opcoes-pagamento.component';
 import { VerProdutoComponent } from './components/catalogo/ver-produto/ver-produto.component';
 import { RegistrarClienteComponent } from './components/cliente/registrar-cliente/registrar-cliente.component';
 import { EditarPerfilComponent } from './components/perfil/editar-perfil/editar-perfil.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'loja', component: LayoutComponent, children: [
     { path: 'catalogo', component: CatalogoComponent },
     { path: 'produto/:id/ver', component: VerProdutoComponent },
+    { path: 'produto/:id/opcoes-pagamento', component: OpcoesPagamentoComponent },
     { path: 'carrinho', component: CarrinhoComponent },
     { path: 'perfil', component: PerfilComponent, children: [
       { path: 'endereco', component: EnderecoUsuarioComponent },

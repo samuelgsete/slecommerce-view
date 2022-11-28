@@ -14,13 +14,16 @@ import { ProdutosMaiorPreco } from 'src/app/usecases/produto/produtos-maiorpreco
 import { ProdutosMaisVendidosService } from 'src/app/usecases/produto/produtos-maisvendidos.service';
 import { ProdutosMenorPrecoService } from 'src/app/usecases/produto/produtos-menorpreco.service';
 import { AdicionarItemCarrinhoService } from 'src/app/usecases/carrinho/adicionar-item-carrinho.service';
+import { OpcoesPagamentoComponent } from './opcoes-pagamento/opcoes-pagamento.component';
+import { RecursoBuscarProduto } from 'src/app/resource/produto/recurso-buscar-produto';
 
 @NgModule({
   declarations: [
     VerProdutoComponent,
     VerImagensComponent,
     CalcularFreteComponent,
-    CatalogoComponent
+    CatalogoComponent,
+    OpcoesPagamentoComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +38,7 @@ import { AdicionarItemCarrinhoService } from 'src/app/usecases/carrinho/adiciona
   ],
   providers: [
     BuscarProdutoService,
+    RecursoBuscarProduto,
     ListarProdutosPaginado,
     ListarProdutosMaiorDesconto,
     ProdutosMaiorPreco,

@@ -50,6 +50,10 @@ export class VerProdutoComponent implements OnInit {
     return 1;
   }
 
+  public irParaOpcoesPagamento(id: number): void {
+    this.router.navigateByUrl(`/loja/produto/${id}/opcoes-pagamento`);
+  }
+
   public adicionarProdutoAoCarrinho(): void {
     const carrinhoId = 1;
     this.spinner.show();
