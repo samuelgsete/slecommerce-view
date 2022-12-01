@@ -8,7 +8,7 @@ import { environment } from "src/environments/environment";
 @Injectable()
 export class ListarEnderecosService {
 
-    public urlBase: string = environment.mainUrl.concat('/cliente')
+    public readonly urlBase: string = environment.mainUrl.concat('/cliente')
 
     public constructor(private readonly http: HttpClient) {}
 

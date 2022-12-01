@@ -24,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -68,6 +69,7 @@ import { EsconderDadosPipe } from '../pipes/esconder-dados.pipe';
     MatExpansionModule,
     DragDropModule,
     MatAutocompleteModule,
+    MatBadgeModule,
     NgCircleProgressModule.forRoot({
       radius: 38,
       outerStrokeWidth: 8,
@@ -109,6 +111,7 @@ import { EsconderDadosPipe } from '../pipes/esconder-dados.pipe';
     NgCircleProgressModule,
     MatDialogModule,
     MatButtonToggleModule,
+    MatBadgeModule,
     NgxSpinnerModule,
     NgxMaskModule,
     SwiperModule,

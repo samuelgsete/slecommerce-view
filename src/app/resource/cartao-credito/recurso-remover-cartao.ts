@@ -3,7 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import Swal from "sweetalert2";
 
 import { CartaoCredito } from "src/app/model/cartao-credito.entity";
-import { RemoverCartao } from "../usecases/cartao-credito/remover-cartao.service";
+import { RemoverCartao } from "../../usecases/cartao-credito/remover-cartao.service";
 
 @Injectable()
 export class RecursoRemoverCartao {

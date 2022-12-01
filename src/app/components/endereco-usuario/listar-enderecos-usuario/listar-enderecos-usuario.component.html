@@ -2,7 +2,7 @@
     <div class="card-address">
         <div class="card-address-title">
             <h1>Meus endereços</h1>
-            <button class="btn" color="pink" (click)="abrirModalAdicionarEndereco()">+ INSERIR NOVO</button>
+            <button class="btn" color="purple" (click)="abrirModalAdicionarEndereco()">+ INSERIR NOVO</button>
         </div>
         <div class="card-address-body" *ngFor="let endereco of enderecos">
             <div class="description-address">
@@ -12,6 +12,13 @@
                 </p>
                 <p class="full-address">Rua {{ endereco.rua }}, nº {{ endereco.numero }}, {{ endereco.cep  | mask: '00.000-000' }}, {{ endereco.bairro }}, {{ endereco.municipio }}-{{ endereco.uf }}</p>
                 <span *ngIf="endereco.enderecoPadrao" class="default-address">ENDEREÇO PADRÃO</span>
+                <button
+                    *ngIf="!endereco.enderecoPadrao"
+                    class="btn"
+                    color="pink"
+                    outline="true"
+                    (click)="tornarPadrao.executar(clienteId, endereco.id)"
+                >TORNAR PADRÃO</button>
             </div>
             <div class="edit-address">
                 <mat-button-toggle-group #group="matButtonToggleGroup">
@@ -22,16 +29,9 @@
                         matTooltip="Remover endereço" 
                         [ngClass]="{ 'btn-group-disabled': endereco.enderecoPadrao }" 
                         [disabled]="endereco.enderecoPadrao"
-                        (click)="removerEndereco(endereco.id)"
+                        (click)="remover.executar(endereco.id)"
                     >
                         <mat-icon>delete</mat-icon>
-                    </mat-button-toggle>
-                    <mat-button-toggle 
-                        matTooltip="Tornar endereço padrão" 
-                        [ngClass]="{ 'btn-group-disabled': endereco.enderecoPadrao }" 
-                        (click)="tornarEnderecoPadrao(endereco.id, true)"
-                    >
-                        <mat-icon>done_all</mat-icon>
                     </mat-button-toggle>
                 </mat-button-toggle-group>
             </div>

@@ -1,5 +1,5 @@
 <ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
-<section *ngIf="!carregamento">
+<section>
     <main>
         <div class="card-cart">
             <div class="resume-order grid">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="card-cart" *ngFor="let item of carrinho.itens">  
-            <mat-checkbox [checked]="item.selecionado" (change)="selecionarItem($event.checked, carrinho.id, item)"></mat-checkbox>         
+            <mat-checkbox [checked]="item.selecionado" (change)="selecionar.executar(carrinho.id, item, $event.checked)"></mat-checkbox>         
             <img class="product-img" [src]="imagemPrincipal(item.produto.imagens)?.url" alt="Foto produto">
             <div class="product-request">
                 <p class="product-name" (click)="verProduto(item.produto.id)">{{ item.produto.nome }}</p>
@@ -35,13 +35,13 @@
                     {{ item.quantidade }} uni x {{ item.produto.precificacao.precoAvista | currency: 'BRL' }} | <span class="in-stock" *ngIf="item.produto.estoque > 0">Em Estoque</span>
                 </p>
                 <mat-button-toggle-group #group="matButtonToggleGroup">
-                    <mat-button-toggle (click)="removerQuantidadeItem(carrinho.id, item)" [disabled]="item.quantidade == 1">
+                    <mat-button-toggle (click)="diminuirUnidade.executar(carrinho.id, item)" [disabled]="item.quantidade == 1">
                       <mat-icon>remove</mat-icon>
                     </mat-button-toggle>
                     <mat-button-toggle>
                         {{ item.quantidade }} uni
                     </mat-button-toggle>
-                    <mat-button-toggle [disabled]="item.quantidade == item.produto.estoque"  (click)="addQuantidadeItem(carrinho.id, item)">
+                    <mat-button-toggle (click)="adicionarUnidade.executar(carrinho.id, item)" [disabled]="item.quantidade == item.produto.estoque">
                       <mat-icon>add</mat-icon>
                     </mat-button-toggle>
                 </mat-button-toggle-group>
@@ -51,7 +51,7 @@
                 <h3 class="product-subtotal">
                     {{ item.quantidade * item.produto.precificacao.precoAvista | currency: 'BRL' }}
                 </h3>
-                <button class="btn remove-item" color="light" (click)="removerItemCarrinho(carrinho.id, item)">REMOVER</button>
+                <button class="btn remove-item" color="pink" outline="true" (click)="remover.executar(carrinho.id, item)">REMOVER</button>
             </div>
         </div>
     </main>

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { CartaoCredito } from 'src/app/model/cartao-credito.entity';
-import { RecursoListarCartoes } from 'src/app/resource/recurso-listar-cartoes';
-import { RecursoRemoverCartao } from 'src/app/resource/recurso-remover-cartao';
+import { RecursoListarCartoes } from 'src/app/resource/cartao-credito/recurso-listar-cartoes';
+import { RecursoRemoverCartao } from 'src/app/resource/cartao-credito/recurso-remover-cartao';
 import { bandeiras } from 'src/app/utils/bandeiras-cartao';
 import { AdicionarCartaoCreditoComponent } from '../adicionar-cartao-credito/adicionar-cartao-credito.component';
 

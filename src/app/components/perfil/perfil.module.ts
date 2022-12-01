@@ -3,15 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { EnderecoUsuarioComponent } from './endereco-usuario/endereco-usuario.component';
-import { AdicionarEnderecoService } from 'src/app/usecases/endereco/adicionar-endereco.service';
-import { ListarEnderecosService } from 'src/app/usecases/endereco/listar-enderecos.service';
-import { AdicionarEnderecoComponent } from './adicionar-endereco/adicionar-endereco.component';
-import { EditarEnderecoService } from 'src/app/usecases/endereco/editar-endereco.service';
-import { TornarEnderecoPadraoService } from 'src/app/usecases/endereco/tornar-endereco-padrao.service';
-import { RemoverEnderecoService } from 'src/app/usecases/endereco/remover-endereco.service';
-import { ConsultarCepService } from 'src/app/usecases/endereco/consultar-cep.service';
-import { EditarEnderecoComponent } from './editar-endereco/editar-endereco.component';
 import { PerfilComponent } from './perfil.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { BuscarClienteService } from 'src/app/usecases/cliente/buscar-cliente.service';
@@ -24,16 +15,13 @@ import { VerCartoesCreditoComponent } from './ver-cartoes-credito/ver-cartoes-cr
 import { ListarCartoesCredito } from 'src/app/usecases/cartao-credito/listar-cartoes.service';
 import { AdicionarCartao } from 'src/app/usecases/cartao-credito/adicionar-cartao.service';
 import { RemoverCartao } from 'src/app/usecases/cartao-credito/remover-cartao.service';
-import { RecursoListarCartoes } from 'src/app/resource/recurso-listar-cartoes';
-import { RecursoRemoverCartao } from 'src/app/resource/recurso-remover-cartao';
-import { RecursoAdicionarCartao } from 'src/app/resource/recurso-adicionar-cartao';
+import { RecursoListarCartoes } from 'src/app/resource/cartao-credito/recurso-listar-cartoes';
+import { RecursoRemoverCartao } from 'src/app/resource/cartao-credito/recurso-remover-cartao';
+import { RecursoAdicionarCartao } from 'src/app/resource/cartao-credito/recurso-adicionar-cartao';
 import { RecursoValidarNumero } from 'src/app/resource/cartao-credito/recurso-validar-numero';
 
 @NgModule({
   declarations: [
-    EnderecoUsuarioComponent,
-    AdicionarEnderecoComponent,
-    EditarEnderecoComponent,
     PerfilComponent,
     EditarPerfilComponent,
     ProdutosFavoritosComponent,
@@ -43,15 +31,9 @@ import { RecursoValidarNumero } from 'src/app/resource/cartao-credito/recurso-va
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
-    AdicionarEnderecoService,
-    ListarEnderecosService,
-    EditarEnderecoService,
-    TornarEnderecoPadraoService,
-    RemoverEnderecoService,
-    ConsultarCepService,
     BuscarClienteService,
     EditarClienteService,
     ListarProdutosFavoritos,

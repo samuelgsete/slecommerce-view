@@ -12,6 +12,9 @@ import { ClienteModule } from './components/cliente/cliente.module';
 import { CarrinhoModule } from './components/carrinho/carrinho.module';
 import { LayoutModule } from './layout/layout.module';
 import { PerfilModule } from './components/perfil/perfil.module';
+import { RecursoObterQtdProdutosCarrinho } from './resource/carrinho/recurso-obter-qtd-produtos-carrinho';
+import { ObterQtdProdutosCarrinho } from './usecases/carrinho/obter-qtd-produtos-carrinho';
+import { EnderecoUsuarioModule } from './components/endereco-usuario/endereco-usuario.module';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,13 @@ import { PerfilModule } from './components/perfil/perfil.module';
     ClienteModule,
     CarrinhoModule,
     LayoutModule,
-    PerfilModule
+    PerfilModule,
+    EnderecoUsuarioModule
   ],
-  providers: [],
+  providers: [
+    RecursoObterQtdProdutosCarrinho,
+    ObterQtdProdutosCarrinho
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

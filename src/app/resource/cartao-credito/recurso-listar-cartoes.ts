@@ -2,8 +2,8 @@ import { EventEmitter, Injectable } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
 
-import { CartaoCredito } from "../model/cartao-credito.entity";
-import { ListarCartoesCredito } from "../usecases/cartao-credito/listar-cartoes.service";
+import { CartaoCredito } from "../../model/cartao-credito.entity";
+import { ListarCartoesCredito } from "../../usecases/cartao-credito/listar-cartoes.service";
 
 @Injectable()
 export class RecursoListarCartoes {

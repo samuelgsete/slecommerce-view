@@ -16,6 +16,8 @@ import { ProdutosMenorPrecoService } from 'src/app/usecases/produto/produtos-men
 import { AdicionarItemCarrinhoService } from 'src/app/usecases/carrinho/adicionar-item-carrinho.service';
 import { OpcoesPagamentoComponent } from './opcoes-pagamento/opcoes-pagamento.component';
 import { RecursoBuscarProduto } from 'src/app/resource/produto/recurso-buscar-produto';
+import { RecursoAdicionarItemCarrinho } from 'src/app/resource/carrinho/recurso-adicionar-item-carrinho';
+import { RecursoListarProdutosPaginado } from 'src/app/resource/produto/recurso-listar-produtos-paginado';
 
 @NgModule({
   declarations: [
@@ -39,11 +41,13 @@ import { RecursoBuscarProduto } from 'src/app/resource/produto/recurso-buscar-pr
   providers: [
     BuscarProdutoService,
     RecursoBuscarProduto,
+    RecursoListarProdutosPaginado,
     ListarProdutosPaginado,
     ListarProdutosMaiorDesconto,
     ProdutosMaiorPreco,
     ProdutosMaisVendidosService,
     ProdutosMenorPrecoService,
+    RecursoAdicionarItemCarrinho,
     AdicionarItemCarrinhoService
   ]
 })

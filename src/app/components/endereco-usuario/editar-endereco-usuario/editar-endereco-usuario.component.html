@@ -1,7 +1,10 @@
 <section class="add-address">
     <div class="card-address">
         <div class="card-address-title">
-            <h1>Novo Endereço</h1>
+            <h1>Editar Endereço</h1>
+            <button mat-icon-button (click)="modalRef.close()">
+                <mat-icon>close</mat-icon>
+            </button>
         </div>
         <div class="card-address-body">
             <div class="row">
@@ -12,7 +15,13 @@
                         O cep é obrigatório
                     </mat-error>
                 </mat-form-field>
-                <button class="btn" color="purple" [disabled]="!cep.valid" (click)="verificarCep(cep.value)">OK</button>
+                <button 
+                    class="btn" 
+                    color="purple" 
+                    outline="true"
+                    [disabled]="!cep.valid" 
+                    (click)="verificarCep.executar(cep.value, formularioEndereco)"
+                >OK</button>
             </div>
             <form [formGroup]="formularioEndereco">
                 <div class="row">
@@ -88,15 +97,13 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="row">
-                    <label class="label-toggle">Tornar este endereço como padrão?</label>
-                    <mat-slide-toggle #enderecoPadrao class="width-fix" formControlName="enderecoPadrao" color="primary">
-                        {{ enderecoPadrao.checked ? 'SIM' : 'NÃO' }}
-                    </mat-slide-toggle>
-                </div>
                 <div class="card-address-footer">
-                    <button mat-button [disabled]="!formularioEndereco.valid" (click)="adicionarEndereco(formularioEndereco.value)">ADICIONAR ENDEREÇO</button>
-                    <button mat-button (click)="fecharModal()">CANCELAR</button>
+                    <button 
+                        class="btn"
+                        color="pink"
+                        [disabled]="!formularioEndereco.valid" 
+                        (click)="editar.executar(formularioEndereco.value, cep.value)"
+                    >EDITAR ENDEREÇO</button>
                 </div>
             </form>
         </div>

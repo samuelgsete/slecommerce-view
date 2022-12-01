@@ -4,8 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 main {
-    padding: 2% 4%;
-    width: 92%;
+    padding: 2%;
+    width: 96%;
 }
 
 div.card-address {
@@ -14,7 +14,7 @@ div.card-address {
 }
 
 div.card-address div.card-address-title {
-    padding: 2%;
+    padding: 2% 0;
     width: 96%;
     display: flex;
     justify-content: space-between;
@@ -31,7 +31,7 @@ div.card-address div.card-address-title h1 {
 }
 
 div.card-address div.card-address-body {
-    padding: 2%;
+    padding: 2% 0;
     width: 96%;
     border-bottom: 1.4pt solid rgb(var(--gray-4));
     display: flex;
@@ -43,7 +43,7 @@ div.card-address div.card-address-body div.description-address .receiver {
     font-weight: bold;
     font-size: 1.1em;
     font-family: 'Open Sans', sans-serif;
-    color: rgb(var(--pink));
+    color: rgb(var(--purple-light));
 }
 
 div.card-address div.card-address-body div.description-address .receiver .phone-receiver {

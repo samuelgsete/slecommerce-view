@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
 
 import { Produto } from 'src/app/model/produto.entity';
-import { ListarProdutosPaginado } from 'src/app/usecases/produto/listar-produtos-paginado';
-import { Paginacao } from 'src/app/utils/paginacao.entity';
+import { RecursoObterQtdProdutosCarrinho } from 'src/app/resource/carrinho/recurso-obter-qtd-produtos-carrinho';
+import { RecursoPesquisarProduto } from 'src/app/resource/produto/recurso-pesquisar-produto';
 
 @Component({
   selector: 'app-top-bar',
@@ -17,16 +17,17 @@ export class TopBarComponent implements OnInit {
   public consultar: FormControl = new FormControl('');
   public produtos: Produto[] = [];
   public usuario: string = 'Samuel';
+  public clienteId: number = 1;
+  public quantidade: number = 0;
   public rotas: any[] = [
     { icone: 'shope', destino: '/loja/catalogo' },
     { icone: 'shopping_basket', destino: 'loja/carrinho' }
   ];
-  public consultando: boolean = false;
 
   public constructor(
-    private readonly router: Router,
-    private readonly route: ActivatedRoute,
-    private listarPaginado: ListarProdutosPaginado
+    private readonly router: Router, 
+    private pesquisar: RecursoPesquisarProduto,
+    private obterQtdProdutos: RecursoObterQtdProdutosCarrinho
   ) {}
 
   public navegarPara(destino: string): void {
@@ -41,21 +42,14 @@ export class TopBarComponent implements OnInit {
     this.router.navigate(['/loja/catalogo'], { queryParams: { palavrachave: produto.nome.toLowerCase() }});
   }
 
-  public buscarProduto(palavraChave: string): void {
-    this.consultando = true;
-    const paginacao: Paginacao = new Paginacao();
-    paginacao.palavraChave = palavraChave;
-    this.listarPaginado.executar(paginacao).subscribe(resposta => {
-      this.produtos = resposta.content;
-      this.router.navigate([], { queryParams: { palavrachave: palavraChave.toLowerCase() }});
-    }).add(() => {
-      this.consultando = false;
-    })
-  }
-
   ngOnInit(): void {
     this.consultar.valueChanges.pipe(debounceTime(700)).subscribe(palavraChave => {
-      this.buscarProduto(palavraChave);
-    });
+      this.pesquisar.executar(palavraChave)
+    })
+    this.pesquisar.ok().subscribe(resposta => { this.produtos = resposta.content })
+    this.obterQtdProdutos.executar(this.clienteId);
+    this.obterQtdProdutos.ok().subscribe(resposta => {
+      this.quantidade = resposta;
+    })
   }
 }

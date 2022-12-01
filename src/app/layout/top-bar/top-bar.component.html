@@ -22,12 +22,6 @@
             #auto="matAutocomplete" 
             [displayWith]="displayFn"
         >
-            <mat-option *ngIf="consultando">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    Resultados para '{{ consultar.value }}'
-                    <mat-spinner class="created" [diameter]="20"></mat-spinner>
-                </div>
-            </mat-option>
             <mat-option *ngFor="let produto of produtos" [value]="produto">
                 <img class="img" [src]="produto.imagens[0].url" width="48px">
                 <span>{{ produto.nome }}</span>
@@ -47,9 +41,19 @@
             </mat-menu>
         </div>
         <ul>
-            <li *ngFor="let rota of rotas">
-                <button mat-icon-button color="primary" (click)="navegarPara(rota.destino)">
-                    <mat-icon>{{ rota.icone }}</mat-icon>
+            <li>
+                <button mat-icon-button color="primary" (click)="navegarPara('loja/catalogo')">
+                    <mat-icon>shope</mat-icon>
+                </button> 
+                <button 
+                    mat-icon-button 
+                    color="primary" 
+                    (click)="navegarPara('loja/carrinho')" 
+                    [matBadge]="quantidade"
+                    matBadgeColor="warn"
+                    matBadgeSize="medium"
+                >
+                    <mat-icon>shopping_basket</mat-icon>
                 </button> 
             </li>
         </ul>

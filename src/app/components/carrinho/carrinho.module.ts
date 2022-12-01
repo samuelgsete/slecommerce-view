@@ -8,6 +8,13 @@ import { AdicionarItemCarrinhoService } from 'src/app/usecases/carrinho/adiciona
 import { BuscarCarrinhoService } from 'src/app/usecases/carrinho/buscar-carrinho.service';
 import { RemoverItemCarrinhoService } from 'src/app/usecases/carrinho/remover-item-carrinho.service';
 import { EditarQtdItemCarrinhoService } from 'src/app/usecases/carrinho/editar-qtd-item-carrinho.service';
+import { RecursoAdicionarItemCarrinho } from 'src/app/resource/carrinho/recurso-adicionar-item-carrinho';
+import { RecursoBuscarCarrinho } from 'src/app/resource/carrinho/recurso-buscar-carrinho';
+import { RecursoRemoverItemCarrinho } from 'src/app/resource/carrinho/recurso-remover-item-carrinho';
+import { RecursoEditarQtdItem } from 'src/app/resource/carrinho/recurso-editar-qtd-item';
+import { RecursoSelecionarItemCarrinho } from 'src/app/resource/carrinho/recurso-selecionar-item-carrinho';
+import { RecursoAdicionarUnidadeItem } from 'src/app/resource/carrinho/recurso-adicionar-unidade-item';
+import { RecursoDiminuirUnidadeItem } from 'src/app/resource/carrinho/recurso-diminuir-unidade-item';
 
 @NgModule({
   declarations: [
@@ -22,10 +29,17 @@ import { EditarQtdItemCarrinhoService } from 'src/app/usecases/carrinho/editar-q
     CarrinhoComponent
   ],
   providers: [
+    RecursoAdicionarItemCarrinho,
     AdicionarItemCarrinhoService,
+    RecursoBuscarCarrinho,
     BuscarCarrinhoService,
+    RecursoRemoverItemCarrinho,
     RemoverItemCarrinhoService,
-    EditarQtdItemCarrinhoService
+    RecursoEditarQtdItem,
+    EditarQtdItemCarrinhoService,
+    RecursoSelecionarItemCarrinho,
+    RecursoAdicionarUnidadeItem,
+    RecursoDiminuirUnidadeItem,
   ]
 })
 export class CarrinhoModule {}

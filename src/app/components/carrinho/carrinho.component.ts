@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgxSpinnerService } from "ngx-spinner";
-import { ToastrService } from 'ngx-toastr';
 
 import { Carrinho } from 'src/app/model/carrinho.entity';
 import { ImagemProduto } from 'src/app/model/imagem-produto.entity';
-import { ItemCarrinho } from 'src/app/model/ItemCarrinho';
-import { BuscarCarrinhoService } from 'src/app/usecases/carrinho/buscar-carrinho.service';
-import { EditarQtdItemCarrinhoService } from 'src/app/usecases/carrinho/editar-qtd-item-carrinho.service';
-import { RemoverItemCarrinhoService } from 'src/app/usecases/carrinho/remover-item-carrinho.service';
+import { RecursoAdicionarUnidadeItem } from 'src/app/resource/carrinho/recurso-adicionar-unidade-item';
+import { RecursoBuscarCarrinho } from 'src/app/resource/carrinho/recurso-buscar-carrinho';
+import { RecursoDiminuirUnidadeItem } from 'src/app/resource/carrinho/recurso-diminuir-unidade-item';
+import { RecursoEditarQtdItem } from 'src/app/resource/carrinho/recurso-editar-qtd-item';
+import { RecursoRemoverItemCarrinho } from 'src/app/resource/carrinho/recurso-remover-item-carrinho';
+import { RecursoSelecionarItemCarrinho } from 'src/app/resource/carrinho/recurso-selecionar-item-carrinho';
 
 @Component({
   selector: 'app-carrinho',
@@ -18,76 +18,24 @@ import { RemoverItemCarrinhoService } from 'src/app/usecases/carrinho/remover-it
 })
 export class CarrinhoComponent implements OnInit {
 
+  private clienteId: number = 1;
   public carrinho: Carrinho = new Carrinho();
-  public carregamento: boolean = false;
   public cupomDesconto: FormControl = new FormControl('', {
     validators: Validators.required
   })
 
   public constructor(
-    public readonly router: Router,
-    private spinner: NgxSpinnerService,
-    private readonly toastr: ToastrService,
-    public readonly buscarCarrinho: BuscarCarrinhoService,
-    public readonly removerItem: RemoverItemCarrinhoService,
-    public readonly editarQtdITem: EditarQtdItemCarrinhoService
+    protected readonly router: Router,
+    protected readonly buscar: RecursoBuscarCarrinho,
+    protected readonly remover: RecursoRemoverItemCarrinho,
+    protected readonly editar: RecursoEditarQtdItem,
+    protected readonly selecionar: RecursoSelecionarItemCarrinho,
+    protected readonly adicionarUnidade: RecursoAdicionarUnidadeItem,
+    protected readonly diminuirUnidade: RecursoDiminuirUnidadeItem
   ) {}
-
-  public carregarCarrinho(): void {
-    this.carregamento = true;
-    this.spinner.show();
-    const clienteId = 1; // ID Cliente provisioriamente estático
-    this.buscarCarrinho.executar(clienteId).subscribe(response => {
-      this.carrinho = response;
-      console.log(this.carrinho);
-      this.spinner.hide();
-    }, err => {
-
-    }).add(() => {
-      this.carregamento = false;
-    })
-  }
 
   public imagemPrincipal(imagens: ImagemProduto[]): ImagemProduto | undefined {
     return imagens.find(imagem => { return imagem.imagemPrincipal == true });
-  }
-
-  public removerItemCarrinho(carrinhoId: number, item: ItemCarrinho): void {
-    item.atualizando = true;
-    this.removerItem.executar(carrinhoId, item).subscribe(response => {
-      this.carregarCarrinho()
-      this.toastr.success('O Item foi removido do seu carrinho', 'Tudo Ok!', { progressBar: true });
-      item.atualizando = false;
-    }, err => {
-
-    })
-  }
-
-  public addQuantidadeItem(carrinhoId: number, itemAdicionado: ItemCarrinho): void {
-    itemAdicionado.atualizando = true;
-    itemAdicionado.quantidade = itemAdicionado.quantidade + 1;
-    this.editarItem(carrinhoId, itemAdicionado);
-  }
-
-  public removerQuantidadeItem(carrinhoId: number, itemAdicionado: ItemCarrinho): void {
-    itemAdicionado.atualizando = true;
-    itemAdicionado.quantidade = itemAdicionado.quantidade - 1;
-    this.editarItem(carrinhoId, itemAdicionado);
-  }
-
-  public editarItem(carrinhoId: number, itemAdicionado: ItemCarrinho): void {
-    this.editarQtdITem.executar(carrinhoId, itemAdicionado).subscribe(response => {
-      this.carregarCarrinho();
-      itemAdicionado.atualizando = false;
-    }, err => {
-
-    })
-  }
-
-  public selecionarItem(estaSelecionnado: boolean, carrinhoId: number, itemSelecionado: ItemCarrinho): void {
-    itemSelecionado.selecionado = estaSelecionnado;
-    console.log(itemSelecionado);
-    this.editarItem(carrinhoId, itemSelecionado);
   }
 
   public verProduto(produtoId: number): void {
@@ -99,6 +47,12 @@ export class CarrinhoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.carregarCarrinho();
+    this.buscar.executar(this.clienteId);
+    this.buscar.ok().subscribe(carrinho => { this.carrinho = carrinho })
+    this.remover.ok().subscribe(resposta => { this.buscar.executar(this.clienteId) })
+    this.editar.ok().subscribe(resposta => { this.buscar.executar(this.clienteId) })
+    this.selecionar.ok().subscribe(resposta => { this.buscar.executar(this.clienteId) })
+    this.adicionarUnidade.ok().subscribe(resposta => { this.buscar.executar(this.clienteId) })
+    this.diminuirUnidade.ok().subscribe(resposta => { this.buscar.executar(this.clienteId) })
   }
 }

@@ -4,7 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { debounceTime } from 'rxjs';
 
 import { bandeiras } from 'src/app/utils/bandeiras-cartao';
-import { RecursoAdicionarCartao } from 'src/app/resource/recurso-adicionar-cartao';
+import { RecursoAdicionarCartao } from 'src/app/resource/cartao-credito/recurso-adicionar-cartao';
 import { RecursoValidarNumero } from 'src/app/resource/cartao-credito/recurso-validar-numero';
 
 @Component({

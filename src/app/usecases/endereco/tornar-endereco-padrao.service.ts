@@ -10,7 +10,7 @@ export class TornarEnderecoPadraoService {
 
     public constructor(private readonly http: HttpClient) {}
 
-    public executar(clienteId: number, enderecoId: number, enderecoPadrao: boolean): Observable<Endereco> {
-        return this.http.patch<Endereco>(this.urlBase.concat(`/${enderecoId}?clienteId=${clienteId}&enderecoPadrao=${enderecoPadrao}`), {});
+    public executar(clienteId: number, enderecoId: number): Observable<Endereco> {
+        return this.http.patch<Endereco>(this.urlBase.concat(`/${enderecoId}?clienteId=${clienteId}`), {});
     }
 }
